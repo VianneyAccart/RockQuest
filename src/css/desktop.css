@@ -16,8 +16,13 @@ a {
     text-decoration: none;
 }
 
+/* A améliorer car sur tout petit écran, problème de blanc */
 body {
     font-family: 'Montserrat', sans-serif;
+    background-image: url("https://wallpaperaccess.com/full/5420481.jpg");
+    background-size: 100%;
+    background-position-x: 100%;
+    background-repeat: no-repeat;
 }
 
 .header{
@@ -58,7 +63,7 @@ body {
 
 .nav-link{
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 500;
     color: #E9B44B;
 }
 

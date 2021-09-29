@@ -18,7 +18,13 @@ a {
 
 body {
     font-family: 'Montserrat', sans-serif;
+    background: url("https://wallpaperaccess.com/full/5420481.jpg");
+    background-size: 150vh;
+    background-position-x: 100%;
+    background-repeat: no-repeat;
 }
+
+/* Navbar */
 
 .navbar {
     display: flex;
@@ -53,7 +59,7 @@ body {
     transition: 0.3s;
     box-shadow:
         0 10px 27px rgba(0, 0, 0, 0.05);
-    opacity: 85%;
+    opacity: 95%;
 }
 
 .nav-menu.active {
@@ -61,17 +67,13 @@ body {
 }
 
 .nav-item {
-    margin: 2.5rem 0;
+    margin: 2rem 0;
 }
 
 .nav-link{
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: #E9B44B;
-}
-
-.nav-link:hover{
-    color: white;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color:white;
 }
 
 .nav-logo {
@@ -96,3 +98,61 @@ body {
 .hamburger.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
 }
+
+/* Main container */
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    padding: 1rem;
+    height: 100vh;
+}
+
+.heading-container {
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    color: #E9B44B;
+    font-size: 4rem;
+    font-weight: 900;
+    text-shadow: 1px 1px 20px black;
+}
+
+.introduction-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    box-sizing: border-box;
+}
+
+.introduction-text {
+    color: white;
+    padding: 1.5rem;
+    font-size: 2.5rem;
+}
+
+.btn-container {
+    display: flex;
+    margin: auto;
+}
+
+.play-btn {
+    width: 200px;
+    height: 70px;
+    border-radius: 10px;
+    background-color: #E9B44B;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 3rem;
+    box-shadow: 1px 1px 20px black;
+}
+
+.play-btn > a {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #303134;
+}
+
