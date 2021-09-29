@@ -1,7 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
 body {
-    background-image: url("https://wallpaperaccess.com/full/5420481.jpg");
-    background-size: 100%;
-    background-position-x: left;
-    background-position-y: -150px;
-    background-repeat: no-repeat;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header{
+    border-bottom: 1px solid #3031349f;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: #303134;
+}
+
+.hamburger {
+    display: none;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #101010;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item {
+    margin-left: 2rem;
+}
+
+.nav-link{
+    font-size: 1rem;
+    font-weight: 400;
+    color: #E9B44B;
+}
+
+.nav-link:hover{
+    color: white;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #E9B44B;
 }
