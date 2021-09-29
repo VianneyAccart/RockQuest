@@ -1,7 +1,74 @@
 body {
+    margin: 0;
     background-image: url("https://wallpaperaccess.com/full/5420481.jpg");
     background-size: 100%;
     background-position-x: left;
     background-position-y: -150px;
     background-repeat: no-repeat;
+}
+
+.placeholder {
+    height: 10vh;
+    width: auto;
+    background-color: black;
+}
+
+.game-screen {
+    height: 90vh;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tracks {
+    display: flex;
+    height: 72vh;
+    width: 728px;
+}
+
+.track-d {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.track-k {
+    margin-right: 2px;
+}
+
+.track-s, .track-d, .track-k, .track-l {
+    flex-grow: 1;
+    background-color: black;
+    opacity: 54%;
+}
+
+.buttons {
+    display: flex;
+    height: 18vh;
+    width: 728px;
+}
+
+.button-s {
+
+    background-color: green;
+}
+
+.button-d {
+
+    background-color: red;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.button-k {
+    background-color: yellow;
+    margin-right: 2px;
+}
+
+.button-l {
+    background-color: blue;
+}
+
+.button-s, .button-d, .button-k, .button-l {
+    width: 180.5px;
 }
