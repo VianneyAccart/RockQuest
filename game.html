@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,8 +10,11 @@
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 768px)" href="src/css/desktop.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header class="header">
         <nav class="navbar">
@@ -41,16 +45,16 @@
     </header>
     <div class="game">
         <div class="menu-left">
-            <h1>ROCK'<br/>QUEST</h1>
-            <div class="game-score">Your score :<span class="player-score">465</span></div>
-            <div class="game-countdown">Time left : <span class="time-left"> 57</span></div>
+            <h1>ROCK'<br />QUEST</h1>
+            <div class="game-score">Your score :<span class="player-score">0</span></div>
+            <div class="game-countdown">Time left : <span class="time-left">60</span></div>
         </div>
         <div class="game-screen">
             <div class="launch-game-popup">
                 <h2>Choose your difficulty</h2>
                 <div class="launch-game-btn">
-                <button class="launch-btn">Easy</button>
-                <button class="launch-btn">Hard</button>
+                    <button class="launch-btn">Easy</button>
+                    <button class="launch-btn">Hard</button>
                 </div>
             </div>
             <div class="launch-game-countdown">
@@ -60,9 +64,9 @@
                 <h2>Your score</h2>
                 <p class="end-played-score">865</p>
                 <div class="end-game-btn">
-                <button class="launch-btn">Retry</button>
-                <button class="launch-btn">Choose other difficulty</button>
-                <button class="launch-btn">Quit game</button>
+                    <button class="launch-btn">Retry</button>
+                    <a href="game.html"><button class="launch-btn">Choose other difficulty</button></a>
+                    <a href="index.html"><button class="launch-btn">Quit game</button></a>
                 </div>
             </div>
             <div class="tracks">
@@ -89,7 +93,7 @@
         <div class="menu-right">
         </div>
     </div>
-        <!-- Two Countdown , first for progress , duration game ; 2nd for select difficulty and show content
+    <!-- Two Countdown , first for progress , duration game ; 2nd for select difficulty and show content
          <p>
         <progress value="0" max="59" id="progressBar"></progress>
         <span id="countdownText">60</span> seconds
@@ -97,8 +101,9 @@
     
         <button id="clickme" onClick="startCountdown()">Let's Rock Your Score!</button>
         <div class="div1">Click on the button and prepare yourself</div>
-        <div class="div2" style="display:none;">"Let's Start new Difficulty and show the content"</div> -->  
-  
+        <div class="div2" style="display:none;">"Let's Start new Difficulty and show the content"</div> -->
+
     <script src="src/js/script.js"></script>
 </body>
+
 </html>

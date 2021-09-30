@@ -349,16 +349,24 @@ img {
     z-index: 1;
     margin-top: 6rem;
     border-radius: 10px;
-    display: none; /* flex/none */
+    display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.launch-game-popup > h2 {
+.launch-game-popup > h2, .end-game-popup > h2 {
     color: #303134;
     font-size: 1.3rem;
     text-align: center;
-    margin-top: 3.5rem;
+    margin-top: 2rem;
+}
+
+.end-game-popup > p {
+    color: #303134;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: .5rem;
+    font-weight: 900;
 }
 
 .launch-game-btn, .end-game-btn {
@@ -400,7 +408,6 @@ img {
 /* End game popup */
 
 .end-game-popup {
-    /* display: none; */
     width: 300px;
     height: 350px;
     background-color: rgba(255, 255, 255, 0.75);
@@ -411,6 +418,7 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    display: none;
 }
 
 .end-player-score {
