@@ -213,62 +213,118 @@ img {
 }
 
 /* Game page */ 
+
+.game {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: auto;
+}
+
+.menu-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-grow: 1;
+}
+
+.game-score, .game-countdown {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 134px;
+    height: 100px;
+}
+
+.game-logo {
+    text-align: center;
+    background-color: white;
+    width: 134px;
+    flex-grow: 1;
+}
+
+
+.menu-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-grow: 1;
+}
+
 .game-screen {
-    height: 90vh;
-    width: auto;
+    color: white;
+    width: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/*inside game-screen*/
 .tracks {
+    width: 100%;
     display: flex;
-    height: 72vh;
-    width: 728px;
+    justify-content: space-between;
+    height: 75vh;
 }
 
-.track-d {
-    margin-left: 2px;
-    margin-right: 2px;
-}
-
-.track-k {
-    margin-right: 2px;
-}
-
+/*inside tracks*/
 .track-s, .track-d, .track-k, .track-l {
-    flex-grow: 1;
+    display: flex;
+    align-items: flex-end;
+    width: calc(97%/4);
     background-color: black;
     opacity: 54%;
 }
 
-.buttons {
-    display: flex;
-    height: 18vh;
-    width: 728px;
+/*inside tracks*/
+.receptor-s, .receptor-d, .receptor-k, .receptor-l {
+    box-sizing : border-box;
+    height: calc(121.25px/2);
+    width: 121.25px;
+    border: solid;
+    border-width: 5px;
+    border-color: white;
+    border-radius: 5px;
 }
 
-.button-s {
+/*inside game-screen*/
+.buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 121.25px;
+}
 
+/*inside buttons*/
+.button-s {
     background-color: green;
 }
 
+/*inside buttons*/
 .button-d {
-
     background-color: red;
-    margin-left: 2px;
-    margin-right: 2px;
 }
 
+/*inside buttons*/
 .button-k {
     background-color: yellow;
-    margin-right: 2px;
 }
 
+/*inside buttons*/
 .button-l {
     background-color: blue;
 }
 
+/*inside buttons*/
 .button-s, .button-d, .button-k, .button-l {
-    width: 180.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
+    font-weight: 800;
+    /*text-shadow: 2px 2px 2px black;*/
+    color: black;
+    opacity: 75%;
+    width: calc(97%/4);
 }
