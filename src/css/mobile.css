@@ -222,3 +222,112 @@ td {
 #desktop {
     display: none;
 }
+
+/* Game page */ 
+
+.body-game {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.game {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    flex: 1 1 0;
+}
+
+.menu-left {
+    display: none;
+}
+
+.menu-right {
+    display: none;
+}
+
+.game-screen {
+    color: white;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*inside game-screen*/
+.tracks {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex: 1 1 0;
+}
+
+/*inside tracks*/
+.track-s, .track-d, .track-k, .track-l {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: calc(97vw/4);
+    background-color: black;
+    opacity: 54%;
+}
+
+.note-s {
+    box-sizing : border-box;
+    height: calc(97vw/8);
+    width: calc(97vw/4);
+    background-color: green;
+    border-radius: 5px;
+}
+
+/*inside each track s d k l */
+.receptor-s, .receptor-d, .receptor-k, .receptor-l {
+    box-sizing : border-box;
+    height: calc(97vw/8);
+    width: calc(97vw/4);
+    border: solid;
+    border-width: 5px;
+    border-color: white;
+    border-radius: 5px;
+}
+
+/*inside game-screen*/
+.buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: calc(97vw/4);
+}
+
+/*inside buttons*/
+.button-s {
+    background-color: green;
+}
+
+/*inside buttons*/
+.button-d {
+    background-color: red;
+}
+
+/*inside buttons*/
+.button-k {
+    background-color: yellow;
+}
+
+/*inside buttons*/
+.button-l {
+    background-color: blue;
+}
+
+/*inside buttons*/
+.button-s, .button-d, .button-k, .button-l {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
+    font-weight: 800;
+    /*text-shadow: 2px 2px 2px black;*/
+    color: black;
+    opacity: 75%;
+    width: calc(97%/4);
+}
