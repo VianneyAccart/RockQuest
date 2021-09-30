@@ -349,7 +349,7 @@ img {
     z-index: 1;
     margin-top: 6rem;
     border-radius: 10px;
-    display: flex;
+    display: none; /* flex/none */
     flex-direction: column;
     justify-content: center;
 }
@@ -361,7 +361,7 @@ img {
     margin-top: 3.5rem;
 }
 
-.launch-game-btn {
+.launch-game-btn, .end-game-btn {
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -381,7 +381,7 @@ img {
     box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* DECOMPTE */
+/* Countdown 3, 2, 1... */
 
 .launch-game-countdown {
     width: 300px;
@@ -395,4 +395,24 @@ img {
     flex-direction: column;
     justify-content: center;
     display: none;
+}
+
+/* End game popup */
+
+.end-game-popup {
+    /* display: none; */
+    width: 300px;
+    height: 350px;
+    background-color: rgba(255, 255, 255, 0.75);
+    position: absolute;
+    z-index: 1;
+    margin-top: 6rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.end-player-score {
+
 }
