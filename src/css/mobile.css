@@ -191,7 +191,6 @@ p {
 
 th {
     padding-top: 3rem;
-    color: white;
     color: #E9B44B;
     font-size: 1rem;
     font-weight: 400;
@@ -215,4 +214,12 @@ td {
 
 #contact-us-container {
     margin-top: 1rem;
+}
+
+.btn-container-desktop {
+    display: none;
+}
+
+#desktop {
+    display: none;
 }
