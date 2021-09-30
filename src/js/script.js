@@ -32,8 +32,13 @@ let downloadTimer = setInterval(function(){
 // Countdown start new game and show content 
 
 let timeout,interval;
-let startNewPlay = 3000;
+let startNewPlay = 3000; // 3 secondes (3000ms)
 let secondsleft= startNewPlay;
+
+// Quand je clique sur un launch-btn
+  // La div launch-game-popup disparait && la div launch-game-countdown apparait
+    // Dans la div launch-game-countdown, je veux affiche 3, 2, 1
+      // A 0 la div launch-game-countdown disparait && le décompte des 60 sec démarre
 
  function showContent()
  {
@@ -44,8 +49,8 @@ let secondsleft= startNewPlay;
     {
         //document.getElementById("clickme").style.display="";
         clearInterval(interval);
-        document.querySelector(".div1").style.display="none";
-        document.querySelector(".div2").style.display="";
+        document.querySelector(".launch-game-popup").style.display="none";
+        document.querySelector(".launch-game-countdown").style.display="flex"; // Pas sûr ici, à vérifier
     }
 };
 
@@ -53,7 +58,7 @@ function startCountdown()
 {
       clearInterval(interval);
       secondsleft=startNewPlay;
-      document.querySelector(".div1").innerHTML = "New game start in " + Math.abs((secondsleft/1000))+" secs";  
+      document.querySelector(".launch-btn").innerHTML = "New game start in " + Math.abs((secondsleft/1000))+" secs";  
        interval= setInterval(function()
        {
            showContent();
