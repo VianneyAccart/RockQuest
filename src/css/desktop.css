@@ -78,56 +78,70 @@ body {
 }
 
 /* Game page */ 
-.game-screen {
-    height: 90vh;
-    width: auto;
+
+.game {
+    display: flex;
+    justify-content: center;
+}
+
+.menu-left, .menu-right {
+    color: white;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    width: auto;
+}
+
+.game-score, .game-countdown {
+    background-color: tomato;
+}
+
+.game-screen {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
 }
 
 .tracks {
     display: flex;
-    height: 72vh;
-    width: 728px;
-}
-
-.track-d {
-    margin-left: 2px;
-    margin-right: 2px;
-}
-
-.track-k {
-    margin-right: 2px;
+    justify-content: space-between;
+    height: 75vh;
 }
 
 .track-s, .track-d, .track-k, .track-l {
-    flex-grow: 1;
+    display: flex;
+    align-items: flex-end;
+    width: calc(97%/4);
     background-color: black;
     opacity: 54%;
 }
 
+.receptor-s, .receptor-d, .receptor-k, .receptor-l {
+    box-sizing : borderbox;
+    height: calc(121.25px/2);
+    width: 121.25px;
+    border: solid;
+    border-width: 5px;
+    border-color: white;
+    border-radius: 5px;
+}
+
 .buttons {
     display: flex;
-    height: 18vh;
-    width: 728px;
+    justify-content: space-between;
+    height: 121.25px;
 }
 
 .button-s {
-
     background-color: green;
 }
 
 .button-d {
-
     background-color: red;
-    margin-left: 2px;
-    margin-right: 2px;
 }
 
 .button-k {
     background-color: yellow;
-    margin-right: 2px;
 }
 
 .button-l {
@@ -135,5 +149,13 @@ body {
 }
 
 .button-s, .button-d, .button-k, .button-l {
-    width: 180.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
+    font-weight: 800;
+    /*text-shadow: 2px 2px 2px black;*/
+    color: black;
+    opacity: 75%;
+    width: calc(97%/4);
 }
