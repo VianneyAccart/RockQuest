@@ -204,11 +204,7 @@ img {
     max-width: 100%;
 }
 
-#mobile {
-    display: none;
-}
-
-#desktop {
+.about-us-desktop {
     flex-direction: row;
 }
 
