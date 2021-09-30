@@ -265,17 +265,26 @@ td {
 /*inside tracks*/
 .track-s, .track-d, .track-k, .track-l {
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
     width: calc(97vw/4);
     background-color: black;
     opacity: 54%;
 }
 
-/*inside tracks*/
+.note-s {
+    box-sizing : border-box;
+    height: calc(97vw/8);
+    width: calc(97vw/4);
+    background-color: green;
+    border-radius: 5px;
+}
+
+/*inside each track s d k l */
 .receptor-s, .receptor-d, .receptor-k, .receptor-l {
     box-sizing : border-box;
     height: calc(97vw/8);
-    width: 121.25px;
+    width: calc(97vw/4);
     border: solid;
     border-width: 5px;
     border-color: white;
