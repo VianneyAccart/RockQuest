@@ -26,6 +26,11 @@ body {
 
 /* Navbar */
 
+.logo {
+    max-width: 80px;
+    max-height: 60px;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -51,7 +56,7 @@ body {
     padding-left: 2rem;
     position: fixed;
     left: -100%;
-    top: 3.8rem;
+    top: 6rem;
     flex-direction: column;
     background-color: #303134;
     width: 90%;
@@ -76,12 +81,6 @@ body {
     color:white;
 }
 
-.nav-logo {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #E9B44B;
-}
-
 .hamburger {
     display: block;
     cursor: pointer;
@@ -99,15 +98,13 @@ body {
     transform: translateY(-8px) rotate(-45deg);
 }
 
-/* Main container */
-
 .main-container {
     display: flex;
     flex-direction: column;
     width: 90%;
     margin: auto;
-    padding: 1rem;
-    height: 100vh;
+    padding: 2rem 1rem;
+    height: 93vh;
 }
 
 .heading-container {
@@ -123,7 +120,7 @@ h1 {
     text-shadow: 1px 1px 20px black;
 }
 
-.introduction-container {
+.introduction-container, .text-container {
     background-color: rgba(0, 0, 0, 0.7);
     box-sizing: border-box;
 }
@@ -139,15 +136,21 @@ h1 {
     margin: auto;
 }
 
-.play-btn {
+.play-btn, .contact-btn {
     width: 200px;
     height: 70px;
     border-radius: 10px;
     background-color: #E9B44B;
     border: none;
     cursor: pointer;
-    margin-bottom: 3rem;
+    margin: 1rem 0;
     box-shadow: 1px 1px 20px black;
+}
+
+.contact-btn > a {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #303134;
 }
 
 .play-btn > a {
@@ -156,3 +159,66 @@ h1 {
     color: #303134;
 }
 
+.text-container {
+    padding: 1.5rem;
+    height: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+p {
+    color: white;
+    font-size: 1rem;
+}
+
+.htp-text {
+    margin: auto;
+}
+
+#htp-text-container {
+    padding: 2rem;
+    height: 60vh;
+}
+
+th {
+    padding-top: 3rem;
+    color: #E9B44B;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+td {
+    color: white;
+    padding: 1.5rem 0;
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+.player-score{
+    font-weight: 800;
+}
+
+.about-us-text {
+    margin-top: 2rem;
+}
+
+#contact-us-container {
+    margin-top: 1rem;
+}
+
+.btn-container-desktop {
+    display: none;
+}
+
+#desktop {
+    display: none;
+}

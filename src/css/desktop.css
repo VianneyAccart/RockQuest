@@ -29,11 +29,16 @@ body {
     border-bottom: 1px solid #3031349f;
 }
 
+.logo {
+    max-width: 80px;
+    max-height: 60px;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     background-color: #303134;
 }
 
@@ -71,10 +76,140 @@ body {
     color: white;
 }
 
-.nav-logo {
-    font-size: 1.5rem;
-    font-weight: 600;
+.main-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    padding: 2rem 1rem;
+    height: 90vh;
+    justify-content: center;
+}
+
+.heading-container {
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+}
+
+h1 {
     color: #E9B44B;
+    font-size: 4rem;
+    font-weight: 900;
+    text-shadow: 1px 1px 20px black;
+}
+
+.introduction-container, .text-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    box-sizing: border-box;
+    width: 40vw;
+}
+
+.text-container-about {
+    background-color: rgba(0, 0, 0, 0.7);
+    box-sizing: border-box;
+    width: 40vw;
+    height: 80vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.introduction-text {
+    color: white;
+    padding: 1.5rem;
+    font-size: 2.5rem;
+}
+
+.btn-container {
+    display: flex;
+    margin-top: 3rem;
+}
+
+.play-btn, .contact-btn {
+    width: 200px;
+    height: 70px;
+    border-radius: 10px;
+    background-color: #E9B44B;
+    border: none;
+    cursor: pointer;
+    margin: 1rem 0;
+    box-shadow: 1px 1px 20px black;
+}
+
+.contact-btn > a {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #303134;
+}
+
+.play-btn > a {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #303134;
+}
+
+.text-container {
+    padding: 3rem;
+    height: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+}
+
+.page-title {
+    color: white;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+p {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+th {
+    padding: 1rem 0;
+    color: #E9B44B;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: left;
+
+}
+
+td {
+    color: white;
+    padding: 1rem 0;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.player-score{
+    font-weight: 800;
+}
+
+.about-us-text {
+    margin-top: 2rem;
+}
+
+.btn-container-desktop {
+    display: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+#mobile {
+    display: none;
+}
+
+#desktop {
+    flex-direction: row;
 }
 
 /* Game page */ 
