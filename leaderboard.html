@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock'Quest | Leaderboard</title>
+    <link rel="stylesheet" type="text/css" media="screen and (max-width: 767px)" href="src/css/mobile.css">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 768px)" href="src/css/desktop.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html"><img src="src/img/logo.png" alt="logo" class="logo"></a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="how-to-play.html" class="nav-link">How to play</a>
+                </li>
+                <li class="nav-item">
+                    <a href="game.html" class="nav-link">Play</a>
+                </li>
+                <li class="nav-item">
+                    <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about-us.html" class="nav-link">About us</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    <div class="main-container">
+        <div class="text-container">
+            <h1 class="page-title">Leaderboard</h1>
+                <table class="table-container">
+                    <tr class="table-row" id="leaderboard">
+                        <th>Player</th>
+                        <th>Difficulty</th>
+                        <th>Score</th>
+                    </tr>
+                    <tr id="firstPlace">
+                        <td>Ario</td>
+                        <td>Easy</td>
+                        <td>875</td>
+                    </tr>
+                    <tr id="secondPlace">
+                        <td>Adrien</td>
+                        <td>Hard</td>
+                        <td>869</td>
+                    </tr>
+                    <tr id="thirdPlace">
+                        <td>Beerus</td>
+                        <td>Easy</td>
+                        <td>856</td>
+                    </tr>
+                    <tr id="fourthPlace">
+                        <td>Vianney</td>
+                        <td>Easy</td>
+                        <td>845</td>
+                    </tr>
+                    <tr id="fifthPlace">
+                        <td class="player-score">You</td>
+                        <td class="player-score">Difficulty</td>
+                        <td class="player-score">Score</td>
+                    </tr>
+                 </table>
+        </div>
+        <div class="btn-container">
+            <button class="play-btn"><a href="game.html">PLAY</a></button>
+        </div>
+    </div>
+    <script src="src/js/script.js"></script>
+</body>
+</html>

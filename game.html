@@ -1,21 +1,87 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="style.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock'Quest | Play a rock and rythmed adventure</title>
+    <link rel="stylesheet" type="text/css" media="screen and (max-width: 767px)" href="src/css/mobile.css">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 768px)" href="src/css/desktop.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html"><img src="src/img/logo.png" alt="logo" class="logo"></a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="how-to-play.html" class="nav-link">How to play</a>
+                </li>
+                <li class="nav-item">
+                    <a href="game.html" class="nav-link">Play</a>
+                </li>
+                <li class="nav-item">
+                    <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about-us.html" class="nav-link">About us</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    <div class="game">
+        <div class="menu-left">
+            <h2 class="game-score">Your score<br/>465</h2>
+        </div>
+        <div class="game-screen">
+            <div class="tracks">
+                <div class="track-s">
+                    <div class="receptor-s"></div>
+                </div>
+                <div class="track-d">
+                    <div class="receptor-d"></div>
+                </div>
+                <div class="track-k">
+                    <div class="receptor-k"></div>
+                </div>
+                <div class="track-l">
+                    <div class="receptor-l"></div>
+                </div>
+            </div>
+            <div class="buttons">
+                <div class="button-s">S</div>
+                <div class="button-d">D</div>
+                <div class="button-k">K</div>
+                <div class="button-l">L</div>
+            </div>
+            <h2 class="game-logo">Logo</h2>
+        </div>
+        <div class="menu-right">
+            <h2 class="game-countdown">Time left<br/>57</h2>
+        </div>
+    </div>
 
-<p>
-    <progress value="0" max="59" id="progressBar"></progress>
-    <span id="countdownText">60</span> seconds
-</p>
+    <!-- Two Countdown , first for progress , duration game ; 2nd for select difficulty and show content
+         <p>
+        <progress value="0" max="59" id="progressBar"></progress>
+        <span id="countdownText">60</span> seconds
+    </p>
+    
+        <button id="clickme" onClick="startCountdown()">Let's Rock Your Score!</button>
+        <div class="div1">Click on the button and prepare yourself</div>
+        <div class="div2" style="display:none;">"Let's Start new Difficulty and show the content"</div> -->
 
-    <button id="clickme" onClick="startCountdown()">Let's Rock Your Score!</button>
-    <div class="div1">Click on the button and prepare yourself</div>
-    <div class="div2" style="display:none;">"Let's Start new Difficulty and show the content"</div>
-        
-<script type="text/javascript" src="script.js"></script> 
-
+    <script src="src/js/script.js"></script>
 </body>
 </html>
+>>>>>>> 0af4d0eebd9cd71fbb6d32dca57d8f3bbde4396d
