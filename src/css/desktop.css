@@ -223,24 +223,28 @@ img {
 
 .menu-left {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
-    flex-grow: 1;
+    color: black;
+    flex: 1 1 0;
 }
 
 .game-score, .game-countdown {
     text-align: center;
+    vertical-align: baseline;
     background-color: rgba(255, 255, 255, 0.5);
-    width: 134px;
-    height: 100px;
+    width: 240px;
+    height: auto;
+    border-radius: 5px;
+}
+.game-score {
+    margin-top: 100px;
+    margin-bottom: 20px;
 }
 
 .game-logo {
-    text-align: center;
-    background-color: white;
-    width: 134px;
-    flex-grow: 1;
+    height: auto;
 }
 
 
@@ -248,8 +252,8 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
-    flex-grow: 1;
+    color: black;
+    flex: 1 1 0;
 }
 
 .game-screen {
@@ -265,7 +269,7 @@ img {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    height: 75vh;
+    height: 70vh;
 }
 
 /*inside tracks*/
