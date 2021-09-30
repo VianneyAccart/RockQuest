@@ -5,8 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock'Quest | How to play</title>
+    <link rel="stylesheet" type="text/css" media="screen and (max-width: 767px)" href="src/css/mobile.css">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 768px)" href="src/css/desktop.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html"><img src="src/img/logo.png" alt="logo" class="logo"></a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="how-to-play.html" class="nav-link">How to play</a>
+                </li>
+                <li class="nav-item">
+                    <a href="game.html" class="nav-link">Play</a>
+                </li>
+                <li class="nav-item">
+                    <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about-us.html" class="nav-link">About us</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    <div class="main-container">
+        <div class="text-container" id="htp-text-container">
+            <h1 class="page-title">How to play</h1>
+            <p class="htp-text">The concept is super easy.<br><br>
+               First, you have to choose a difficulty.<br><br>
+               After, just push keys S, D, K and L (or tap on your smartphone) at the good moment to score a maximum of points.<br><br>
+               At the end of the round, your score is displayed and you can try again, choose another difficulty or quit.<br><br>
+               Check your best score in the leaderboard page.
+            </p>
+        </div>
+        <div class="btn-container">
+            <button class="play-btn"><a href="game.html">PLAY</a></button>
+        </div>
+    </div>
+    <script src="src/js/script.js"></script>
 </body>
 </html>

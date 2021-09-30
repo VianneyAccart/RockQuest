@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: url("https://wallpaperaccess.com/full/5420481.jpg");
+    background-size: 150vh;
+    background-position-x: 100%;
+    background-repeat: no-repeat;
+}
+
+/* Navbar */
+
+.logo {
+    max-width: 80px;
+    max-height: 60px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: #303134;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #E9B44B;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    padding-left: 2rem;
+    position: fixed;
+    left: -100%;
+    top: 6rem;
+    flex-direction: column;
+    background-color: #303134;
+    width: 90%;
+    text-align: left;
+    transition: 0.3s;
+    box-shadow:
+        0 10px 27px rgba(0, 0, 0, 0.05);
+    opacity: 95%;
+}
+
+.nav-menu.active {
+    left: 0;
+}
+
+.nav-item {
+    margin: 2rem 0;
+}
+
+.nav-link{
+    font-size: 1.3rem;
+    font-weight: 500;
+    color:white;
+}
+
+.hamburger {
+    display: block;
+    cursor: pointer;
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    padding: 2rem 1rem;
+    height: 93vh;
+}
+
+.heading-container {
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    color: #E9B44B;
+    font-size: 4rem;
+    font-weight: 900;
+    text-shadow: 1px 1px 20px black;
+}
+
+.introduction-container, .text-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    box-sizing: border-box;
+}
+
+.introduction-text {
+    color: white;
+    padding: 1.5rem;
+    font-size: 2.5rem;
+}
+
+.btn-container {
+    display: flex;
+    margin: auto;
+}
+
+.play-btn, .contact-btn {
+    width: 200px;
+    height: 70px;
+    border-radius: 10px;
+    background-color: #E9B44B;
+    border: none;
+    cursor: pointer;
+    margin: 1rem 0;
+    box-shadow: 1px 1px 20px black;
+}
+
+.contact-btn > a {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #303134;
+}
+
+.play-btn > a {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #303134;
+}
+
+.text-container {
+    padding: 1.5rem;
+    height: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+p {
+    color: white;
+    font-size: 1rem;
+}
+
+.htp-text {
+    margin: auto;
+}
+
+#htp-text-container {
+    padding: 2rem;
+    height: 60vh;
+}
+
+th {
+    padding-top: 3rem;
+    color: #E9B44B;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+td {
+    color: white;
+    padding: 1.5rem 0;
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+.player-score{
+    font-weight: 800;
+}
+
+.about-us-text {
+    margin-top: 2rem;
+}
+
+#contact-us-container {
+    margin-top: 1rem;
+}
+
+.btn-container-desktop {
+    display: none;
+}
+
+#desktop {
+    display: none;
+}
