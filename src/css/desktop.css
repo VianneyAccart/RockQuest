@@ -81,33 +81,59 @@ body {
 
 .game {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    width: 100vw;
+    height: auto;
 }
 
-.menu-left, .menu-right {
-    color: white;
+.menu-left {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    width: auto;
+    align-items: center;
+    color: white;
+    flex-grow: 1;
 }
 
 .game-score, .game-countdown {
-    background-color: tomato;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 134px;
+    height: 100px;
+}
+
+.game-logo {
+    text-align: center;
+    background-color: white;
+    width: 134px;
+    flex-grow: 1;
+}
+
+
+.menu-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-grow: 1;
 }
 
 .game-screen {
+    color: white;
     width: 500px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
+/*inside game-screen*/
 .tracks {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     height: 75vh;
 }
 
+/*inside tracks*/
 .track-s, .track-d, .track-k, .track-l {
     display: flex;
     align-items: flex-end;
@@ -116,8 +142,9 @@ body {
     opacity: 54%;
 }
 
+/*inside tracks*/
 .receptor-s, .receptor-d, .receptor-k, .receptor-l {
-    box-sizing : borderbox;
+    box-sizing : border-box;
     height: calc(121.25px/2);
     width: 121.25px;
     border: solid;
@@ -126,28 +153,35 @@ body {
     border-radius: 5px;
 }
 
+/*inside game-screen*/
 .buttons {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     height: 121.25px;
 }
 
+/*inside buttons*/
 .button-s {
     background-color: green;
 }
 
+/*inside buttons*/
 .button-d {
     background-color: red;
 }
 
+/*inside buttons*/
 .button-k {
     background-color: yellow;
 }
 
+/*inside buttons*/
 .button-l {
     background-color: blue;
 }
 
+/*inside buttons*/
 .button-s, .button-d, .button-k, .button-l {
     display: flex;
     align-items: center;
