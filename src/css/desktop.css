@@ -227,13 +227,18 @@ img {
 }
 
 .game-score, .game-countdown {
-    text-align: center;
-    vertical-align: baseline;
-    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7);
     width: 240px;
-    height: auto;
+    height: 60px;
     border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding-left: 40px;
 }
+
 .game-score {
     margin-top: 100px;
     margin-bottom: 20px;
@@ -265,7 +270,7 @@ img {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    height: 70vh;
+    height: 72vh;
 }
 
 /*inside tracks*/
@@ -327,4 +332,51 @@ img {
     color: black;
     opacity: 75%;
     width: calc(97%/4);
+}
+
+.player-score, .time-left {
+    font-weight: 800;
+    padding-left: 5px;
+}
+
+/* Launch game popup */
+
+.launch-game-popup {
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.75);
+    position: absolute;
+    z-index: 1;
+    margin-top: 6rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.launch-game-popup > h2 {
+    color: #303134;
+    font-size: 1.3rem;
+    text-align: center;
+    margin-top: 3.5rem;
+}
+
+.launch-game-btn {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.launch-btn {
+    margin: 1rem 0;
+    background-color: #E9B44B;
+    width: 200px;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 900;
+    color: #303134;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.5);
 }
