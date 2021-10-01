@@ -141,7 +141,7 @@ h1 {
     margin: auto;
 }
 
-.play-btn, .contact-btn {
+.play-btn, .play-btn-homepage, .contact-btn {
     width: 200px;
     height: 70px;
     border-radius: 10px;
@@ -158,7 +158,7 @@ h1 {
     color: #303134;
 }
 
-.play-btn > a {
+.play-btn > a, .play-btn-homepage > a {
     font-size: 1.8rem;
     font-weight: 900;
     color: #303134;
