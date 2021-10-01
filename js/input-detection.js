@@ -10,16 +10,16 @@ window.addEventListener("keydown", function(buttonDown) {
   
     switch(buttonDown.code) {
       case "KeyS":
-        trackS.style.backgroundColor = "green";
+        trackS.style.background = "linear-gradient(black, 90%, green)";
         break;
       case "KeyD":
-        trackD.style.backgroundColor = "red";
+        trackD.style.background = "linear-gradient(black, 90%, red)";
         break;
       case "KeyK":
-        trackK.style.backgroundColor = "yellow";
-        break;s
+        trackK.style.background = "linear-gradient(black, 90%, yellow)";
+        break;
       case "KeyL":
-        trackL.style.backgroundColor = "blue";
+        trackL.style.background = "linear-gradient(black, 90%, blue)";
         break;
     }
   
@@ -36,15 +36,19 @@ window.addEventListener("keydown", function(buttonDown) {
   
     switch(buttonDown.code) {
       case "KeyS":
+        trackS.style.background = "none";
         trackS.style.backgroundColor = "black";
         break;
       case "KeyD":
+        trackD.style.background = "none";
         trackD.style.backgroundColor = "black";
         break;
       case "KeyK":
+        trackK.style.background = "none";
         trackK.style.backgroundColor = "black";
         break;s
       case "KeyL":
+        trackL.style.background = "none";
         trackL.style.backgroundColor = "black";
         break;
     }
