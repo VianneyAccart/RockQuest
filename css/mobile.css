@@ -238,7 +238,6 @@ td {
 .game {
     display: flex;
     flex-direction: row;
-    width: 100vw;
     flex: 1 1 0;
 }
 
