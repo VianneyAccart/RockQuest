@@ -39,6 +39,10 @@ body {
     background-color: #303134;
 }
 
+.nav-play-btn {
+    display: none;
+}
+
 .bar {
     display: block;
     width: 25px;

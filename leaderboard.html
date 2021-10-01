@@ -22,13 +22,10 @@
             <a href="index.html"><img src="img/logo.png" alt="logo" class="logo"></a>
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="game.html" class="nav-link"><button class="nav-play-btn">Play</button><span class="play-nav-link">Play</span></a>
                 </li>
                 <li class="nav-item">
                     <a href="how-to-play.html" class="nav-link">How to play</a>
-                </li>
-                <li class="nav-item">
-                    <a href="game.html" class="nav-link">Play</a>
                 </li>
                 <li class="nav-item">
                     <a href="leaderboard.html" class="nav-link">Leaderboard</a>
@@ -45,6 +42,7 @@
         </nav>
     </header>
     <div class="main-container">
+     
         <div class="text-container">
             <h1 class="page-title">Leaderboard</h1>
             <table class="table-container">
@@ -53,30 +51,30 @@
                     <th>Difficulty</th>
                     <th>Score</th>
                 </tr>
-                <tr id="firstPlace">
-                    <td>Ario</td>
-                    <td>Easy</td>
-                    <td>875</td>
+                <tr>
+                    <td id="rowOneName"></td>
+                    <td id="rowOneDifficulty"></td>
+                    <td id="rowOneScore"></td>
                 </tr>
-                <tr id="secondPlace">
-                    <td>Adrien</td>
-                    <td>Hard</td>
-                    <td>869</td>
+                <tr>
+                    <td id="rowTwoName"></td>
+                    <td id="rowTwoDifficulty"></td>
+                    <td id="rowTwoScore"></td>
                 </tr>
-                <tr id="thirdPlace">
-                    <td>Beerus</td>
-                    <td>Easy</td>
-                    <td>856</td>
+                <tr>
+                    <td id="rowThreeName"></td>
+                    <td id="rowThreeDifficulty"></td>
+                    <td id="rowThreeScore"></td>
                 </tr>
-                <tr id="fourthPlace">
-                    <td>Vianney</td>
-                    <td>Easy</td>
-                    <td>845</td>
+                <tr>
+                    <td id=rowFourthName></td>
+                    <td id=rowFourthDifficulty></td>
+                    <td id=rowFourthScore></td>
                 </tr>
-                <tr id="fifthPlace">
-                    <td class="player-score">You</td>
-                    <td class="player-score">Difficulty</td>
-                    <td class="player-score">Score</td>
+                <tr>
+                    <td id="rowFifthName"></td>
+                    <td id="rowFifthDifficulty"></td>
+                    <td id="rowFifthScore"></td>
                 </tr>
             </table>
         </div>
@@ -84,7 +82,10 @@
             <button class="play-btn"><a href="game.html">PLAY</a></button>
         </div>
     </div>
-    <script src="js/script.js"></script>
+   
+    <script src="js/script.js"></script> 
+    <script src="js/leaderbord.js"></script>
+    
 </body>
 
 </html>
