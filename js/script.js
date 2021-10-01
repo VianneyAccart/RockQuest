@@ -20,7 +20,7 @@ function closeMenu() {
 }
 
 // Countdown 60 to 0 sec
-
+/*
 let timeleft = 60;
 let downloadTimer = setInterval(function(){
     document.getElementById("progressBar").value = 60 - timeleft;
@@ -34,13 +34,24 @@ let downloadTimer = setInterval(function(){
 let timeout,interval;
 let startNewPlay = 3000; // 3 secondes (3000ms)
 let secondsleft= startNewPlay;
-
+*/
 // Quand je clique sur un launch-btn
   // La div launch-game-popup disparait && la div launch-game-countdown apparait
     // Dans la div launch-game-countdown, je veux affiche 3, 2, 1
       // A 0 la div launch-game-countdown disparait && le décompte des 60 sec démarre
 
- function showContent()
+
+let launchBtn =  document.querySelectorAll(".launch-btn");
+                for(let i=0;i<launchBtn.length;i++){
+                        launchBtn[i].addEventListener('click', function(){
+                        document.querySelector(".launch-game-popup").style.display="none";
+                        document.querySelector(".launch-game-countdown").style.display="flex"; 
+                }                   
+                )}                            
+
+
+
+ /* function showContent()
  {
     secondsleft-=1000;
     document.querySelector(".div1").innerHTML = "New game start in " + Math.abs((secondsleft/1000))+" secs";  
