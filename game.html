@@ -21,13 +21,10 @@
             <a href="index.html"><img src="img/logo.png" alt="logo" class="logo"></a>
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="game.html" class="nav-link"><button class="nav-play-btn">Play</button><span class="play-nav-link">Play</span></a>
                 </li>
                 <li class="nav-item">
                     <a href="how-to-play.html" class="nav-link">How to play</a>
-                </li>
-                <li class="nav-item">
-                    <a href="game.html" class="nav-link">Play</a>
                 </li>
                 <li class="nav-item">
                     <a href="leaderboard.html" class="nav-link">Leaderboard</a>
@@ -64,8 +61,7 @@
                 <h2>Your score</h2>
                 <p class="end-played-score">865</p>
                 <div class="end-game-btn">
-                    <button class="launch-btn">Retry</button>
-                    <a href="game.html"><button class="launch-btn">Choose other difficulty</button></a>
+                    <a href="game.html"><button class="launch-btn">Play again</button></a>
                     <a href="index.html"><button class="launch-btn">Quit game</button></a>
                 </div>
             </div>
@@ -85,10 +81,10 @@
                 </div>
             </div>
             <div class="buttons">
-                <div class="button-s">S</div>
-                <div class="button-d">D</div>
-                <div class="button-k">K</div>
-                <div class="button-l">L</div>
+                <div class="button-s"><span id="S">S</span></div>
+                <div class="button-d"><span id="D">D</span></div>
+                <div class="button-k"><span id="K">K</span></div>
+                <div class="button-l"><span id="L">L</span></div>
             </div>
         </div>
         <div class="menu-right">
@@ -105,6 +101,7 @@
         <div class="div2" style="display:none;">"Let's Start new Difficulty and show the content"</div> -->
 
     <script src="js/script.js"></script>
+    <script src="js/input-detection.js"></script>
 </body>
 
 </html>
