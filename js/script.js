@@ -76,8 +76,8 @@ function startCountdown()
        },1000)              
 };
 
-/* function resetTimer()
+ function resetTimer()
 {
     startCountdown();
 }; */
- 
+

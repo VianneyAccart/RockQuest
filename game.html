@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,21 +11,20 @@
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 768px)" href="css/desktop.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 </head>
-<body>
+<body class="body-game">
     <header class="header">
         <nav class="navbar">
             <a href="index.html"><img src="img/logo.png" alt="logo" class="logo"></a>
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="game.html" class="nav-link"><button class="nav-play-btn">Play</button><span class="play-nav-link">Play</span></a>
                 </li>
                 <li class="nav-item">
                     <a href="how-to-play.html" class="nav-link">How to play</a>
-                </li>
-                <li class="nav-item">
-                    <a href="game.html" class="nav-link">Play</a>
                 </li>
                 <li class="nav-item">
                     <a href="leaderboard.html" class="nav-link">Leaderboard</a>
@@ -42,23 +42,32 @@
     </header>
     <div class="game">
         <div class="menu-left">
-            <h1>ROCK'<br/>QUEST</h1>
-            <div class="game-score">Your score :<span class="player-score">465</span></div>
-            <div class="game-countdown">Time left : <span class="time-left"> 57</span></div>
+            <h1>ROCK'<br />QUEST</h1>
+            <div class="game-score">Your score :<span class="player-score">0</span></div>
+            <div class="game-countdown">Time left : <span class="time-left">60</span></div>
         </div>
         <div class="game-screen">
             <div class="launch-game-popup">
                 <h2>Choose your difficulty</h2>
                 <div class="launch-game-btn">
-                <button class="launch-btn">Easy</button>
-                <button class="launch-btn">Hard</button>
+                    <button class="launch-btn">Easy</button>
+                    <button class="launch-btn">Hard</button>
                 </div>
             </div>
             <div class="launch-game-countdown">
                 <p>Décompte à insérer ici</p>
             </div>
+            <div class="end-game-popup">
+                <h2>Your score</h2>
+                <p class="end-played-score">865</p>
+                <div class="end-game-btn">
+                    <a href="game.html"><button class="launch-btn">Play again</button></a>
+                    <a href="index.html"><button class="launch-btn">Quit game</button></a>
+                </div>
+            </div>
             <div class="tracks">
                 <div class="track-s">
+                    <div class="note-s">TEST</div>
                     <div class="receptor-s"></div>
                 </div>
                 <div class="track-d">
@@ -72,16 +81,16 @@
                 </div>
             </div>
             <div class="buttons">
-                <div class="button-s">S</div>
-                <div class="button-d">D</div>
-                <div class="button-k">K</div>
-                <div class="button-l">L</div>
+                <div class="button-s"><span id="S">S</span></div>
+                <div class="button-d"><span id="D">D</span></div>
+                <div class="button-k"><span id="K">K</span></div>
+                <div class="button-l"><span id="L">L</span></div>
             </div>
         </div>
         <div class="menu-right">
         </div>
     </div>
-        <!-- Two Countdown , first for progress , duration game ; 2nd for select difficulty and show content
+    <!-- Two Countdown , first for progress , duration game ; 2nd for select difficulty and show content
          <p>
         <progress value="0" max="59" id="progressBar"></progress>
         <span id="countdownText">60</span> seconds
@@ -89,8 +98,10 @@
     
         <button id="clickme" onClick="startCountdown()">Let's Rock Your Score!</button>
         <div class="div1">Click on the button and prepare yourself</div>
-        <div class="div2" style="display:none;">"Let's Start new Difficulty and show the content"</div> -->  
-  
+        <div class="div2" style="display:none;">"Let's Start new Difficulty and show the content"</div> -->
+
     <script src="js/script.js"></script>
+    <script src="js/input-detection.js"></script>
 </body>
+
 </html>
