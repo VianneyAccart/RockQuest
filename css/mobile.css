@@ -330,4 +330,92 @@ td {
     color: black;
     opacity: 75%;
     width: calc(97%/4);
-};
+}
+
+/* Launch game popup */
+
+.launch-game-popup {
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.75);
+    position: absolute;
+    z-index: 1;
+    margin-top: 6rem; 
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.launch-game-popup > h2, .end-game-popup > h2 {
+    color: #303134;
+    font-size: 1.3rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.end-game-popup > p {
+    color: #303134;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: .5rem;
+    font-weight: 900;
+}
+
+.launch-game-btn, .end-game-btn {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.launch-btn {
+    margin: 1rem 0;
+    background-color: #E9B44B;
+    width: 200px;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 900;
+    color: #303134;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Countdown 3, 2, 1... */
+
+.launch-game-countdown {
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.75);
+    position: absolute;
+    z-index: 1;
+    margin-top: 6rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    display: none;
+}
+
+/* End game popup */
+
+.end-game-popup {
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.75);
+    position: absolute;
+    z-index: 1;
+    margin-top: 6rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    display: none;
+}
+
+/* Display none on letters */
+
+#S, #D, #K, #L {
+    display: none;
+}
