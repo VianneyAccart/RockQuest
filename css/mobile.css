@@ -266,7 +266,7 @@ td {
 .track-s, .track-d, .track-k, .track-l {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    /*justify-content: flex-end;*/
     width: calc(97vw/4);
     background-color: black;
     opacity: 54%;
@@ -278,7 +278,22 @@ td {
     width: calc(97vw/4);
     background-color: green;
     border-radius: 5px;
+    animation-name: move-down;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    position: relative;
 }
+
+@keyframes move-down {
+    0% {
+        top: 0vh;
+    }
+    100% {
+        top: 100vh;
+    }
+    }
 
 /*inside each track s d k l */
 .receptor-s, .receptor-d, .receptor-k, .receptor-l {
@@ -290,6 +305,7 @@ td {
     border-color: white;
     border-radius: 5px;
     position: absolute;
+    bottom: calc(97vw/4);
     }
 
 /*inside game-screen*/
