@@ -20,7 +20,7 @@ function closeMenu() {
 }
 
 // Countdown 60 to 0 sec
-
+/*
 let timeleft = 60;
 let downloadTimer = setInterval(function(){
     document.getElementById("progressBar").value = 60 - timeleft;
@@ -65,8 +65,8 @@ function startCountdown()
        },1000)              
 };
 
-/* function resetTimer()
+ function resetTimer()
 {
     startCountdown();
 }; */
- 
+
