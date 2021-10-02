@@ -3,7 +3,7 @@ const topPlayer = [
     {name: "AdN", difficulty:"Hard", score: 865},
     {name: "Beerus", difficulty:"Hard", score: 800},
     {name: "Vianney", difficulty:"Easy", score: 785},
-    {name: "You", difficulty:"Easy", score: 900},
+    {name: "You", difficulty:"Easy", score: 800},
   ];
 
 // Test pour la démo : topPlayer[4].score = prompt("enter score");

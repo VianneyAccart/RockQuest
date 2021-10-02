@@ -117,9 +117,10 @@ h1 {
 }
 
 .introduction-container, .text-container {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.85);
     box-sizing: border-box;
     width: 40vw;
+    border-radius: 10px;
 }
 
 .text-container-about {
@@ -222,7 +223,7 @@ td {
 }
 
 img {
-    max-width: 100%;
+    max-width: 60%;
 }
 
 .about-us-desktop {

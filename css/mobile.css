@@ -70,6 +70,7 @@ body {
         0 10px 27px rgba(0, 0, 0, 0.05);
     opacity: 95%;
     z-index: 2;
+    position: absolute;
 }
 
 .nav-menu.active {
@@ -109,7 +110,8 @@ body {
     width: 90%;
     margin: auto;
     padding: 2rem 1rem;
-    height: 93vh;
+    height: auto;
+    box-sizing: border-box;
 }
 
 .heading-container {
@@ -120,20 +122,21 @@ body {
 
 h1 {
     color: #E9B44B;
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 900;
     text-shadow: 1px 1px 20px black;
 }
 
 .introduction-container, .text-container {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.85);
     box-sizing: border-box;
+    border-radius: 10px;
 }
 
 .introduction-text {
     color: white;
     padding: 1.5rem;
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 .btn-container {
@@ -148,7 +151,7 @@ h1 {
     background-color: #E9B44B;
     border: none;
     cursor: pointer;
-    margin: 1rem 0;
+    margin: 2rem 0;
     box-shadow: 1px 1px 20px black;
 }
 
@@ -176,21 +179,17 @@ h1 {
     color: white;
     font-size: 1.5rem;
     font-weight: 500;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 p {
     color: white;
-    font-size: 1rem;
-}
-
-.htp-text {
-    margin: auto;
+    font-size: 1.1rem;
 }
 
 #htp-text-container {
     padding: 2rem;
-    height: 60vh;
+    height: auto;
 }
 
 th {
@@ -198,6 +197,10 @@ th {
     color: #E9B44B;
     font-size: 1rem;
     font-weight: 400;
+}
+
+img {
+    max-width: 60%;
 }
 
 td {
@@ -213,7 +216,7 @@ td {
 }
 
 .about-us-text {
-    margin-top: 2rem;
+    margin: 1rem 0;
 }
 
 #contact-us-container {
