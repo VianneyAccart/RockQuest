@@ -14,6 +14,7 @@ li {
 
 a {
     text-decoration: none;
+    color: white;
 }
 
 /* A améliorer car sur tout petit écran, problème de blanc */
@@ -473,4 +474,23 @@ img {
     flex-direction: column;
     justify-content: center;
     display: none;
-};
+}
+
+.s-touch, .d-touch, .k-touch, .l-touch {
+    color: #E9B44B;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.s-touch:hover {
+    color: green;
+}
+.d-touch:hover {
+    color: red;
+}
+.k-touch:hover {
+    color: yellow;
+}
+.l-touch:hover {
+    color: blue;
+}

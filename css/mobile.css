@@ -14,6 +14,7 @@ li {
 
 a {
     text-decoration: none;
+    color: white;
 }
 
 body {
@@ -442,4 +443,9 @@ td {
 
 #S, #D, #K, #L {
     display: none;
+}
+
+.s-touch, .d-touch, .k-touch, .l-touch {
+    color: #E9B44B;
+    font-weight: 600;
 }
