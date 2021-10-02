@@ -38,14 +38,19 @@ body {
 .nav-play-btn {
     width: 110px;
     height: 30px;
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: #E9B44B;
     border: none;
     cursor: pointer;
     margin: 1rem 0;
-    box-shadow: 1px 1px 20px black; 
+    box-shadow: 1px 1px 10px black; 
     font-size: 1rem;
     font-weight: 600;
+}
+
+.nav-img {
+    background-image: url("/img/splash.png");
+    background-size: contain;
 }
 
 .play-nav-link {
