@@ -44,7 +44,10 @@
         <div class="menu-left">
             <h1>ROCK'<br />QUEST</h1>
             <div class="game-score">Your score :<span class="player-score">0</span></div>
-            <div class="game-countdown">Time left : <span class="time-left">60</span></div>
+            <div class="game-countdown">Time left :
+                <span id="countdownText"> 60</span> sec
+                <progress value="0" max="59" id="progressBar"></progress>
+        </div>
         </div>
         <div class="game-screen">
             <div class="launch-game-popup">
@@ -90,18 +93,9 @@
         <div class="menu-right">
         </div>
     </div>
-    <!-- Two Countdown , first for progress , duration game ; 2nd for select difficulty and show content
-         <p>
-        <progress value="0" max="59" id="progressBar"></progress>
-        <span id="countdownText">60</span> seconds
-    </p>
-    
-        <button id="clickme" onClick="startCountdown()">Let's Rock Your Score!</button>
-        <div class="div1">Click on the button and prepare yourself</div>
-        <div class="div2" style="display:none;">"Let's Start new Difficulty and show the content"</div> -->
 
     <script src="js/script.js"></script>
     <script src="js/input-detection.js"></script>
 </body>
 
-</html>
+</html>rgb(255, 38, 0)rgb(255, 38, 0)
