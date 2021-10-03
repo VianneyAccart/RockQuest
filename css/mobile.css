@@ -196,7 +196,7 @@ p {
 th {
     padding-top: 3rem;
     color: #E9B44B;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 400;
 }
 
@@ -207,7 +207,7 @@ img {
 td {
     color: white;
     padding: 1.5rem 0;
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 400;
     text-align: center;
 }
@@ -448,4 +448,30 @@ td {
 .s-touch, .d-touch, .k-touch, .l-touch {
     color: #E9B44B;
     font-weight: 600;
+}
+
+.leaderboardFilter {
+    margin-top: 1rem;
+}
+
+.leaderboardFilterList {
+    display: flex;
+}
+
+.leaderboardFilterItem {
+    color: white;
+    width: 100px;
+    height: 30px;
+    margin-right: 1rem;
+    cursor: pointer;
+    color: #303134;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #E9B44B;
+    border: none;
+    border-radius: 20px;
+}
+
+.leaderboardFilterItem:hover {
+    background-color: white;
 }
