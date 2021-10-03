@@ -14,6 +14,7 @@ li {
 
 a {
     text-decoration: none;
+    color: white;
 }
 
 /* A améliorer car sur tout petit écran, problème de blanc */
@@ -37,14 +38,34 @@ body {
 .nav-play-btn {
     width: 110px;
     height: 30px;
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: #E9B44B;
     border: none;
     cursor: pointer;
     margin: 1rem 0;
-    box-shadow: 1px 1px 20px black; 
+    box-shadow: 1px 1px 10px black; 
     font-size: 1rem;
     font-weight: 600;
+    animation-name: slideIn;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes slideIn {
+    0% {
+      transform: translate(0px, 0px);
+    }
+    50% {
+      transform: translate(0px, 2px);
+    }
+    100% {
+      transform: translate(0px, 0px);
+    }
+  }
+
+.nav-img {
+    background-image: url("/img/splash.png");
+    background-size: contain;
 }
 
 .play-nav-link {
@@ -117,9 +138,10 @@ h1 {
 }
 
 .introduction-container, .text-container {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.85);
     box-sizing: border-box;
     width: 40vw;
+    border-radius: 10px;
 }
 
 .text-container-about {
@@ -222,7 +244,7 @@ td {
 }
 
 img {
-    max-width: 100%;
+    max-width: 60%;
 }
 
 .about-us-desktop {
@@ -448,9 +470,6 @@ img {
     width: 300px;
     height: 300px;
     background-color: rgba(255, 255, 255, 0.75);
-    color:black;
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
     position: absolute;
     z-index: 1;
     margin-top: 6rem;
@@ -460,8 +479,6 @@ img {
     justify-content: center;
     display: none;
 }
-
-
 
 /* End game popup */
 
@@ -477,4 +494,23 @@ img {
     flex-direction: column;
     justify-content: center;
     display: none;
-};
+}
+
+.s-touch, .d-touch, .k-touch, .l-touch {
+    color: #E9B44B;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.s-touch:hover {
+    color: green;
+}
+.d-touch:hover {
+    color: red;
+}
+.k-touch:hover {
+    color: yellow;
+}
+.l-touch:hover {
+    color: blue;
+}

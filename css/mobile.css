@@ -14,6 +14,7 @@ li {
 
 a {
     text-decoration: none;
+    color: white;
 }
 
 body {
@@ -37,6 +38,10 @@ body {
     align-items: center;
     padding: 1rem 1.5rem;
     background-color: #303134;
+}
+
+.nav-play-btn {
+    display: none;
 }
 
 .bar {
@@ -65,6 +70,8 @@ body {
     box-shadow:
         0 10px 27px rgba(0, 0, 0, 0.05);
     opacity: 95%;
+    z-index: 2;
+    position: absolute;
 }
 
 .nav-menu.active {
@@ -104,7 +111,8 @@ body {
     width: 90%;
     margin: auto;
     padding: 2rem 1rem;
-    height: 93vh;
+    height: auto;
+    box-sizing: border-box;
 }
 
 .heading-container {
@@ -115,20 +123,21 @@ body {
 
 h1 {
     color: #E9B44B;
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 900;
     text-shadow: 1px 1px 20px black;
 }
 
 .introduction-container, .text-container {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.85);
     box-sizing: border-box;
+    border-radius: 10px;
 }
 
 .introduction-text {
     color: white;
     padding: 1.5rem;
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 .btn-container {
@@ -136,14 +145,14 @@ h1 {
     margin: auto;
 }
 
-.play-btn, .contact-btn {
+.play-btn, .play-btn-homepage, .contact-btn {
     width: 200px;
     height: 70px;
     border-radius: 10px;
     background-color: #E9B44B;
     border: none;
     cursor: pointer;
-    margin: 1rem 0;
+    margin: 2rem 0;
     box-shadow: 1px 1px 20px black;
 }
 
@@ -153,7 +162,7 @@ h1 {
     color: #303134;
 }
 
-.play-btn > a {
+.play-btn > a, .play-btn-homepage > a {
     font-size: 1.8rem;
     font-weight: 900;
     color: #303134;
@@ -171,21 +180,17 @@ h1 {
     color: white;
     font-size: 1.5rem;
     font-weight: 500;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 p {
     color: white;
-    font-size: 1rem;
-}
-
-.htp-text {
-    margin: auto;
+    font-size: 1.1rem;
 }
 
 #htp-text-container {
     padding: 2rem;
-    height: 60vh;
+    height: auto;
 }
 
 th {
@@ -193,6 +198,10 @@ th {
     color: #E9B44B;
     font-size: 1rem;
     font-weight: 400;
+}
+
+img {
+    max-width: 60%;
 }
 
 td {
@@ -208,7 +217,7 @@ td {
 }
 
 .about-us-text {
-    margin-top: 2rem;
+    margin: 1rem 0;
 }
 
 #contact-us-container {
@@ -221,4 +230,222 @@ td {
 
 #desktop {
     display: none;
+}
+
+/* Game page */ 
+
+.body-game {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.game {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 0;
+}
+
+.menu-left {
+    display: none;
+}
+
+.menu-right {
+    display: none;
+}
+
+.game-screen {
+    color: white;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*inside game-screen*/
+.tracks {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex: 1 1 0;
+}
+
+/*inside tracks*/
+.track-s, .track-d, .track-k, .track-l {
+    display: flex;
+    flex-direction: column;
+    /*justify-content: flex-end;*/
+    width: calc(97vw/4);
+    background-color: black;
+    opacity: 54%;
+}
+
+.note-s {
+    box-sizing : border-box;
+    height: calc(97vw/8);
+    width: calc(97vw/4);
+    background-color: green;
+    border-radius: 5px;
+    animation-name: move-down;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    position: relative;
+}
+
+@keyframes move-down {
+    0% {
+        top: 0vh;
+    }
+    100% {
+        top: 100vh;
+    }
+    }
+
+/*inside each track s d k l */
+.receptor-s, .receptor-d, .receptor-k, .receptor-l {
+    box-sizing : border-box;
+    height: calc(97vw/8);
+    width: calc(97vw/4);
+    border: solid;
+    border-width: 5px;
+    border-color: white;
+    border-radius: 5px;
+    position: absolute;
+    bottom: calc(97vw/4);
+    }
+
+/*inside game-screen*/
+.buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: calc(97vw/4);
+}
+
+/*inside buttons*/
+.button-s {
+    background-color: green;
+}
+
+/*inside buttons*/
+.button-d {
+    background-color: red;
+}
+
+/*inside buttons*/
+.button-k {
+    background-color: yellow;
+}
+
+/*inside buttons*/
+.button-l {
+    background-color: blue;
+}
+
+/*inside buttons*/
+.button-s, .button-d, .button-k, .button-l {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
+    font-weight: 800;
+    /*text-shadow: 2px 2px 2px black;*/
+    color: black;
+    opacity: 75%;
+    width: calc(97%/4);
+}
+
+/* Launch game popup */
+
+.launch-game-popup {
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.75);
+    position: absolute;
+    z-index: 1;
+    margin-top: 6rem; 
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.launch-game-popup > h2, .end-game-popup > h2 {
+    color: #303134;
+    font-size: 1.3rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.end-game-popup > p {
+    color: #303134;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: .5rem;
+    font-weight: 900;
+}
+
+.launch-game-btn, .end-game-btn {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.launch-btn {
+    margin: 1rem 0;
+    background-color: #E9B44B;
+    width: 200px;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 900;
+    color: #303134;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Countdown 3, 2, 1... */
+
+.launch-game-countdown {
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.75);
+    position: absolute;
+    z-index: 1;
+    margin-top: 6rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    display: none;
+}
+
+/* End game popup */
+
+.end-game-popup {
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.75);
+    position: absolute;
+    z-index: 1;
+    margin-top: 6rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    display: none;
+}
+
+/* Display none on letters */
+
+#S, #D, #K, #L {
+    display: none;
+}
+
+.s-touch, .d-touch, .k-touch, .l-touch {
+    color: #E9B44B;
+    font-weight: 600;
 }

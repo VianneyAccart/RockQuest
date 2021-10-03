@@ -3,33 +3,24 @@ const topPlayer = [
     {name: "AdN", difficulty:"Hard", score: 865},
     {name: "Beerus", difficulty:"Hard", score: 800},
     {name: "Vianney", difficulty:"Easy", score: 785},
-    {name: "You", difficulty:"Easy", score: 900},
-  ]
-//windows.prompt pour tester le classement. (DEMO)
-topPlayer[4].score = prompt("enter score");
+    {name: "You", difficulty:"Easy", score: 800},
+  ];
 
+// Test pour la démo : topPlayer[4].score = prompt("enter score");
 
 //Fonction de Classement par ordre décroissant du Leaderboard.
-  topPlayer.sort(function compare(a, b) {
-    if (a.score < b.score){
-        return 1;
-    } else if (a.score > b.score) {
-        return -1;
-    } else {
-        return 0;
-    }
-});
-//Fonction de surbrillance du resultat du joueur.
+topPlayer.sort(function compare(a, b) {
+  if (a.score < b.score){
+      return 1;
+  } else if (a.score > b.score) {
+      return -1;
+  } else {
+      return 0;
+  }
+})
 
-
-
-
-
-
-
-
-;
 //Ajout du contenu des cellules du tableau, Ligne/Ligne. 
+
 //firstPlace:
 document.querySelector("#rowOneName").innerHTML = topPlayer[0].name;
 document.querySelector("#rowOneDifficulty").innerHTML = topPlayer[0].difficulty;
