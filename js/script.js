@@ -64,6 +64,9 @@ function progressBarCount() {
         document.querySelector("#progressBar").value = 60 - timeleft;
         timeleft--;
         document.querySelector("#countdownText").innerHTML = timeleft;
-        if (timeleft <= 0) { clearInterval(downloadTimer); }
+        if (timeleft <= 0) { 
+            clearInterval(downloadTimer); 
+            document.querySelector(".end-game-popup").style.display = "flex";
+        }
     }, 1000);
 }
