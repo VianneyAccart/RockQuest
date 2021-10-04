@@ -68,7 +68,3 @@ function addNote(noteId, color) {
   // L'insérer juste après addNoteId
   addNoteId.prepend(addNoteDiv);
 }
-
-addNote("noteK", "yellow");
-addNote("noteK", "yellow");
-addNote("noteL", "blue");

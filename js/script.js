@@ -30,6 +30,24 @@ for (let i = 0; i < launchBtn.length; i++) {
     )
 }
 
+// Generate a new note
+function addNote(noteId, color) {
+    const addNoteId = document.getElementById(noteId);
+    const addNoteDiv = document.createElement("div");
+    addNoteDiv.classList.add("note");
+    addNoteDiv.classList.add(color);
+    // L'insérer juste après addNoteId
+    addNoteId.prepend(addNoteDiv);
+}
+
+// Partitions
+const easyMode = {
+    S: [59, 54, 50, 30, 20, 10],
+    D: [57, 49, 39, 29, 19, 9],
+    K: [50, 51, 46, 41, 35, 8],
+    L: [48, 44, 31, 28, 22, 5]
+};
+
 // Countdown start new game and show content 
 let timeout, interval;
 let startNewPlay = 3000; // 3 secondes
@@ -72,6 +90,27 @@ function progressBarCount() {
         if (timeleft <= 0) { 
             clearInterval(downloadTimer); 
             document.querySelector(".end-game-popup").style.display = "flex"; 
+        }
+        // Génère les notes selon la partition
+        for (let i = 0; i < easyMode.S.length; i++) {
+            if (easyMode.S[i] === timeleft) {
+                addNote("noteS", "green");
+            }
+        }
+        for (let i = 0; i < easyMode.D.length; i++) {
+            if (easyMode.D[i] === timeleft) {
+                addNote("noteD", "red");
+            }
+        }
+        for (let i = 0; i < easyMode.K.length; i++) {
+            if (easyMode.K[i] === timeleft) {
+                addNote("noteK", "yellow");
+            }
+        }
+        for (let i = 0; i < easyMode.L.length; i++) {
+            if (easyMode.L[i] === timeleft) {
+                addNote("noteL", "blue");
+            }
         }
     }, 1000);
 }

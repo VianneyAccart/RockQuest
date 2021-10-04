@@ -290,7 +290,7 @@ td {
     animation-name: move-down;
     animation-duration: 2s;
     animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    /* animation-iteration-count: infinite; */
     animation-play-state: running;
     position: relative;
 }
