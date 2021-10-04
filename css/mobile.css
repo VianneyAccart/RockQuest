@@ -272,7 +272,7 @@ td {
 }
 
 /*inside tracks*/
-.track-s, .track-d, .track-k, .track-l {
+.track {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -282,11 +282,10 @@ td {
     overflow: hidden;
 }
 
-.note-s {
+.note {
     box-sizing : border-box;
     height: calc(97vw/8);
     width: calc(97vw/4);
-    background-color: green;
     border-radius: 5px;
     animation-name: move-down;
     animation-duration: 2s;
@@ -294,6 +293,22 @@ td {
     animation-iteration-count: infinite;
     animation-play-state: running;
     position: relative;
+}
+
+.green {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.blue {
+    background-color: blue;
 }
 
 @keyframes move-down {

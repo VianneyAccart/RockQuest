@@ -58,3 +58,12 @@ window.addEventListener("keydown", function(buttonDown) {
     // Consume the event so it doesn't get handled twice
     buttonDown.preventDefault();
   }, true);
+
+
+  // Generate a note
+  // function addNote(X) où X est l'ID
+    // Cibler l'ID trackX
+    // Créer une div
+      // Lui ajouter la class note
+      // Lui ajouter la class color
+    // L'insérer en firstChild de ID X
