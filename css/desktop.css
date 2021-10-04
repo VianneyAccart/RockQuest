@@ -333,17 +333,16 @@ progress {
 }
 
 /*inside tracks*/
-.track-s, .track-d, .track-k, .track-l {
+.track {
     display: flex;
-        flex-direction: column;
-    /*align-items: flex-end;*/
+    flex-direction: column;
     width: calc((30vw)*0.97/4);
     background-color: black;
     opacity: 54%;
     overflow: hidden;
 }
 
-.note-s {
+.note {
     box-sizing : border-box;
     height: calc((30vw)*0.97/8);
     width: calc((30vw)*0.97/4);
@@ -355,6 +354,22 @@ progress {
     animation-iteration-count: infinite;
     animation-play-state: active;
     position: relative;
+}
+
+.green {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.blue {
+    background-color: blue;
 }
 
 @keyframes move-down {

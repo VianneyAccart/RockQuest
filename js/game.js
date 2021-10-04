@@ -1,69 +1,77 @@
-const trackS = document.querySelector(".track-s")
-const trackD = document.querySelector(".track-d")
-const trackK = document.querySelector(".track-k")
-const trackL = document.querySelector(".track-l")
+const trackS = document.querySelector("#noteS")
+const trackD = document.querySelector("#noteD")
+const trackK = document.querySelector("#noteK")
+const trackL = document.querySelector("#noteL")
 
-window.addEventListener("keydown", function(buttonDown) {
-    if (buttonDown.defaultPrevented) {
-      return; // Do nothing if event already handled
-    }
-  
-    switch(buttonDown.code) {
-      case "KeyS":
-        trackS.style.background = "linear-gradient(black, 90%, green)";
-        break;
-      case "KeyD":
-        trackD.style.background = "linear-gradient(black, 90%, red)";
-        break;
-      case "KeyK":
-        trackK.style.background = "linear-gradient(black, 90%, yellow)";
-        break;
-      case "KeyL":
-        trackL.style.background = "linear-gradient(black, 90%, blue)";
-        break;
-    }
-  
-    refresh();
-  
-    // Consume the event so it doesn't get handled twice
-    buttonDown.preventDefault();
-  }, true);
+window.addEventListener("keydown", function (buttonDown) {
+  if (buttonDown.defaultPrevented) {
+    return; // Do nothing if event already handled
+  }
 
-  window.addEventListener("keyup", function(buttonDown) {
-    if (buttonDown.defaultPrevented) {
-      return; // Do nothing if event already handled
-    }
-  
-    switch(buttonDown.code) {
-      case "KeyS":
-        trackS.style.background = "none";
-        trackS.style.backgroundColor = "black";
-        break;
-      case "KeyD":
-        trackD.style.background = "none";
-        trackD.style.backgroundColor = "black";
-        break;
-      case "KeyK":
-        trackK.style.background = "none";
-        trackK.style.backgroundColor = "black";
-        break;s
-      case "KeyL":
-        trackL.style.background = "none";
-        trackL.style.backgroundColor = "black";
-        break;
-    }
-  
-    refresh();
-  
-    // Consume the event so it doesn't get handled twice
-    buttonDown.preventDefault();
-  }, true);
+  switch (buttonDown.code) {
+    case "KeyS":
+      trackS.style.background = "linear-gradient(black, 90%, green)";
+      break;
+    case "KeyD":
+      trackD.style.background = "linear-gradient(black, 90%, red)";
+      break;
+    case "KeyK":
+      trackK.style.background = "linear-gradient(black, 90%, yellow)";
+      break;
+    case "KeyL":
+      trackL.style.background = "linear-gradient(black, 90%, blue)";
+      break;
+  }
 
+  refresh();
 
-  // Generate a note
-  // function addNote(X) où X est l'ID
-    // Cibler l'ID trackX
-    // Créer une div
-      // Lui ajouter la class note
-      // Lui ajouter la class color
-    // L'insérer en firstChild de ID X
+  // Consume the event so it doesn't get handled twice
+  buttonDown.preventDefault();
+}, true);
+
+window.addEventListener("keyup", function (buttonDown) {
+  if (buttonDown.defaultPrevented) {
+    return; // Do nothing if event already handled
+  }
+
+  switch (buttonDown.code) {
+    case "KeyS":
+      trackS.style.background = "none";
+      trackS.style.backgroundColor = "black";
+      break;
+    case "KeyD":
+      trackD.style.background = "none";
+      trackD.style.backgroundColor = "black";
+      break;
+    case "KeyK":
+      trackK.style.background = "none";
+      trackK.style.backgroundColor = "black";
+      break; s
+    case "KeyL":
+      trackL.style.background = "none";
+      trackL.style.backgroundColor = "black";
+      break;
+  }
+
+  refresh();
+
+  // Consume the event so it doesn't get handled twice
+  buttonDown.preventDefault();
+}, true);
+
+// Generate a new note
+function addNote(noteId, color) {
+  // Cibler l'ID
+  const addNoteId = document.getElementById(noteId);
+  // Créer une div
+  const addNoteDiv = document.createElement("div");
+  // Lui ajouter la class note & color
+  addNoteDiv.classList.add("note");
+  addNoteDiv.classList.add(color);
+  // L'insérer juste après addNoteId
+  addNoteId.prepend(addNoteDiv);
+}
+
+addNote("noteK", "yellow");
+addNote("noteK", "yellow");
+addNote("noteL", "blue");
