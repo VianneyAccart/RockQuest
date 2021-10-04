@@ -19,16 +19,8 @@ topPlayer[4].score = prompt("enter score");
         return 0;
     }
 });
-//Fonction de surbrillance du resultat du joueur.
 
 
-
-
-
-
-
-
-;
 //Ajout du contenu des cellules du tableau, Ligne/Ligne. 
 //firstPlace:
 document.querySelector("#rowOneName").innerHTML = topPlayer[0].name;
@@ -54,5 +46,3 @@ document.querySelector("#rowFourthScore").innerHTML = topPlayer[3].score;
 document.querySelector("#rowFifthName").innerHTML = topPlayer[4].name;
 document.querySelector("#rowFifthDifficulty").innerHTML = topPlayer[4].difficulty;
 document.querySelector("#rowFifthScore").innerHTML = topPlayer[4].score;
-
-
