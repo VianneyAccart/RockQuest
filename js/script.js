@@ -63,10 +63,15 @@ function progressBarCount() {
     let downloadTimer = setInterval(function () {
         document.querySelector("#progressBar").value = 60 - timeleft;
         timeleft--;
-        document.querySelector("#countdownText").innerHTML = timeleft;
+        document.querySelector("#countdownTextDesktop").innerHTML = timeleft;
         if (timeleft <= 0) { 
             clearInterval(downloadTimer); 
-            document.querySelector(".end-game-popup").style.display = "flex";
+            document.querySelector(".end-game-popup").style.display = "flex"; 
+        }
+        document.querySelector("#countdownTextMobile").innerHTML = timeleft;
+        if (timeleft <= 0) { 
+            clearInterval(downloadTimer); 
+            document.querySelector(".end-game-popup").style.display = "flex"; 
         }
     }, 1000);
 }
