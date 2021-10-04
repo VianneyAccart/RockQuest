@@ -279,7 +279,6 @@ html {
 }
 
 /*inside tracks*/
-<<<<<<< HEAD
 .track {
     display: flex;
     flex-direction: column;
@@ -300,33 +299,6 @@ html {
     animation-timing-function: linear;
     animation-play-state: running;
     position: relative;
-=======
-.track-s,
-.track-d,
-.track-k,
-.track-l {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  width: calc(97vw / 4);
-  background-color: black;
-  opacity: 54%;
-  overflow: hidden;
-}
-
-.note-s {
-  box-sizing: border-box;
-  height: calc(97vw / 8);
-  width: calc(97vw / 4);
-  background-color: green;
-  border-radius: 5px;
-  animation-name: move-down;
-  animation-duration: 2s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-play-state: running;
-  position: absolute;
->>>>>>> dd3c77062017ecc5f747dc874c162da2211dac9e
 }
 
 .green {
@@ -355,7 +327,6 @@ html {
 }
 
 /*inside each track s d k l */
-<<<<<<< HEAD
 .receptor-s, .receptor-d, .receptor-k, .receptor-l {
     box-sizing : border-box;
     height: calc(97vw/8);
@@ -365,22 +336,6 @@ html {
     border-color: white;
     border-radius: 5px;
     }
-=======
-.receptor-s,
-.receptor-d,
-.receptor-k,
-.receptor-l {
-  box-sizing: border-box;
-  height: calc(97vw / 8);
-  width: calc(97vw / 4);
-  border: solid;
-  border-width: 4px;
-  border-color: white;
-  border-radius: 5px;
-  /* position: fixed; */
-  /* bottom: calc(97vw/4); */
-}
->>>>>>> dd3c77062017ecc5f747dc874c162da2211dac9e
 
 /*inside game-screen*/
 .buttons {
