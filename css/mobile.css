@@ -275,10 +275,11 @@ td {
 .track-s, .track-d, .track-k, .track-l {
     display: flex;
     flex-direction: column;
-    /*justify-content: flex-end;*/
+    justify-content: flex-end;
     width: calc(97vw/4);
     background-color: black;
     opacity: 54%;
+    overflow: hidden;
 }
 
 .note-s {
@@ -310,11 +311,11 @@ td {
     height: calc(97vw/8);
     width: calc(97vw/4);
     border: solid;
-    border-width: 5px;
+    border-width: 4px;
     border-color: white;
     border-radius: 5px;
-    position: absolute;
-    bottom: calc(97vw/4);
+    /* position: fixed; */
+    /* bottom: calc(97vw/4); */
     }
 
 /*inside game-screen*/
@@ -347,14 +348,6 @@ td {
 
 /*inside buttons*/
 .button-s, .button-d, .button-k, .button-l {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: xx-large;
-    font-weight: 800;
-    /*text-shadow: 2px 2px 2px black;*/
-    color: black;
-    opacity: 75%;
     width: calc(97%/4);
 }
 
