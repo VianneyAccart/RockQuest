@@ -14,6 +14,7 @@ li {
 
 a {
     text-decoration: none;
+    color: white;
 }
 
 /* A améliorer car sur tout petit écran, problème de blanc */
@@ -37,14 +38,34 @@ body {
 .nav-play-btn {
     width: 110px;
     height: 30px;
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: #E9B44B;
     border: none;
     cursor: pointer;
     margin: 1rem 0;
-    box-shadow: 1px 1px 20px black; 
+    box-shadow: 1px 1px 10px black; 
     font-size: 1rem;
     font-weight: 600;
+    animation-name: slideIn;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes slideIn {
+    0% {
+      transform: translate(0px, 0px);
+    }
+    50% {
+      transform: translate(0px, 2px);
+    }
+    100% {
+      transform: translate(0px, 0px);
+    }
+  }
+
+.nav-img {
+    background-image: url("/img/splash.png");
+    background-size: contain;
 }
 
 .play-nav-link {
@@ -117,9 +138,10 @@ h1 {
 }
 
 .introduction-container, .text-container {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.85);
     box-sizing: border-box;
     width: 40vw;
+    border-radius: 10px;
 }
 
 .text-container-about {
@@ -144,7 +166,7 @@ h1 {
     margin-top: 3rem;
 }
 
-.play-btn, .contact-btn {
+.play-btn-homepage, .contact-btn {
     width: 200px;
     height: 70px;
     border-radius: 10px;
@@ -165,7 +187,7 @@ h1 {
     color: #303134;
 }
 
-.play-btn > a {
+.play-btn > a, .play-btn-homepage > a{
     font-size: 1.8rem;
     font-weight: 900;
     color: #303134;
@@ -222,7 +244,7 @@ td {
 }
 
 img {
-    max-width: 100%;
+    max-width: 60%;
 }
 
 .about-us-desktop {
@@ -231,11 +253,16 @@ img {
 
 /* Game page */ 
 
+.body-game {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
 .game {
     display: flex;
     flex-direction: row;
-    width: 100vw;
-    height: auto;
+    flex: 1 1 0;
 }
 
 .menu-left {
@@ -247,28 +274,39 @@ img {
     flex: 1 1 0;
 }
 
-.game-score, .game-countdown {
+.game-score {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.8);
     width: 240px;
-    height: 60px;
+    height: 80px;
     border-radius: 5px;
     font-size: 1.2rem;
     font-weight: 500;
     padding-left: 40px;
-}
-
-.game-score {
     margin-top: 100px;
     margin-bottom: 20px;
+}
+
+.game-countdown {
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 240px;
+    height: 80px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding-left: 40px;
+    padding-top: 18px;
+}
+
+progress {
+    width: 65%;
 }
 
 .game-logo {
     height: auto;
 }
-
 
 .menu-right {
     display: flex;
@@ -280,7 +318,7 @@ img {
 
 .game-screen {
     color: white;
-    width: 500px;
+    width: 30vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -291,27 +329,54 @@ img {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    height: 72vh;
+    flex: 1 1 0;
 }
 
 /*inside tracks*/
 .track-s, .track-d, .track-k, .track-l {
     display: flex;
-    align-items: flex-end;
-    width: calc(97%/4);
+        flex-direction: column;
+    /*align-items: flex-end;*/
+    width: calc((30vw)*0.97/4);
     background-color: black;
     opacity: 54%;
+    overflow: hidden;
 }
+
+.note-s {
+    box-sizing : border-box;
+    height: calc((30vw)*0.97/8);
+    width: calc((30vw)*0.97/4);
+    background-color: green;
+    border-radius: 5px;
+    animation-name: move-down;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-play-state: active;
+    position: relative;
+}
+
+@keyframes move-down {
+    0% {
+        top: 0vh;
+    }
+    100% {
+        top: 100vh;
+    }
+    }
 
 /*inside tracks*/
 .receptor-s, .receptor-d, .receptor-k, .receptor-l {
     box-sizing : border-box;
-    height: calc(121.25px/2);
-    width: 121.25px;
+    height: calc((30vw)*0.97/8);
+    width: calc((30vw)*0.97/4);
     border: solid;
     border-width: 5px;
     border-color: white;
     border-radius: 5px;
+    position: absolute;
+    bottom: calc((30vw)*0.97/8);
 }
 
 /*inside game-screen*/
@@ -319,7 +384,7 @@ img {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    height: 121.25px;
+    height: calc((30vw)*0.97/8);
 }
 
 /*inside buttons*/
@@ -397,7 +462,7 @@ img {
 }
 
 .launch-btn {
-    margin: 1rem 0;
+    margin: 0.5rem 0;
     background-color: #E9B44B;
     width: 200px;
     height: 35px;
@@ -424,6 +489,15 @@ img {
     flex-direction: column;
     justify-content: center;
     display: none;
+    box-sizing: border-box;
+}
+
+.countdown {
+    margin: auto;
+    font-size: 10rem;
+    font-weight: 800;
+    color: #E9B44B;
+    text-shadow: 1px 1px 20px black;
 }
 
 /* End game popup */
@@ -440,4 +514,49 @@ img {
     flex-direction: column;
     justify-content: center;
     display: none;
-};
+}
+
+.s-touch, .d-touch, .k-touch, .l-touch {
+    color: #E9B44B;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.s-touch:hover {
+    color: green;
+}
+.d-touch:hover {
+    color: red;
+}
+.k-touch:hover {
+    color: yellow;
+}
+.l-touch:hover {
+    color: blue;
+}
+
+.leaderboardFilter {
+    margin-bottom: 2rem;
+}
+
+.leaderboardFilterList {
+    display: flex;
+}
+
+.leaderboardFilterItem {
+    color: white;
+    width: 100px;
+    height: 30px;
+    margin-right: 1rem;
+    cursor: pointer;
+    color: #303134;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #E9B44B;
+    border: none;
+    border-radius: 20px;
+}
+
+.leaderboardFilterItem:hover {
+    background-color: white;
+}

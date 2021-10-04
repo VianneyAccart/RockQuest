@@ -19,54 +19,54 @@ function closeMenu() {
     navMenu.classList.remove("active");
 }
 
-// Countdown 60 to 0 sec
-/*
-let timeleft = 60;
-let downloadTimer = setInterval(function(){
-    document.getElementById("progressBar").value = 60 - timeleft;
-    timeleft-- ;
-    document.getElementById("countdownText").innerHTML = timeleft;
-    if(timeleft <= 0){clearInterval(downloadTimer);}
-   							 	},1000);  
+// Permet aux boutons Easy, Medium et Hard de lancer le décompte
+let launchBtn = document.querySelectorAll(".launch-btn");
+for (let i = 0; i < launchBtn.length; i++) {
+    launchBtn[i].addEventListener('click', function () {
+        document.querySelector(".launch-game-popup").style.display = "none";
+        document.querySelector(".launch-game-countdown").style.display = "flex";
+        startCountdown();
+    }
+    )
+}
 
 // Countdown start new game and show content 
+let timeout, interval;
+let startNewPlay = 3000; // 3 secondes
+let secondsleft = startNewPlay;
+let countdown = document.querySelector(".countdown"); // Paragraphe qui contient le décompte
 
-let timeout,interval;
-let startNewPlay = 3000; // 3 secondes (3000ms)
-let secondsleft= startNewPlay;
-
-// Quand je clique sur un launch-btn
-  // La div launch-game-popup disparait && la div launch-game-countdown apparait
-    // Dans la div launch-game-countdown, je veux affiche 3, 2, 1
-      // A 0 la div launch-game-countdown disparait && le décompte des 60 sec démarre
-
- function showContent()
- {
-    secondsleft-=1000;
-    document.querySelector(".div1").innerHTML = "New game start in " + Math.abs((secondsleft/1000))+" secs";  
-    
-    if(secondsleft == 0)
-    {
-        //document.getElementById("clickme").style.display="";
+// Décompte
+function showContent() {
+    secondsleft -= 1000;
+    countdown.innerHTML = Math.abs((secondsleft / 1000));
+    if (secondsleft == 0) {
         clearInterval(interval);
-        document.querySelector(".launch-game-popup").style.display="none";
-        document.querySelector(".launch-game-countdown").style.display="flex"; // Pas sûr ici, à vérifier
+        // document.querySelector(".launch-game-popup").style.display="none";
+        document.querySelector(".launch-game-countdown").style.display = "flex";
+        progressBarCount();
     }
 };
 
-function startCountdown()
-{
-      clearInterval(interval);
-      secondsleft=startNewPlay;
-      document.querySelector(".launch-btn").innerHTML = "New game start in " + Math.abs((secondsleft/1000))+" secs";  
-       interval= setInterval(function()
-       {
-           showContent();
-       },1000)              
+// Lancement du décompte
+function startCountdown() {
+    clearInterval(interval);
+    interval = setInterval(function () {
+        showContent();
+    }, 1000)
 };
 
- function resetTimer()
-{
-    startCountdown();
-}; */
-
+// Décompte de 60 à 0
+function progressBarCount() {
+    document.querySelector(".launch-game-countdown").style.display = "none";
+    let timeleft = 60;
+    let downloadTimer = setInterval(function () {
+        document.querySelector("#progressBar").value = 60 - timeleft;
+        timeleft--;
+        document.querySelector("#countdownText").innerHTML = timeleft;
+        if (timeleft <= 0) { 
+            clearInterval(downloadTimer); 
+            document.querySelector(".end-game-popup").style.display = "flex";
+        }
+    }, 1000);
+}

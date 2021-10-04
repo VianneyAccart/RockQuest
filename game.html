@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock'Quest | Play a rock and rythmed adventure</title>
-    <link rel="shortcut icon" type="image/png" href="img/logo.png"/>
+    <link rel="shortcut icon" type="image/png" href="img/logo.png" />
     <link rel="stylesheet" type="text/css" media="screen and (max-width: 767px)" href="css/mobile.css">
     <link rel="stylesheet" type="text/css" media="screen and (min-width: 768px)" href="css/desktop.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,13 +15,15 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 </head>
+
 <body class="body-game">
     <header class="header">
         <nav class="navbar">
             <a href="index.html"><img src="img/logo.png" alt="logo" class="logo"></a>
             <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="game.html" class="nav-link"><button class="nav-play-btn">Play</button><span class="play-nav-link">Play</span></a>
+                <li class="nav-item nav-img">
+                    <a href="game.html" class="nav-link"><button class="nav-play-btn">Play</button><span
+                            class="play-nav-link">Play</span></a>
                 </li>
                 <li class="nav-item">
                     <a href="how-to-play.html" class="nav-link">How to play</a>
@@ -44,18 +46,22 @@
         <div class="menu-left">
             <h1>ROCK'<br />QUEST</h1>
             <div class="game-score">Your score :<span class="player-score">0</span></div>
-            <div class="game-countdown">Time left : <span class="time-left">60</span></div>
+            <div class="game-countdown">Time left :
+                <span class="player-score" id="countdownText">60</span>
+                <progress value="0" max="60" id="progressBar"></progress>
+            </div>
         </div>
         <div class="game-screen">
             <div class="launch-game-popup">
                 <h2>Choose your difficulty</h2>
                 <div class="launch-game-btn">
                     <button class="launch-btn">Easy</button>
+                    <button class="launch-btn">Medium</button>
                     <button class="launch-btn">Hard</button>
                 </div>
             </div>
             <div class="launch-game-countdown">
-                <p>Décompte à insérer ici</p>
+                <p class="countdown">3</p>
             </div>
             <div class="end-game-popup">
                 <h2>Your score</h2>
@@ -90,15 +96,6 @@
         <div class="menu-right">
         </div>
     </div>
-    <!-- Two Countdown , first for progress , duration game ; 2nd for select difficulty and show content
-         <p>
-        <progress value="0" max="59" id="progressBar"></progress>
-        <span id="countdownText">60</span> seconds
-    </p>
-    
-        <button id="clickme" onClick="startCountdown()">Let's Rock Your Score!</button>
-        <div class="div1">Click on the button and prepare yourself</div>
-        <div class="div2" style="display:none;">"Let's Start new Difficulty and show the content"</div> -->
 
     <script src="js/script.js"></script>
     <script src="js/input-detection.js"></script>

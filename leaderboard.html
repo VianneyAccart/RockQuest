@@ -21,7 +21,7 @@
         <nav class="navbar">
             <a href="index.html"><img src="img/logo.png" alt="logo" class="logo"></a>
             <ul class="nav-menu">
-                <li class="nav-item">
+                <li class="nav-item nav-img">
                     <a href="game.html" class="nav-link"><button class="nav-play-btn">Play</button><span class="play-nav-link">Play</span></a>
                 </li>
                 <li class="nav-item">
@@ -45,6 +45,13 @@
      
         <div class="text-container">
             <h1 class="page-title">Leaderboard</h1>
+            <div class="leaderboardFilter">
+                <div class="leaderboardFilterList">
+                    <button class="leaderboardFilterItem" id="leaderboardEasy">Easy</button>
+                    <button class="leaderboardFilterItem" id="leaderboardMedium">Medium</button>
+                    <button class="leaderboardFilterItem" id="leaderboardHard">Hard</button>
+                </div>
+            </div>
             <table class="table-container">
                 <tr class="table-row" id="leaderboard">
                     <th>Player</th>
@@ -87,5 +94,4 @@
     <script src="js/leaderbord.js"></script>
     
 </body>
-
 </html>
