@@ -47,7 +47,7 @@
             <h1>ROCK'<br />QUEST</h1>
             <div class="game-score">Your score :<span class="player-score">0</span></div>
             <div class="game-countdown">Time left :
-                <span class="player-score" id="countdownText">60</span>
+                <span class="player-score" id="countdownTextDesktop">60</span> <!-- Attention 2x ID, add Desktop-->
                 <progress value="0" max="60" id="progressBar"></progress>
             </div>
         </div>
@@ -62,6 +62,14 @@
             </div>
             <div class="launch-game-countdown">
                 <p class="countdown">3</p>
+            </div>
+            <div class="mobile-popup">
+                <div class="mobile-element">
+                    Your score : <span class="player-score">0</span>
+                </div>
+                <div class="mobile-element">
+                    Time left : <span class="player-score" id="countdownTextMobile">60</span> <!-- Attention 2x ID, add Mobile -->
+                </div>
             </div>
             <div class="end-game-popup">
                 <h2>Your score</h2>
