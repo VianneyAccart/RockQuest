@@ -61,11 +61,8 @@ window.addEventListener("keyup", function (buttonDown) {
 
 // Generate a new note
 function addNote(noteId, color) {
-  // Cibler l'ID
   const addNoteId = document.getElementById(noteId);
-  // Créer une div
   const addNoteDiv = document.createElement("div");
-  // Lui ajouter la class note & color
   addNoteDiv.classList.add("note");
   addNoteDiv.classList.add(color);
   // L'insérer juste après addNoteId
