@@ -111,50 +111,41 @@ function addNote(noteId, color) {
   setTimeout(() => newNoteDiv.remove(), 2000); // Supprime les notes générées après 2 secondes
 }
 
-// Countdown start new game and show content 
-let timeout, interval;
-let startNewPlay = 3000; // 3 secondes
-let secondsleft = startNewPlay;
+// Génère des notes selon la difficulté choisie
+function noteGenerating(mode) {
+  if (mode.S.some(note => note === timeleft)) {
+    addNote("noteS", "green");
+  }
+  if (mode.D.some(note => note === timeleft)) {
+    addNote("noteD", "red");
+  }
+  if (mode.K.some(note => note === timeleft)) {
+    addNote("noteK", "yellow");
+  }
+  if (mode.L.some(note => note === timeleft)) {
+    addNote("noteL", "blue");
+  }
+}
+
 let countdown = document.querySelector(".countdown"); // Paragraphe qui contient le décompte
+let timeleft = 60; // Durée d'une partie en secondes
 
-// Décompte
-function showContent() {
-  secondsleft -= 1000;
-  countdown.innerHTML = Math.abs((secondsleft / 1000));
-  if (secondsleft == 0) {
-    clearInterval(interval);
-    // document.querySelector(".launch-game-popup").style.display="none";
-    document.querySelector(".launch-game-countdown").style.display = "flex";
-    progressBarCount();
-  }
-};
-
-// Lancement du décompte
+// Lancement du décompte : 3, 2, 1...
 function startCountdown() {
-  clearInterval(interval);
-  interval = setInterval(function () {
-    showContent();
-  }, 1000)
+  let secondsleft = 3000;
+  setInterval(function () {
+    secondsleft -= 1000;
+    countdown.innerHTML = Math.abs((secondsleft / 1000));
+    if (secondsleft == 0) {
+      document.querySelector(".launch-game-countdown").style.display = "flex";
+      countdownTimer();
+    }
+  }, 1000);
 };
 
-// Décompte de 60 à 0
-function progressBarCount() {
-  function noteGenerating(mode) {
-    if (mode.S.some(note => note === timeleft)) {
-      addNote("noteS", "green");
-    }
-    if (mode.D.some(note => note === timeleft)) {
-      addNote("noteD", "red");
-    }
-    if (mode.K.some(note => note === timeleft)) {
-      addNote("noteK", "yellow");
-    }
-    if (mode.L.some(note => note === timeleft)) {
-      addNote("noteL", "blue");
-    }
-  }
+// Lancement du décompte de 60 à 0
+function countdownTimer() {
   document.querySelector(".launch-game-countdown").style.display = "none";
-  let timeleft = 60;
   let downloadTimer = setInterval(function () {
     document.querySelector("#progressBar").value = 60 - timeleft;
     timeleft--;
