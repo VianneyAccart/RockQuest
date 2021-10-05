@@ -3,7 +3,7 @@ const trackD = document.querySelector("#noteD")
 const trackK = document.querySelector("#noteK")
 const trackL = document.querySelector("#noteL")
 
-window.addEventListener("keydown", function (buttonDown) {
+document.addEventListener("keydown", function (buttonDown) {
   if (buttonDown.defaultPrevented) {
     return; // Do nothing if event already handled
   }
@@ -27,7 +27,7 @@ window.addEventListener("keydown", function (buttonDown) {
   buttonDown.preventDefault();
 }, true);
 
-window.addEventListener("keyup", function (buttonDown) {
+document.addEventListener("keyup", function (buttonDown) {
   if (buttonDown.defaultPrevented) {
     return; // Do nothing if event already handled
   }
