@@ -337,8 +337,7 @@ progress {
     display: flex;
     flex-direction: column;
     width: calc((30vw)*0.97/4);
-    background-color: black;
-    opacity: 54%;
+    background-color: rgba(0, 0, 0, 0.54);
     overflow: hidden;
     position: relative;
 }
