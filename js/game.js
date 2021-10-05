@@ -100,8 +100,6 @@ function addNote(noteId, color) {
   // Défilement des notes
   let id = null;
   function myMove() {
-    let buttonsPosition = document.querySelector(".buttons").offsetTop;
-    console.log(buttonsPosition); // OK
     let tracks = document.querySelector(".track");
     let pos = 0;
     let tracksTopPos = tracks.offsetTop;
@@ -121,14 +119,10 @@ function addNote(noteId, color) {
         newNoteDiv.style.top = pos + 'px';
       }
     }
-    if (newNoteDiv.offsetTop === buttonsPosition) {
-      newNoteDiv.remove();
-    }
   }
   myMove();
-  // IF newNoteDiv.offsetTop === tracksBottomPos {
-    // newNoteDiv.remove()
-};
+  setTimeout(() => newNoteDiv.remove(), 2000);
+}
 
 // Countdown start new game and show content 
 let timeout, interval;
