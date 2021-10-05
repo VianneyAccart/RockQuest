@@ -10,16 +10,16 @@ document.addEventListener("keydown", function (buttonDown) {
 
   switch (buttonDown.code) {
     case "KeyS":
-      trackS.style.background = "linear-gradient(black, 90%, green)";
+      trackS.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, green)";
       break;
     case "KeyD":
-      trackD.style.background = "linear-gradient(black, 90%, red)";
+      trackD.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, red)";
       break;
     case "KeyK":
-      trackK.style.background = "linear-gradient(black, 90%, yellow)";
+      trackK.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, yellow)";
       break;
     case "KeyL":
-      trackL.style.background = "linear-gradient(black, 90%, blue)";
+      trackL.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, blue)";
       break;
   }
 
@@ -35,19 +35,19 @@ document.addEventListener("keyup", function (buttonDown) {
   switch (buttonDown.code) {
     case "KeyS":
       trackS.style.background = "none";
-      trackS.style.backgroundColor = "black";
+      trackS.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
       break;
     case "KeyD":
       trackD.style.background = "none";
-      trackD.style.backgroundColor = "black";
+      trackD.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
       break;
     case "KeyK":
       trackK.style.background = "none";
-      trackK.style.backgroundColor = "black";
+      trackK.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
       break; s
     case "KeyL":
       trackL.style.background = "none";
-      trackL.style.backgroundColor = "black";
+      trackL.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
       break;
   }
 
@@ -108,7 +108,7 @@ function addNote(noteId, color) {
     console.log(tracksHeight);
     let tracksBottomPos = tracksTopPos + tracksHeight;
     console.log(tracksBottomPos);
-    let notePosIncrementer = tracksHeight / 250
+    let notePosIncrementer = tracksHeight / 250; // Modifie la vitesse de descente des notes
     console.log(notePosIncrementer);
     let id = setInterval(frame, 1);
     function frame() {

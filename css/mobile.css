@@ -284,8 +284,7 @@ html {
     flex-direction: column;
     justify-content: flex-end;
     width: calc(97vw/4);
-    background-color: black;
-    opacity: 54%;
+    background-color: rgba(0, 0, 0, 0.54);
     overflow: hidden;
     position: relative;
 }
@@ -358,6 +357,7 @@ html {
 .button-k,
 .button-l {
   width: calc(97% / 4);
+  opacity: 75%;
 }
 
 /* Launch game popup */
