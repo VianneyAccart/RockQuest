@@ -74,16 +74,34 @@ function addNote(noteId, color) {
   addNoteDiv.classList.add(color);
   // L'insérer juste après addNoteId
   addNoteId.prepend(addNoteDiv);
+  // inclure myMove 
   setTimeout(() => addNoteDiv.remove(), 2000);
 }
 
 // Partitions
 const easyMode = {
+  S: [59, 55, 51, 47, 43, 39, 35, 31, 27, 23, 19, 15, 11, 7, 3],
+  D: [57, 55, 52, 50, 47, 45, 42, 40, 37, 35, 32, 30, 27, 25, 22, 20, 17, 15, 12, 10, 7, 5, 2],
+  K: [58, 56, 54, 52, 50, 45, 40, 38, 36, 34, 30, 28, 26, 24, 22, 20, 18, 16, 14, 10, 8, 6, 4, 2],
+  L: [59, 58, 53, 50, 49, 44, 41, 40, 39, 34, 31, 30, 25, 22, 21, 16, 13, 12, 9, 5, 3, 1]
+};
+
+const mediumMode = {
+  S: [59, 57, 55, 53, 51, 47, 46, 45, 43, 41, 39, 37, 36, 35, 34, 33, 29, 27, 25, 23, 21, 17, 16, 15, 11, 10, 7, 6, 5, 3],
+  D: [57, 56, 55, 52, 51, 50, 48, 47, 45, 42, 40, 38, 37, 35, 33, 32, 30, 28, 27, 25, 22, 20, 17, 15, 12, 11, 10, 8, 7, 4, 2],
+  K: [58, 56, 54, 52, 50, 45, 40, 38, 36, 34, 30, 28, 26, 24, 22, 20, 18, 16, 14, 10, 8, 6, 4, 2],
+  L: [59, 58, 53, 50, 49, 44, 41, 40, 39, 34, 31, 30, 25, 22, 21, 16, 13, 12, 9, 5, 3, 1]
+};
+
+const hardMode = {
   S: [59, 55, 52, 50, 46, 42, 37, 34, 30, 26, 22, 20, 16, 10, 1],
   D: [57, 49, 45, 43, 39, 34, 32, 29, 19, 9],
   K: [55, 53, 51, 47, 46, 41, 35, 32, 28, 22, 17, 14, 11, 8],
   L: [58, 54, 48, 44, 31, 28, 22, 5]
 };
+
+// Génération des notes
+
 
 // Countdown start new game and show content 
 let timeout, interval;
@@ -113,6 +131,20 @@ function startCountdown() {
 
 // Décompte de 60 à 0
 function progressBarCount() {
+  function noteGenerating(mode) {
+    if (mode.S.some(note => note === timeleft)) {
+      addNote("noteS", "green");
+    }
+    if (mode.D.some(note => note === timeleft)) {
+      addNote("noteD", "red");
+    }
+    if (mode.K.some(note => note === timeleft)) {
+      addNote("noteK", "yellow");
+    }
+    if (mode.L.some(note => note === timeleft)) {
+      addNote("noteL", "blue");
+    }
+  }
   document.querySelector(".launch-game-countdown").style.display = "none";
   let timeleft = 60;
   let downloadTimer = setInterval(function () {
@@ -128,19 +160,8 @@ function progressBarCount() {
       clearInterval(downloadTimer);
       document.querySelector(".end-game-popup").style.display = "flex";
     }
-    // Génère les notes de la partition Easy
-    
-    if (easyMode.S.some(note => note === timeleft)) {
-      addNote("noteS", "green");
-    }
-    if (easyMode.D.some(note => note === timeleft)) {
-      addNote("noteD", "red");
-    }
-    if (easyMode.K.some(note => note === timeleft)) {
-      addNote("noteK", "yellow");
-    }
-    if (easyMode.L.some(note => note === timeleft)) {
-      addNote("noteL", "blue");
-    }
+
+    noteGenerating(mediumMode);
+
   }, 1000);
 }
