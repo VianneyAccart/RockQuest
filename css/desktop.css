@@ -369,16 +369,14 @@ progress {
 }
 
 /*inside tracks*/
-.receptor-s, .receptor-d, .receptor-k, .receptor-l {
+.receptor {
     box-sizing : border-box;
     height: calc((30vw)*0.97/8);
     width: calc((30vw)*0.97/4);
-    border: solid;
-    border-width: 5px;
-    border-color: white;
+    border: solid 2px white;
     border-radius: 5px;
     position: absolute;
-    bottom: calc((30vw)*0.97/8);
+    bottom: 0;
 }
 
 /*inside game-screen*/

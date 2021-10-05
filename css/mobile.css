@@ -315,15 +315,13 @@ html {
 }
 
 /*inside each track s d k l */
-.receptor-s, .receptor-d, .receptor-k, .receptor-l {
+.receptor {
     box-sizing : border-box;
     height: calc(97vw/8);
     width: calc(97vw/4);
-    border: solid;
-    border-width: 4px;
-    border-color: white;
+    border: solid 3px white;
     border-radius: 5px;
-    }
+}
 
 /*inside game-screen*/
 .buttons {

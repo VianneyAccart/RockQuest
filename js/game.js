@@ -66,18 +66,6 @@ for (let i = 0; i < launchBtn.length; i++) {
   )
 }
 
-// Generate a new note
-function addNote(noteId, color) {
-  const addNoteId = document.getElementById(noteId);
-  const addNoteDiv = document.createElement("div");
-  addNoteDiv.classList.add("note");
-  addNoteDiv.classList.add(color);
-  // L'insérer juste après addNoteId
-  addNoteId.prepend(addNoteDiv);
-  // inclure myMove 
-  setTimeout(() => addNoteDiv.remove(), 2000);
-}
-
 // Partitions
 const easyMode = {
   S: [59, 55, 51, 47, 43, 39, 35, 31, 27, 23, 19, 15, 11, 7, 3],
@@ -100,8 +88,41 @@ const hardMode = {
   L: [58, 54, 48, 44, 31, 28, 22, 5]
 };
 
-// Génération des notes
+// Generate a new note
+function addNote(noteId, color) {
+  const newNoteId = document.getElementById(noteId);
+  const newNoteDiv = document.createElement("div");
+  newNoteDiv.classList.add("note");
+  newNoteDiv.classList.add(color);
+  // L'insérer juste après addNoteId
+  newNoteId.prepend(newNoteDiv);
 
+  // Défilement des notes
+  let id = null;
+  function myMove() {
+    let tracks = document.querySelector(".track");
+    let pos = 0;
+    let tracksTopPos = tracks.offsetTop;
+    console.log(tracksTopPos);
+    let tracksHeight = tracks.offsetHeight;
+    console.log(tracksHeight);
+    let tracksBottomPos = tracksTopPos + tracksHeight;
+    console.log(tracksBottomPos);
+    let notePosIncrementer = tracksHeight / 250
+    console.log(notePosIncrementer);
+    let id = setInterval(frame, 1);
+    function frame() {
+      if (pos == tracksBottomPos) {
+        clearInterval(id);
+      } else {
+        pos = pos + notePosIncrementer;
+        newNoteDiv.style.top = pos + 'px';
+      }
+    }
+  }
+  myMove();
+  setTimeout(() => newNoteDiv.remove(), 2000);
+}
 
 // Countdown start new game and show content 
 let timeout, interval;
@@ -165,30 +186,3 @@ function progressBarCount() {
 
   }, 1000);
 }
-
-// Animater la note en JS (Ario)
-let id = null;
-function myMove() {
-  note = document.querySelector(".note");
-  let tracks = document.querySelector(".track");
-  let pos = 0;
-  let tracksTopPos = tracks.offsetTop;
-    console.log(tracksTopPos);
-  let tracksHeight = tracks.offsetHeight;
-    console.log(tracksHeight);
-  let tracksBottomPos = tracksTopPos + tracksHeight;
-    console.log(tracksBottomPos);
-  let notePosIncrementer = tracksHeight/250
-  console.log(notePosIncrementer);
-  let id = setInterval(frame, 1);
-  function frame() {
-    if (pos == tracksBottomPos) {
-      clearInterval(id);
-    } else {
-      pos = pos+notePosIncrementer;
-      note.style.top = pos + 'px';
-    }
-  }
-} 
-
-myMove();
