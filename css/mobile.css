@@ -290,6 +290,7 @@ html {
   background-color: black;
   opacity: 54%;
   overflow: hidden;
+  position: relative;
 }
 
 .note-s {
@@ -298,22 +299,23 @@ html {
   width: calc(97vw / 4);
   background-color: green;
   border-radius: 5px;
-  animation-name: move-down;
+  position: absolute;
+/*  animation-name: move-down;
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-play-state: running;
-  position: absolute;
+  position: absolute;*/
 }
 
-@keyframes move-down {
+/*@keyframes move-down {
   0% {
     top: 0vh;
   }
   100% {
     top: 100vh;
   }
-}
+}*/
 
 /*inside each track s d k l */
 .receptor-s,

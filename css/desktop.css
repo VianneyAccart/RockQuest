@@ -349,22 +349,22 @@ progress {
     width: calc((30vw)*0.97/4);
     background-color: green;
     border-radius: 5px;
-    animation-name: move-down;
+    /*animation-name: move-down;
     animation-duration: 2s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-play-state: active;
-    position: relative;
+    position: relative;*/
 }
 
-@keyframes move-down {
+/*@keyframes move-down {
     0% {
         top: 0vh;
     }
     100% {
         top: 100vh;
     }
-    }
+    }*/
 
 /*inside tracks*/
 .receptor-s, .receptor-d, .receptor-k, .receptor-l {
