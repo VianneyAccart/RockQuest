@@ -88,40 +88,27 @@ const hardMode = {
   L: [58, 54, 48, 44, 31, 28, 22, 5]
 };
 
-// Generate a new note
+// Génère une nouvelle note
 function addNote(noteId, color) {
   const newNoteId = document.getElementById(noteId);
   const newNoteDiv = document.createElement("div");
   newNoteDiv.classList.add("note");
   newNoteDiv.classList.add(color);
-  // L'insérer juste après addNoteId
   newNoteId.prepend(newNoteDiv);
 
-  // Défilement des notes
-  let id = null;
+  // Permet le défilement des notes
   function myMove() {
-    let tracks = document.querySelector(".track");
-    let pos = 0;
-    let tracksTopPos = tracks.offsetTop;
-    console.log(tracksTopPos);
-    let tracksHeight = tracks.offsetHeight;
-    console.log(tracksHeight);
-    let tracksBottomPos = tracksTopPos + tracksHeight;
-    console.log(tracksBottomPos);
-    let notePosIncrementer = tracksHeight / 250; // Modifie la vitesse de descente des notes
-    console.log(notePosIncrementer);
-    let id = setInterval(frame, 1);
+    let pos = 0; // newNoteDiv commence en position 0
+    let tracksHeight = document.querySelector(".track").offsetHeight;
+    let notePosIncrementer = tracksHeight / 250; // On peut ici modifier la vitesse de descente des notes
+    setInterval(frame, 1);
     function frame() {
-      if (pos == tracksBottomPos) {
-        clearInterval(id);
-      } else {
-        pos = pos + notePosIncrementer;
-        newNoteDiv.style.top = pos + 'px';
-      }
+      pos += notePosIncrementer;
+      newNoteDiv.style.top = pos + 'px';
     }
   }
   myMove();
-  setTimeout(() => newNoteDiv.remove(), 2000);
+  setTimeout(() => newNoteDiv.remove(), 2000); // Supprime les notes générées après 2 secondes
 }
 
 // Countdown start new game and show content 
