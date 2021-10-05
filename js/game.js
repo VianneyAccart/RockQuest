@@ -58,9 +58,9 @@ document.addEventListener("keyup", function (buttonDown) {
 // Partitions
 const easyMode = {
   S: [59, 55, 51, 47, 43, 39, 35, 31, 27, 23, 19, 15, 11, 7, 3],
-  D: [57, 55, 52, 50, 47, 45, 42, 40, 37, 35, 32, 30, 27, 25, 22, 20, 17, 15, 12, 10, 7, 5, 2],
+  D: [58.50, 55, 52, 50, 47, 45, 42, 40, 37, 35, 32, 30, 27, 25, 22, 20, 17, 15, 12, 10, 7, 5, 2],
   K: [58, 56, 54, 52, 50, 45, 40, 38, 36, 34, 30, 28, 26, 24, 22, 20, 18, 16, 14, 10, 8, 6, 5, 4, 3, 2, 1],
-  L: [59, 58, 53, 50, 49, 44, 41, 40, 39, 34, 31, 30, 25, 22, 21, 16, 13, 12, 9, 5, 4, 3, 2, 1]
+  L: [57.50, 58, 53, 50, 49, 44, 41, 40, 39, 34, 31, 30, 25, 22, 21, 16, 13, 12, 9, 5, 4, 3, 2, 1]
 };
 
 const mediumMode = {
@@ -107,7 +107,7 @@ let progressBar = document.querySelector("#progressBar"); // Barre de progressio
 let countdownOnDesktop = document.querySelector("#countdownTextDesktop"); // Décompte affiché sur desktop
 let countdownOnMobile = document.querySelector("#countdownTextMobile"); // Décompte affiché sur mobile
 let endGamePopup = document.querySelector(".end-game-popup");
-let timeleft = 60; // Durée d'une partie en secondes
+let timeleft = 6000; // Durée d'une partie en secondes
 
 // Lancement du décompte : 3, 2, 1...
 function startCountdown(mode) {
@@ -126,31 +126,33 @@ function startCountdown(mode) {
 function countdownTimer(mode) {
   launchGameCountdown.style.display = "none";
   let round = setInterval(function () {
-    progressBar.value = 60 - timeleft;
+    progressBar.value = 60000 - timeleft;
+    console.log(timeleft);
     timeleft--;
-    countdownOnDesktop.innerHTML = timeleft;
-    countdownOnMobile.innerHTML = timeleft;
+    console.log(timeleft);
+    countdownOnDesktop.innerHTML = timeleft / 100;
+    countdownOnMobile.innerHTML = timeleft / 100;
     if (timeleft <= 0) {
       clearInterval(round);
       endGamePopup.style.display = "flex";
     }
     noteGenerating(mode);
-  }, 1000);
+  }, 10);
   console.log(timeleft);
 }
 
 // Définit combien de notes addNote() doit générer selon la difficulté choisie
 function noteGenerating(mode) {
-  if (mode.S.some(note => note === timeleft)) {
+  if (mode.S.some(note => note === timeleft / 100)) {
     addNote("noteS", "green");
   }
-  if (mode.D.some(note => note === timeleft)) {
+  if (mode.D.some(note => note === timeleft / 100)) {
     addNote("noteD", "red");
   }
-  if (mode.K.some(note => note === timeleft)) {
+  if (mode.K.some(note => note === timeleft / 100)) {
     addNote("noteK", "yellow");
   }
-  if (mode.L.some(note => note === timeleft)) {
+  if (mode.L.some(note => note === timeleft / 100)) {
     addNote("noteL", "blue");
   }
 }
