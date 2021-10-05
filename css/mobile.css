@@ -287,6 +287,7 @@ html {
     background-color: black;
     opacity: 54%;
     overflow: hidden;
+    position: relative;
 }
 
 .note {
@@ -294,11 +295,7 @@ html {
     height: calc(97vw/8);
     width: calc(97vw/4);
     border-radius: 5px;
-    animation-name: move-down;
-    animation-duration: 2s;
-    animation-timing-function: linear;
-    animation-play-state: running;
-    position: relative;
+    position: absolute;
 }
 
 .green {
@@ -315,15 +312,6 @@ html {
 
 .blue {
     background-color: blue;
-}
-
-@keyframes move-down {
-  0% {
-    top: 0vh;
-  }
-  100% {
-    top: 100vh;
-  }
 }
 
 /*inside each track s d k l */
