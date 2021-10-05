@@ -128,7 +128,12 @@ function noteGenerating(mode) {
 }
 
 let countdown = document.querySelector(".countdown"); // Paragraphe qui contient le décompte
-let timeleft = 60; // Durée d'une partie en secondes
+let launchGameCountdown = document.querySelector(".launch-game-countdown"); // Pop-up 3, 2, 1...
+let progressBar = document.querySelector("#progressBar"); // Barre de progression sur desktop
+let countdownOnDesktop = document.querySelector("#countdownTextDesktop"); // Décompte affiché sur desktop
+let countdownOnMobile = document.querySelector("#countdownTextMobile"); // Décompte affiché sur mobile
+let endGamePopup = document.querySelector(".end-game-popup");
+let timeleft = 5; // Durée d'une partie en secondes
 
 // Lancement du décompte : 3, 2, 1...
 function startCountdown() {
@@ -137,7 +142,7 @@ function startCountdown() {
     secondsleft -= 1000;
     countdown.innerHTML = Math.abs((secondsleft / 1000));
     if (secondsleft == 0) {
-      document.querySelector(".launch-game-countdown").style.display = "flex";
+      launchGameCountdown.style.display = "flex";
       countdownTimer();
     }
   }, 1000);
@@ -145,22 +150,20 @@ function startCountdown() {
 
 // Lancement du décompte de 60 à 0
 function countdownTimer() {
-  document.querySelector(".launch-game-countdown").style.display = "none";
-  let downloadTimer = setInterval(function () {
-    document.querySelector("#progressBar").value = 60 - timeleft;
+  launchGameCountdown.style.display = "none";
+  let round = setInterval(function () {
+    progressBar.value = 60 - timeleft;
     timeleft--;
-    document.querySelector("#countdownTextDesktop").innerHTML = timeleft;
+    countdownOnDesktop.innerHTML = timeleft;
     if (timeleft <= 0) {
-      clearInterval(downloadTimer);
-      document.querySelector(".end-game-popup").style.display = "flex";
+      clearInterval(round);
+      endGamePopup.style.display = "flex";
     }
-    document.querySelector("#countdownTextMobile").innerHTML = timeleft;
+    countdownOnMobile.innerHTML = timeleft;
     if (timeleft <= 0) {
-      clearInterval(downloadTimer);
-      document.querySelector(".end-game-popup").style.display = "flex";
+      clearInterval(round);
+      endGamePopup.style.display = "flex";
     }
-
     noteGenerating(mediumMode);
-
   }, 1000);
 }
