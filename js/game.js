@@ -55,23 +55,12 @@ document.addEventListener("keyup", function (buttonDown) {
   buttonDown.preventDefault();
 }, true);
 
-// Permet aux boutons Easy, Medium et Hard de lancer le décompte
-let launchBtn = document.querySelectorAll(".launch-btn");
-for (let i = 0; i < launchBtn.length; i++) {
-  launchBtn[i].addEventListener('click', function () {
-    document.querySelector(".launch-game-popup").style.display = "none";
-    document.querySelector(".launch-game-countdown").style.display = "flex";
-    startCountdown();
-  }
-  )
-}
-
 // Partitions
 const easyMode = {
   S: [59, 55, 51, 47, 43, 39, 35, 31, 27, 23, 19, 15, 11, 7, 3],
   D: [57, 55, 52, 50, 47, 45, 42, 40, 37, 35, 32, 30, 27, 25, 22, 20, 17, 15, 12, 10, 7, 5, 2],
-  K: [58, 56, 54, 52, 50, 45, 40, 38, 36, 34, 30, 28, 26, 24, 22, 20, 18, 16, 14, 10, 8, 6, 4, 2],
-  L: [59, 58, 53, 50, 49, 44, 41, 40, 39, 34, 31, 30, 25, 22, 21, 16, 13, 12, 9, 5, 3, 1]
+  K: [58, 56, 54, 52, 50, 45, 40, 38, 36, 34, 30, 28, 26, 24, 22, 20, 18, 16, 14, 10, 8, 6, 5, 4, 3, 2, 1],
+  L: [59, 58, 53, 50, 49, 44, 41, 40, 39, 34, 31, 30, 25, 22, 21, 16, 13, 12, 9, 5, 4, 3, 2, 1]
 };
 
 const mediumMode = {
@@ -82,11 +71,89 @@ const mediumMode = {
 };
 
 const hardMode = {
-  S: [59, 55, 52, 50, 46, 42, 37, 34, 30, 26, 22, 20, 16, 10, 1],
-  D: [57, 49, 45, 43, 39, 34, 32, 29, 19, 9],
-  K: [55, 53, 51, 47, 46, 41, 35, 32, 28, 22, 17, 14, 11, 8],
-  L: [58, 54, 48, 44, 31, 28, 22, 5]
+  S: [59, 58, 53, 52, 50, 46, 42, 37, 34, 30, 26, 22, 20, 16, 10, 1],
+  D: [58, 57, 54, 45, 43, 39, 34, 32, 29, 19, 9],
+  K: [57, 56, 51, 47, 46, 41, 35, 32, 28, 22, 17, 14, 11, 8],
+  L: [59, 55, 48, 44, 31, 28, 22, 5]
 };
+
+// Au clic sur un bouton de difficulté, lance la partition associée
+let launchGamePopup = document.querySelector(".launch-game-popup");
+let launchGameCountdown = document.querySelector(".launch-game-countdown"); // Pop-up 3, 2, 1...
+let easyGame = document.getElementById("launch-btn-easy");
+let mediumGame = document.getElementById("launch-btn-medium");
+let hardGame = document.getElementById("launch-btn-hard");
+
+function gameDifficult(mode) {
+  launchGamePopup.style.display = "none";
+  launchGameCountdown.style.display = "flex";
+  startCountdown(mode);
+}
+
+easyGame.addEventListener("click", function () {
+  gameDifficult(easyMode);
+})
+
+mediumGame.addEventListener("click", function () {
+  gameDifficult(mediumMode);
+})
+
+hardGame.addEventListener("click", function () {
+  gameDifficult(hardMode);
+})
+
+let countdown = document.querySelector(".countdown"); // Paragraphe qui contient le décompte
+let progressBar = document.querySelector("#progressBar"); // Barre de progression sur desktop
+let countdownOnDesktop = document.querySelector("#countdownTextDesktop"); // Décompte affiché sur desktop
+let countdownOnMobile = document.querySelector("#countdownTextMobile"); // Décompte affiché sur mobile
+let endGamePopup = document.querySelector(".end-game-popup");
+let timeleft = 60; // Durée d'une partie en secondes
+
+// Lancement du décompte : 3, 2, 1...
+function startCountdown(mode) {
+  let secondsleft = 3000;
+  setInterval(function () {
+    secondsleft -= 1000;
+    countdown.innerHTML = Math.abs((secondsleft / 1000));
+    if (secondsleft == 0) {
+      launchGameCountdown.style.display = "flex";
+      countdownTimer(mode);
+    }
+  }, 1000);
+};
+
+// Lancement du décompte de 60 à 0
+function countdownTimer(mode) {
+  launchGameCountdown.style.display = "none";
+  let round = setInterval(function () {
+    progressBar.value = 60 - timeleft;
+    timeleft--;
+    countdownOnDesktop.innerHTML = timeleft;
+    countdownOnMobile.innerHTML = timeleft;
+    if (timeleft <= 0) {
+      clearInterval(round);
+      endGamePopup.style.display = "flex";
+    }
+    noteGenerating(mode);
+  }, 1000);
+  console.log(timeleft);
+}
+
+// Définit combien de notes addNote() doit générer selon la difficulté choisie
+function noteGenerating(mode) {
+  if (mode.S.some(note => note === timeleft)) {
+    addNote("noteS", "green");
+  }
+  if (mode.D.some(note => note === timeleft)) {
+    addNote("noteD", "red");
+  }
+  if (mode.K.some(note => note === timeleft)) {
+    addNote("noteK", "yellow");
+  }
+  if (mode.L.some(note => note === timeleft)) {
+    addNote("noteL", "blue");
+  }
+}
 
 // Génère une nouvelle note
 function addNote(noteId, color) {
@@ -109,61 +176,4 @@ function addNote(noteId, color) {
   }
   myMove();
   setTimeout(() => newNoteDiv.remove(), 2000); // Supprime les notes générées après 2 secondes
-}
-
-// Génère des notes selon la difficulté choisie
-function noteGenerating(mode) {
-  if (mode.S.some(note => note === timeleft)) {
-    addNote("noteS", "green");
-  }
-  if (mode.D.some(note => note === timeleft)) {
-    addNote("noteD", "red");
-  }
-  if (mode.K.some(note => note === timeleft)) {
-    addNote("noteK", "yellow");
-  }
-  if (mode.L.some(note => note === timeleft)) {
-    addNote("noteL", "blue");
-  }
-}
-
-let countdown = document.querySelector(".countdown"); // Paragraphe qui contient le décompte
-let launchGameCountdown = document.querySelector(".launch-game-countdown"); // Pop-up 3, 2, 1...
-let progressBar = document.querySelector("#progressBar"); // Barre de progression sur desktop
-let countdownOnDesktop = document.querySelector("#countdownTextDesktop"); // Décompte affiché sur desktop
-let countdownOnMobile = document.querySelector("#countdownTextMobile"); // Décompte affiché sur mobile
-let endGamePopup = document.querySelector(".end-game-popup");
-let timeleft = 5; // Durée d'une partie en secondes
-
-// Lancement du décompte : 3, 2, 1...
-function startCountdown() {
-  let secondsleft = 3000;
-  setInterval(function () {
-    secondsleft -= 1000;
-    countdown.innerHTML = Math.abs((secondsleft / 1000));
-    if (secondsleft == 0) {
-      launchGameCountdown.style.display = "flex";
-      countdownTimer();
-    }
-  }, 1000);
-};
-
-// Lancement du décompte de 60 à 0
-function countdownTimer() {
-  launchGameCountdown.style.display = "none";
-  let round = setInterval(function () {
-    progressBar.value = 60 - timeleft;
-    timeleft--;
-    countdownOnDesktop.innerHTML = timeleft;
-    if (timeleft <= 0) {
-      clearInterval(round);
-      endGamePopup.style.display = "flex";
-    }
-    countdownOnMobile.innerHTML = timeleft;
-    if (timeleft <= 0) {
-      clearInterval(round);
-      endGamePopup.style.display = "flex";
-    }
-    noteGenerating(mediumMode);
-  }, 1000);
 }
