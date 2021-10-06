@@ -5,10 +5,10 @@ const trackL = document.querySelector("#noteL");
 
 // Partitions
 const easyMode = {
-  S: [88, 84, 59, 55, 51, 47, 43, 39, 35, 31, 27, 23, 19, 15, 11, 7, 3],
-  D: [87, 83, 58.50, 55, 52, 50, 47, 45, 42, 40, 37, 35, 32, 30, 27, 25, 22, 20, 17, 15, 12, 10, 7, 5, 2],
-  K: [86, 82, 58, 56, 54, 52, 50, 45, 40, 38, 36, 34, 30, 28, 26, 24, 22, 20, 18, 16, 14, 10, 8, 6, 5, 4, 3, 2, 1],
-  L: [85, 81, 57.50, 58, 53, 50, 49, 44, 41, 40, 39, 34, 31, 30, 25, 22, 21, 16, 13, 12, 9, 5, 4, 3, 2, 1]
+  S: [88, 87.5, 87, 84, 59, 55, 51, 47, 43, 39, 35, 31, 27, 23, 19, 15, 11, 7, 3],
+  D: [87, 86.8, 86.3, 86, 83, 58.50, 55, 52, 50, 47, 45, 42, 40, 37, 35, 32, 30, 27, 25, 22, 20, 17, 15, 12, 10, 7, 5, 2],
+  K: [86, 85.5, 85, 82, 58, 56, 54, 52, 50, 45, 40, 38, 36, 34, 30, 28, 26, 24, 22, 20, 18, 16, 14, 10, 8, 6, 5, 4, 3, 2, 1],
+  L: [85, 84.6, 84, 81, 57.50, 58, 53, 50, 49, 44, 41, 40, 39, 34, 31, 30, 25, 22, 21, 16, 13, 12, 9, 5, 4, 3, 2, 1]
 };
 
 const mediumMode = {
@@ -31,6 +31,85 @@ let launchGameCountdown = document.querySelector(".launch-game-countdown"); // P
 let easyGame = document.getElementById("launch-btn-easy");
 let mediumGame = document.getElementById("launch-btn-medium");
 let hardGame = document.getElementById("launch-btn-hard");
+const receptor = document.querySelector(".receptor");
+
+function noteManagement(color) { // L'argument doit être un string
+  let colorNotes = document.getElementsByClassName(color);
+  let colorNote = null;
+  if (colorNotes.length > 0) {
+    if (colorNotes.length === 1) {
+      colorNote = colorNotes[0];
+    } else {
+      colorNote = colorNotes[colorNotes.length - 1];
+    }
+    if (((parseInt(colorNote.style.top) + colorNote.offsetHeight) < receptor.offsetTop) && colorNote.classList.contains(color)) {
+      colorNote.classList.add("grey");
+      colorNote.classList.remove(color);
+      colorNote.classList.add("miss");
+      colorNote.innerHTML = "MISS";
+    }
+  }
+}
+
+function addListener() {
+  document.addEventListener("keydown", function (buttonDown) { // Lorsqu'une touche est pressée
+    if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }
+    switch (buttonDown.code) {
+      case "KeyS":
+        trackS.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, green)";
+        noteManagement("green");
+        break;
+      case "KeyD":
+        trackD.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, red)";
+        noteManagement("red");
+        break;
+
+      case "KeyK":
+        trackK.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, yellow)";
+        noteManagement("yellow");
+        break;
+      case "KeyL":
+        trackL.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, blue)";
+        noteManagement("blue");
+        break;
+    }
+
+    // Consume the event so it doesn't get handled twice
+    buttonDown.preventDefault();
+  }, true);
+
+  document.addEventListener("keyup", function (buttonDown) {
+    if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }
+
+    switch (buttonDown.code) {
+      case "KeyS":
+        trackS.style.background = "none";
+        trackS.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+        break;
+      case "KeyD":
+        trackD.style.background = "none";
+        trackD.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+        break;
+      case "KeyK":
+        trackK.style.background = "none";
+        trackK.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+        break; s
+      case "KeyL":
+        trackL.style.background = "none";
+        trackL.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+        break;
+    }
+
+    // Consume the event so it doesn't get handled twice
+    buttonDown.preventDefault();
+  }, true);
+}
+
+// Penser à créer une variable qui stocke la difficulté en cours //
 
 function gameDifficult(mode) {
   launchGamePopup.style.display = "none";
@@ -71,7 +150,7 @@ function startCountdown(mode) {
   }, 1000);
 };
 
-// Lancement du décompte de 60 à 0
+// Lancement du décompte de 90 à 0
 function countdownTimer(mode) {
   launchGameCountdown.style.display = "none";
   let round = setInterval(function () {
@@ -83,6 +162,7 @@ function countdownTimer(mode) {
       clearInterval(round);
       endGamePopup.style.display = "flex";
     }
+    addListener();
     noteGenerating(mode);
   }, 10);
 }
@@ -119,80 +199,8 @@ function addNote(noteId, color) {
       pos += notePosIncrementer;
       newNoteDiv.style.top = pos + 'px'; // La valeur du top de newNoteDiv augmente toutes les 1 frames = la note descend
     }
- 
-    let receptor = document.querySelector(".receptor");
-    document.addEventListener("keydown", function (buttonDown) { // Lorsqu'une touche est pressée
-      if (buttonDown.defaultPrevented) {
-        return; // Do nothing if event already handled
-      }
-      switch (buttonDown.code) { // NE MARCHE QU'UNE SEULE FOIS ET SUR LA TRACK S UNIQUEMENT
-        case "KeyS":
-          trackS.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, green)";
-          if (((parseInt(newNoteDiv.style.top) + newNoteDiv.offsetHeight) < receptor.offsetTop) && newNoteDiv.classList.contains("green")) { // Si le bas de la note a une valeur inférieure à celle du top du récepteur
-            newNoteDiv.classList.add("grey");
-            newNoteDiv.classList.add("miss");
-            newNoteDiv.innerHTML = "MISS";
-          }
-          break;
-        case "KeyD":
-          trackD.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, red)";
-          if (((parseInt(newNoteDiv.style.top) + newNoteDiv.offsetHeight) < receptor.offsetTop) && newNoteDiv.classList.contains("red")) {
-            newNoteDiv.classList.add("grey");
-            newNoteDiv.classList.add("miss");
-            newNoteDiv.innerHTML = "MISS";
-          }
-          break;
-        case "KeyK":
-          trackK.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, yellow)";
-          if (((parseInt(newNoteDiv.style.top) + newNoteDiv.offsetHeight) < receptor.offsetTop) && newNoteDiv.classList.contains("yellow")) { 
-            newNoteDiv.classList.add("grey");
-            newNoteDiv.classList.add("miss");
-            newNoteDiv.innerHTML = "MISS";
-          }
-          break;
-        case "KeyL":
-          trackL.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, blue)";
-          if (((parseInt(newNoteDiv.style.top) + newNoteDiv.offsetHeight) < receptor.offsetTop) && newNoteDiv.classList.contains("blue")) { 
-            newNoteDiv.classList.add("grey");
-            newNoteDiv.classList.add("miss");
-            newNoteDiv.innerHTML = "MISS";
-          }
-          break;
-      }
-    
-      // Consume the event so it doesn't get handled twice
-      buttonDown.preventDefault();
-    }, true);
-    
-    document.addEventListener("keyup", function (buttonDown) {
-      if (buttonDown.defaultPrevented) {
-        return; // Do nothing if event already handled
-      }
-    
-      switch (buttonDown.code) {
-        case "KeyS":
-          trackS.style.background = "none";
-          trackS.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
-          break;
-        case "KeyD":
-          trackD.style.background = "none";
-          trackD.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
-          break;
-        case "KeyK":
-          trackK.style.background = "none";
-          trackK.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
-          break; s
-        case "KeyL":
-          trackL.style.background = "none";
-          trackL.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
-          break;
-      }
-    
-      // Consume the event so it doesn't get handled twice
-      buttonDown.preventDefault();
-    }, true);
-    // if (newNoteDiv.offsetTop < receptor.offsetTop && document.addEventListener("keydown", (buttonDown) => trackS.code)) {
+  }
+  myMove();
+  setTimeout(() => newNoteDiv.remove(), 2000); // Supprime les notes générées après 2 secondes
 }
-myMove();
-setTimeout(() => newNoteDiv.remove(), 2000); // Supprime les notes générées après 2 secondes
-}
+
