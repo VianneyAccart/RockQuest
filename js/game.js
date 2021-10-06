@@ -121,26 +121,16 @@ function addNote(noteId, color) {
     }
     // Target buttons
     let receptor = document.querySelector(".receptor");
-    let noteOffsetTop = newNoteDiv.offsetTop; // La position du haut de la note
-    let noteOffsetHeight = newNoteDiv.offsetHeight; // La hauteur de la note
-    let noteOffsetBottom = noteOffsetTop + noteOffsetHeight; // La position du bas de la note
-    setInterval(() => {
-      console.log(newNoteDiv.style.bottom);
-    }, 100);
-
-    // Quand le bottom de la note est < au top du récepteur
-
-
 
     // Lorsqu'une touche est pressée
     document.addEventListener("keydown", function (buttonDown) {
       if (buttonDown.defaultPrevented) {
         return; // Do nothing if event already handled
       }
-      switch (buttonDown.code) {
+      switch (buttonDown.code) { // NE MARCHE QU'UNE SEULE FOIS ET SUR LA TRACK S UNIQUEMENT
         case "KeyS":
           trackS.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, green)";
-          if (noteOffsetBottom < receptor.offsetTop) { // Tant que la note n'a pas 
+          if ((parseInt(newNoteDiv.style.top) + newNoteDiv.offsetHeight) < receptor.offsetTop) { // Si le bas de la note a une valeur inférieure à celle du top du récepteur
             newNoteDiv.classList.add("grey");
             newNoteDiv.classList.add("miss");
             newNoteDiv.innerHTML = "MISS";
@@ -148,7 +138,7 @@ function addNote(noteId, color) {
           break;
         case "KeyD":
           trackD.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, red)";
-          if (noteOffsetBottom < receptor.offsetTop) {
+          if ((parseInt(newNoteDiv.style.top) + newNoteDiv.offsetHeight) < receptor.offsetTop) {
             newNoteDiv.classList.add("grey");
             newNoteDiv.classList.add("miss");
             newNoteDiv.innerHTML = "MISS";
@@ -156,7 +146,7 @@ function addNote(noteId, color) {
           break;
         case "KeyK":
           trackK.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, yellow)";
-          if (noteOffsetBottom < receptor.offsetTop) {
+          if ((parseInt(newNoteDiv.style.top) + newNoteDiv.offsetHeight) < receptor.offsetTop) { 
             newNoteDiv.classList.add("grey");
             newNoteDiv.classList.add("miss");
             newNoteDiv.innerHTML = "MISS";
@@ -164,7 +154,7 @@ function addNote(noteId, color) {
           break;
         case "KeyL":
           trackL.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, blue)";
-          if (noteOffsetBottom < receptor.offsetTop) {
+          if ((parseInt(newNoteDiv.style.top) + newNoteDiv.offsetHeight) < receptor.offsetTop) { 
             newNoteDiv.classList.add("grey");
             newNoteDiv.classList.add("miss");
             newNoteDiv.innerHTML = "MISS";
