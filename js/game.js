@@ -126,10 +126,7 @@ function startCountdown(mode) {
 function countdownTimer(mode) {
   launchGameCountdown.style.display = "none";
   let round = setInterval(function () {
-    progressBar.value = 60000 - timeleft;
-    console.log(timeleft);
     timeleft--;
-    console.log(timeleft);
     countdownOnDesktop.innerHTML = timeleft / 100;
     countdownOnMobile.innerHTML = timeleft / 100;
     if (timeleft <= 0) {
