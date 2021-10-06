@@ -336,6 +336,8 @@ img {
     background-color: green;
     border-radius: 5px;
     position: absolute;
+    display: flex;
+    margin: auto;
 }
 
 .green {
@@ -352,6 +354,18 @@ img {
 
 .blue {
     background-color: blue;
+}
+
+.grey {
+    background-color: grey;
+}
+
+.miss {
+    text-align: center;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
 }
 
 /*inside tracks*/

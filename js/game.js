@@ -1,59 +1,7 @@
-const trackS = document.querySelector("#noteS")
-const trackD = document.querySelector("#noteD")
-const trackK = document.querySelector("#noteK")
-const trackL = document.querySelector("#noteL")
-
-document.addEventListener("keydown", function (buttonDown) {
-  if (buttonDown.defaultPrevented) {
-    return; // Do nothing if event already handled
-  }
-
-  switch (buttonDown.code) {
-    case "KeyS":
-      trackS.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, green)";
-      break;
-    case "KeyD":
-      trackD.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, red)";
-      break;
-    case "KeyK":
-      trackK.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, yellow)";
-      break;
-    case "KeyL":
-      trackL.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, blue)";
-      break;
-  }
-
-  // Consume the event so it doesn't get handled twice
-  buttonDown.preventDefault();
-}, true);
-
-document.addEventListener("keyup", function (buttonDown) {
-  if (buttonDown.defaultPrevented) {
-    return; // Do nothing if event already handled
-  }
-
-  switch (buttonDown.code) {
-    case "KeyS":
-      trackS.style.background = "none";
-      trackS.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
-      break;
-    case "KeyD":
-      trackD.style.background = "none";
-      trackD.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
-      break;
-    case "KeyK":
-      trackK.style.background = "none";
-      trackK.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
-      break; s
-    case "KeyL":
-      trackL.style.background = "none";
-      trackL.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
-      break;
-  }
-
-  // Consume the event so it doesn't get handled twice
-  buttonDown.preventDefault();
-}, true);
+const trackS = document.querySelector("#noteS");
+const trackD = document.querySelector("#noteD");
+const trackK = document.querySelector("#noteK");
+const trackL = document.querySelector("#noteL");
 
 // Partitions
 const easyMode = {
@@ -107,7 +55,7 @@ let progressBar = document.querySelector("#progressBar"); // Barre de progressio
 let countdownOnDesktop = document.querySelector("#countdownTextDesktop"); // Décompte affiché sur desktop
 let countdownOnMobile = document.querySelector("#countdownTextMobile"); // Décompte affiché sur mobile
 let endGamePopup = document.querySelector(".end-game-popup");
-let timeleft = 9000; // Durée d'une partie en secondes
+let timeleft = 6000; // Durée d'une partie en secondes
 let audio = new Audio('/song/game-song.mp3');
 
 // Lancement du décompte : 3, 2, 1...
@@ -137,7 +85,6 @@ function countdownTimer(mode) {
     }
     noteGenerating(mode);
   }, 10);
-  console.log(timeleft);
 }
 
 // Définit combien de notes addNote() doit générer selon la difficulté choisie
@@ -163,9 +110,7 @@ function addNote(noteId, color) {
   newNoteDiv.classList.add("note");
   newNoteDiv.classList.add(color);
   newNoteId.prepend(newNoteDiv);
-
-  // Permet le défilement des notes
-  function myMove() {
+  function myMove() { // Permet le défilement des notes
     let pos = 0; // newNoteDiv commence en position 0
     let tracksHeight = document.querySelector(".track").offsetHeight;
     let notePosIncrementer = tracksHeight / 250; // On peut ici modifier la vitesse de descente des notes
@@ -174,7 +119,72 @@ function addNote(noteId, color) {
       pos += notePosIncrementer;
       newNoteDiv.style.top = pos + 'px';
     }
-  }
-  myMove();
-  setTimeout(() => newNoteDiv.remove(), 2000); // Supprime les notes générées après 2 secondes
+    // Target buttons
+    let receptor = document.querySelector(".receptor");
+    // Lorsqu'une touche est pressée
+    document.addEventListener("keydown", function (buttonDown) {
+      if (buttonDown.defaultPrevented) {
+        return; // Do nothing if event already handled
+      }
+    
+      switch (buttonDown.code) {
+        case "KeyS":
+          trackS.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, green)";
+          newNoteDiv.classList.remove("green");
+          newNoteDiv.classList.add("grey");
+          newNoteDiv.classList.add("miss");
+          newNoteDiv.innerHTML = "MISS";
+          break;
+        case "KeyD":
+          trackD.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, red)";
+          newNoteDiv.classList.remove("red");
+          newNoteDiv.classList.add("grey");
+          break;
+        case "KeyK":
+          trackK.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, yellow)";
+          newNoteDiv.classList.remove("yellow");
+          newNoteDiv.classList.add("grey");
+          break;
+        case "KeyL":
+          trackL.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, blue)";
+          newNoteDiv.classList.remove("blue");
+          newNoteDiv.classList.add("grey");
+          break;
+      }
+    
+      // Consume the event so it doesn't get handled twice
+      buttonDown.preventDefault();
+    }, true);
+    
+    document.addEventListener("keyup", function (buttonDown) {
+      if (buttonDown.defaultPrevented) {
+        return; // Do nothing if event already handled
+      }
+    
+      switch (buttonDown.code) {
+        case "KeyS":
+          trackS.style.background = "none";
+          trackS.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+          break;
+        case "KeyD":
+          trackD.style.background = "none";
+          trackD.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+          break;
+        case "KeyK":
+          trackK.style.background = "none";
+          trackK.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+          break; s
+        case "KeyL":
+          trackL.style.background = "none";
+          trackL.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+          break;
+      }
+    
+      // Consume the event so it doesn't get handled twice
+      buttonDown.preventDefault();
+    }, true);
+    // if (newNoteDiv.offsetTop < receptor.offsetTop && document.addEventListener("keydown", (buttonDown) => trackS.code)) {
+}
+myMove();
+setTimeout(() => newNoteDiv.remove(), 2000); // Supprime les notes générées après 2 secondes
 }
