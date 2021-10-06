@@ -5,10 +5,10 @@ const trackL = document.querySelector("#noteL");
 
 // Partitions
 const easyMode = {
-  S: [59, 55, 51, 47, 43, 39, 35, 31, 27, 23, 19, 15, 11, 7, 3],
-  D: [58.50, 55, 52, 50, 47, 45, 42, 40, 37, 35, 32, 30, 27, 25, 22, 20, 17, 15, 12, 10, 7, 5, 2],
-  K: [58, 56, 54, 52, 50, 45, 40, 38, 36, 34, 30, 28, 26, 24, 22, 20, 18, 16, 14, 10, 8, 6, 5, 4, 3, 2, 1],
-  L: [57.50, 58, 53, 50, 49, 44, 41, 40, 39, 34, 31, 30, 25, 22, 21, 16, 13, 12, 9, 5, 4, 3, 2, 1]
+  S: [88, 84, 59, 55, 51, 47, 43, 39, 35, 31, 27, 23, 19, 15, 11, 7, 3],
+  D: [87, 83, 58.50, 55, 52, 50, 47, 45, 42, 40, 37, 35, 32, 30, 27, 25, 22, 20, 17, 15, 12, 10, 7, 5, 2],
+  K: [86, 82, 58, 56, 54, 52, 50, 45, 40, 38, 36, 34, 30, 28, 26, 24, 22, 20, 18, 16, 14, 10, 8, 6, 5, 4, 3, 2, 1],
+  L: [85, 81, 57.50, 58, 53, 50, 49, 44, 41, 40, 39, 34, 31, 30, 25, 22, 21, 16, 13, 12, 9, 5, 4, 3, 2, 1]
 };
 
 const mediumMode = {
@@ -55,7 +55,7 @@ let progressBar = document.querySelector("#progressBar"); // Barre de progressio
 let countdownOnDesktop = document.querySelector("#countdownTextDesktop"); // Décompte affiché sur desktop
 let countdownOnMobile = document.querySelector("#countdownTextMobile"); // Décompte affiché sur mobile
 let endGamePopup = document.querySelector(".end-game-popup");
-let timeleft = 6000; // Durée d'une partie en secondes
+let timeleft = 9000; // Durée d'une partie en secondes
 let audio = new Audio('/song/game-song.mp3');
 
 // Lancement du décompte : 3, 2, 1...
@@ -75,7 +75,7 @@ function startCountdown(mode) {
 function countdownTimer(mode) {
   launchGameCountdown.style.display = "none";
   let round = setInterval(function () {
-    // audio.play();
+    audio.play();
     timeleft--;
     countdownOnDesktop.innerHTML = timeleft / 100;
     countdownOnMobile.innerHTML = timeleft / 100;
@@ -117,13 +117,11 @@ function addNote(noteId, color) {
     setInterval(frame, 1);
     function frame() {
       pos += notePosIncrementer;
-      newNoteDiv.style.top = pos + 'px';
+      newNoteDiv.style.top = pos + 'px'; // La valeur du top de newNoteDiv augmente toutes les 1 frames = la note descend
     }
-    // Target buttons
+ 
     let receptor = document.querySelector(".receptor");
-
-    // Lorsqu'une touche est pressée
-    document.addEventListener("keydown", function (buttonDown) {
+    document.addEventListener("keydown", function (buttonDown) { // Lorsqu'une touche est pressée
       if (buttonDown.defaultPrevented) {
         return; // Do nothing if event already handled
       }
