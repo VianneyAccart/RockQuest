@@ -203,4 +203,3 @@ function addNote(noteId, color) {
   myMove();
   setTimeout(() => newNoteDiv.remove(), 2000); // Supprime les notes générées après 2 secondes
 }
-
