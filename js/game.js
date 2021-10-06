@@ -75,7 +75,7 @@ function startCountdown(mode) {
 function countdownTimer(mode) {
   launchGameCountdown.style.display = "none";
   let round = setInterval(function () {
-    audio.play();
+    // audio.play();
     timeleft--;
     countdownOnDesktop.innerHTML = timeleft / 100;
     countdownOnMobile.innerHTML = timeleft / 100;
@@ -121,34 +121,54 @@ function addNote(noteId, color) {
     }
     // Target buttons
     let receptor = document.querySelector(".receptor");
+    let noteOffsetTop = newNoteDiv.offsetTop; // La position du haut de la note
+    let noteOffsetHeight = newNoteDiv.offsetHeight; // La hauteur de la note
+    let noteOffsetBottom = noteOffsetTop + noteOffsetHeight; // La position du bas de la note
+    setInterval(() => {
+      console.log(newNoteDiv.style.bottom);
+    }, 100);
+
+    // Quand le bottom de la note est < au top du récepteur
+
+
+
     // Lorsqu'une touche est pressée
     document.addEventListener("keydown", function (buttonDown) {
       if (buttonDown.defaultPrevented) {
         return; // Do nothing if event already handled
       }
-    
       switch (buttonDown.code) {
         case "KeyS":
           trackS.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, green)";
-          newNoteDiv.classList.remove("green");
-          newNoteDiv.classList.add("grey");
-          newNoteDiv.classList.add("miss");
-          newNoteDiv.innerHTML = "MISS";
+          if (noteOffsetBottom < receptor.offsetTop) { // Tant que la note n'a pas 
+            newNoteDiv.classList.add("grey");
+            newNoteDiv.classList.add("miss");
+            newNoteDiv.innerHTML = "MISS";
+          }
           break;
         case "KeyD":
           trackD.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, red)";
-          newNoteDiv.classList.remove("red");
-          newNoteDiv.classList.add("grey");
+          if (noteOffsetBottom < receptor.offsetTop) {
+            newNoteDiv.classList.add("grey");
+            newNoteDiv.classList.add("miss");
+            newNoteDiv.innerHTML = "MISS";
+          }
           break;
         case "KeyK":
           trackK.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, yellow)";
-          newNoteDiv.classList.remove("yellow");
-          newNoteDiv.classList.add("grey");
+          if (noteOffsetBottom < receptor.offsetTop) {
+            newNoteDiv.classList.add("grey");
+            newNoteDiv.classList.add("miss");
+            newNoteDiv.innerHTML = "MISS";
+          }
           break;
         case "KeyL":
           trackL.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, blue)";
-          newNoteDiv.classList.remove("blue");
-          newNoteDiv.classList.add("grey");
+          if (noteOffsetBottom < receptor.offsetTop) {
+            newNoteDiv.classList.add("grey");
+            newNoteDiv.classList.add("miss");
+            newNoteDiv.innerHTML = "MISS";
+          }
           break;
       }
     
