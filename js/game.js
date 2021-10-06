@@ -121,10 +121,6 @@ function addNote(noteId, color) {
     }
     // Target buttons
     let receptor = document.querySelector(".receptor");
-    let allGreenNotes = document.querySelectorAll(".green"); // Cible toutes les notes vertes
-    let allRedNotes = document.querySelectorAll(".red"); // Cible toutes les notes rouges
-    let allYellowNotes = document.querySelectorAll(".yellow"); // Cible toutes les notes jaunes
-    let allBlueNotes = document.querySelectorAll(".blue"); // Cible toutes les notes bleues
 
     // Lorsqu'une touche est pressée
     document.addEventListener("keydown", function (buttonDown) {
