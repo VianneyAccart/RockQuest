@@ -108,6 +108,7 @@ let countdownOnDesktop = document.querySelector("#countdownTextDesktop"); // Dé
 let countdownOnMobile = document.querySelector("#countdownTextMobile"); // Décompte affiché sur mobile
 let endGamePopup = document.querySelector(".end-game-popup");
 let timeleft = 6000; // Durée d'une partie en secondes
+let audio = new Audio('/song/game-song.mp3');
 
 // Lancement du décompte : 3, 2, 1...
 function startCountdown(mode) {
@@ -126,6 +127,7 @@ function startCountdown(mode) {
 function countdownTimer(mode) {
   launchGameCountdown.style.display = "none";
   let round = setInterval(function () {
+    audio.play();
     timeleft--;
     countdownOnDesktop.innerHTML = timeleft / 100;
     countdownOnMobile.innerHTML = timeleft / 100;
