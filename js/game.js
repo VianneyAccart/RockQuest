@@ -75,7 +75,7 @@ function startCountdown(mode) {
 function countdownTimer(mode) {
   launchGameCountdown.style.display = "none";
   let round = setInterval(function () {
-    audio.play();
+    // audio.play();
     timeleft--;
     countdownOnDesktop.innerHTML = timeleft / 100;
     countdownOnMobile.innerHTML = timeleft / 100;
@@ -121,6 +121,10 @@ function addNote(noteId, color) {
     }
     // Target buttons
     let receptor = document.querySelector(".receptor");
+    let allGreenNotes = document.querySelectorAll(".green"); // Cible toutes les notes vertes
+    let allRedNotes = document.querySelectorAll(".red"); // Cible toutes les notes rouges
+    let allYellowNotes = document.querySelectorAll(".yellow"); // Cible toutes les notes jaunes
+    let allBlueNotes = document.querySelectorAll(".blue"); // Cible toutes les notes bleues
 
     // Lorsqu'une touche est pressée
     document.addEventListener("keydown", function (buttonDown) {
@@ -130,7 +134,7 @@ function addNote(noteId, color) {
       switch (buttonDown.code) { // NE MARCHE QU'UNE SEULE FOIS ET SUR LA TRACK S UNIQUEMENT
         case "KeyS":
           trackS.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, green)";
-          if ((parseInt(newNoteDiv.style.top) + newNoteDiv.offsetHeight) < receptor.offsetTop) { // Si le bas de la note a une valeur inférieure à celle du top du récepteur
+          if (((parseInt(newNoteDiv.style.top) + newNoteDiv.offsetHeight) < receptor.offsetTop) && newNoteDiv.classList.contains("green")) { // Si le bas de la note a une valeur inférieure à celle du top du récepteur
             newNoteDiv.classList.add("grey");
             newNoteDiv.classList.add("miss");
             newNoteDiv.innerHTML = "MISS";
@@ -138,7 +142,7 @@ function addNote(noteId, color) {
           break;
         case "KeyD":
           trackD.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, red)";
-          if ((parseInt(newNoteDiv.style.top) + newNoteDiv.offsetHeight) < receptor.offsetTop) {
+          if (((parseInt(newNoteDiv.style.top) + newNoteDiv.offsetHeight) < receptor.offsetTop) && newNoteDiv.classList.contains("red")) {
             newNoteDiv.classList.add("grey");
             newNoteDiv.classList.add("miss");
             newNoteDiv.innerHTML = "MISS";
@@ -146,7 +150,7 @@ function addNote(noteId, color) {
           break;
         case "KeyK":
           trackK.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, yellow)";
-          if ((parseInt(newNoteDiv.style.top) + newNoteDiv.offsetHeight) < receptor.offsetTop) { 
+          if (((parseInt(newNoteDiv.style.top) + newNoteDiv.offsetHeight) < receptor.offsetTop) && newNoteDiv.classList.contains("yellow")) { 
             newNoteDiv.classList.add("grey");
             newNoteDiv.classList.add("miss");
             newNoteDiv.innerHTML = "MISS";
@@ -154,7 +158,7 @@ function addNote(noteId, color) {
           break;
         case "KeyL":
           trackL.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, blue)";
-          if ((parseInt(newNoteDiv.style.top) + newNoteDiv.offsetHeight) < receptor.offsetTop) { 
+          if (((parseInt(newNoteDiv.style.top) + newNoteDiv.offsetHeight) < receptor.offsetTop) && newNoteDiv.classList.contains("blue")) { 
             newNoteDiv.classList.add("grey");
             newNoteDiv.classList.add("miss");
             newNoteDiv.innerHTML = "MISS";
