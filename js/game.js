@@ -57,11 +57,91 @@ function noteManagement(color) { // L'argument doit être un string
   }
 }
 
-function addListener() {
   const trackS = document.querySelector("#noteS");
   const trackD = document.querySelector("#noteD");
   const trackK = document.querySelector("#noteK");
   const trackL = document.querySelector("#noteL");
+
+function addListenerMobile() {
+  const buttonS = document.querySelector(".button-s");
+  const buttonD = document.querySelector(".button-d");
+  const buttonK = document.querySelector(".button-k");
+  const buttonL = document.querySelector(".button-l");
+  buttonS.addEventListener("touchstart", function (buttonDown) { // Lorsqu'une touche est pressée
+    if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }
+        trackS.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, green)";
+        noteManagement("green");
+    // Consume the event so it doesn't get handled twice
+    touchstart.preventDefault();
+  }, true);
+  buttonS.addEventListener("touchend", function () {
+    /*if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }*/
+        trackS.style.background = "none";
+        trackS.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+    // Consume the event so it doesn't get handled twice
+    touchend.preventDefault();
+  }, true);
+    buttonD.addEventListener("touchstart", function (buttonDown) { // Lorsqu'une touche est pressée
+    if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }
+        trackD.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, red)";
+        noteManagement("red");
+    // Consume the event so it doesn't get handled twice
+    touchstart.preventDefault();
+  }, true);
+  buttonD.addEventListener("touchend", function () {
+    /*if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }*/
+        trackD.style.background = "none";
+        trackD.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+    // Consume the event so it doesn't get handled twice
+    touchend.preventDefault();
+  }, true);
+    buttonK.addEventListener("touchstart", function (buttonDown) { // Lorsqu'une touche est pressée
+    if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }
+        trackK.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, yellow)";
+        noteManagement("yellow");
+    // Consume the event so it doesn't get handled twice
+    touchstart.preventDefault();
+  }, true);
+  buttonK.addEventListener("touchend", function () {
+    /*if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }*/
+        trackK.style.background = "none";
+        trackK.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+    // Consume the event so it doesn't get handled twice
+    touchend.preventDefault();
+  }, true);
+    buttonL.addEventListener("touchstart", function (buttonDown) { // Lorsqu'une touche est pressée
+    if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }
+        trackL.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, blue)";
+        noteManagement("blue");
+    // Consume the event so it doesn't get handled twice
+    touchstart.preventDefault();
+  }, true);
+  buttonL.addEventListener("touchend", function () {
+    /*if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }*/
+        trackL.style.background = "none";
+        trackL.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+    // Consume the event so it doesn't get handled twice
+    touchend.preventDefault();
+  }, true);
+}
+
+function addListener() {
   document.addEventListener("keydown", function (buttonDown) { // Lorsqu'une touche est pressée
     if (buttonDown.defaultPrevented) {
       return; // Do nothing if event already handled
@@ -173,6 +253,7 @@ function countdownTimer(mode) {
       endGamePopup.style.display = "flex";
     }
     addListener();
+    addListenerMobile()
     noteGenerating(mode);
   }, 10);
 }
