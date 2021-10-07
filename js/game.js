@@ -1,3 +1,22 @@
+// Sound Function you can use her in HTML with onclick="" or in JS spell her sound(sound)
+function sound(sound)
+{
+        let audio = document.createElement('audio');
+        audio.preload = 'auto';
+
+        let wavSource = document.createElement('source');
+        wavSource.src = sound+'.wav';
+        wavSource.type = 'audio/wav';
+
+        let mp3Source = document.createElement('source');
+        mp3Source.src = sound+'.mp3';
+        mp3Source.type = 'audio/mpeg';
+
+        audio.appendChild(wavSource);
+        audio.appendChild(mp3Source);
+        audio.play();
+};
+
 // Partitions
 const easyMode = {
   S: [89.00,85.00,81.00,77.00,73.00,70.00,69.00,68.00,66.00,63.50,61.00,56.00,55.00,51.50,50.30,46.80,45.80,42.30,41.80,],
@@ -15,7 +34,7 @@ const mediumMode = {
 };
 
 const hardMode = {
-  S: [89, 88, 86,8, 59, 58, 53, 52, 50, 46, 42, 37, 34, 30, 26, 22, 20, 16, 10, 1],
+  S: [89, 88, 86, 8, 59, 58, 53, 52, 50, 46, 42, 37, 34, 30, 26, 22, 20, 16, 10, 1],
   D: [88.8, 88, 58, 57, 54, 45, 43, 39, 34, 32, 29, 19, 9],
   K: [88.6, 87.7, 57, 56, 51, 47, 46, 41, 35, 32, 28, 22, 17, 14, 11, 8],
   L: [88.3, 87.2, 59, 55, 48, 44, 31, 28, 22, 5]
@@ -33,6 +52,7 @@ let easyGame = document.getElementById("launch-btn-easy");
 let mediumGame = document.getElementById("launch-btn-medium");
 let hardGame = document.getElementById("launch-btn-hard");
 const receptor = document.querySelector(".receptor");
+let allReceptors = document.querySelectorAll(".receptor");
 
 function noteManagement(color) { // L'argument doit être un string
   let colorNotes = document.getElementsByClassName(color);
@@ -48,23 +68,128 @@ function noteManagement(color) { // L'argument doit être un string
         colorNote.classList.add("grey");
         colorNote.classList.remove(color);
         colorNote.classList.add("miss");
-        colorNote.innerHTML = "MISS";
-        playerScore -= 60;
-        playerScoreDisplay.innerHTML = playerScore.toString();
-      } else if (((receptor.offsetTop - receptor.offsetHeight ) < parseInt(colorNote.style.top) < (receptor.offsetTop + receptor.offsetHeight)) && colorNote.classList.contains(color)) {
+        colorNote.innerHTML = "-20";
+        sound('song/missNote');
+        if (playerScore !== 0) {
+          playerScore -= 20;
+          playerScoreDisplay.innerHTML = playerScore.toString();
+        }
+      } else if (((receptor.offsetTop - receptor.offsetHeight) < parseInt(colorNote.style.top) < (receptor.offsetTop + receptor.offsetHeight)) && colorNote.classList.contains(color)) {
         colorNote.remove();
-        playerScore += 50;
-        playerScoreDisplay.innerHTML = playerScore.toString();
+        playerScore += 20;
+        switch (color) {
+          case "green":
+            allReceptors[0].classList.add("success");
+            allReceptors[0].classList.add("score");
+            allReceptors[0].innerHTML = "+20";
+            break;
+          case "red":
+            allReceptors[1].classList.add("success");
+            allReceptors[1].classList.add("score");
+            allReceptors[1].innerHTML = "+20";
+            break;
+          case "yellow":
+            allReceptors[2].classList.add("success");
+            allReceptors[2].classList.add("score");
+            allReceptors[2].innerHTML = "+20";
+            break;
+          case "blue":
+            allReceptors[3].classList.add("success");
+            allReceptors[3].classList.add("score");
+            allReceptors[3].innerHTML = "+20";
+            break;
+        }
       }
+      playerScoreDisplay.innerHTML = playerScore.toString();
     }
   }
 }
 
+const trackS = document.querySelector("#noteS");
+const trackD = document.querySelector("#noteD");
+const trackK = document.querySelector("#noteK");
+const trackL = document.querySelector("#noteL");
+
+function addListenerMobile() {
+  const buttonS = document.querySelector(".button-s");
+  const buttonD = document.querySelector(".button-d");
+  const buttonK = document.querySelector(".button-k");
+  const buttonL = document.querySelector(".button-l");
+  buttonS.addEventListener("touchstart", function (buttonDown) { // Lorsqu'une touche est pressée
+    if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }
+    trackS.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, green)";
+    noteManagement("green");
+    // Consume the event so it doesn't get handled twice
+    touchstart.preventDefault();
+  }, true);
+  buttonS.addEventListener("touchend", function () {
+    /*if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }*/
+    trackS.style.background = "none";
+    trackS.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+    // Consume the event so it doesn't get handled twice
+    touchend.preventDefault();
+  }, true);
+  buttonD.addEventListener("touchstart", function (buttonDown) { // Lorsqu'une touche est pressée
+    if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }
+    trackD.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, red)";
+    noteManagement("red");
+    // Consume the event so it doesn't get handled twice
+    touchstart.preventDefault();
+  }, true);
+  buttonD.addEventListener("touchend", function () {
+    /*if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }*/
+    trackD.style.background = "none";
+    trackD.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+    // Consume the event so it doesn't get handled twice
+    touchend.preventDefault();
+  }, true);
+  buttonK.addEventListener("touchstart", function (buttonDown) { // Lorsqu'une touche est pressée
+    if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }
+    trackK.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, yellow)";
+    noteManagement("yellow");
+    // Consume the event so it doesn't get handled twice
+    touchstart.preventDefault();
+  }, true);
+  buttonK.addEventListener("touchend", function () {
+    /*if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }*/
+    trackK.style.background = "none";
+    trackK.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+    // Consume the event so it doesn't get handled twice
+    touchend.preventDefault();
+  }, true);
+  buttonL.addEventListener("touchstart", function (buttonDown) { // Lorsqu'une touche est pressée
+    if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }
+    trackL.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, blue)";
+    noteManagement("blue");
+    // Consume the event so it doesn't get handled twice
+    touchstart.preventDefault();
+  }, true);
+  buttonL.addEventListener("touchend", function () {
+    /*if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }*/
+    trackL.style.background = "none";
+    trackL.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+    // Consume the event so it doesn't get handled twice
+    touchend.preventDefault();
+  }, true);
+}
+
 function addListener() {
-  const trackS = document.querySelector("#noteS");
-  const trackD = document.querySelector("#noteD");
-  const trackK = document.querySelector("#noteK");
-  const trackL = document.querySelector("#noteL");
   document.addEventListener("keydown", function (buttonDown) { // Lorsqu'une touche est pressée
     if (buttonDown.defaultPrevented) {
       return; // Do nothing if event already handled
@@ -102,18 +227,30 @@ function addListener() {
       case "KeyS":
         trackS.style.background = "none";
         trackS.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+        allReceptors[0].classList.remove("success");
+        allReceptors[0].classList.remove("score");
+        allReceptors[0].innerHTML = "";
         break;
       case "KeyD":
         trackD.style.background = "none";
         trackD.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+        allReceptors[1].classList.remove("success");
+        allReceptors[1].classList.remove("score");
+        allReceptors[1].innerHTML = "";
         break;
       case "KeyK":
         trackK.style.background = "none";
         trackK.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+        allReceptors[2].classList.remove("success");
+        allReceptors[2].classList.remove("score");
+        allReceptors[2].innerHTML = "";
         break; s
       case "KeyL":
         trackL.style.background = "none";
         trackL.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+        allReceptors[3].classList.remove("success");
+        allReceptors[3].classList.remove("score");
+        allReceptors[3].innerHTML = "";
         break;
     }
 
@@ -121,8 +258,6 @@ function addListener() {
     buttonDown.preventDefault();
   }, true);
 }
-
-// Penser à créer une variable qui stocke la difficulté en cours //
 
 function gameDifficult(mode) {
   launchGamePopup.style.display = "none";
@@ -136,16 +271,19 @@ let playerScoreHard;
 
 easyGame.addEventListener("click", function () {
   playerScoreEasy = playerScore;
-  gameDifficult(easyMode); 
+  sound('song/singleNoteLaunchMode');
+  gameDifficult(easyMode);
 })
 
 mediumGame.addEventListener("click", function () {
   playerScoreMedium = playerScore;
+  sound('song/singleNoteLaunchMode');
   gameDifficult(mediumMode);
 })
 
 hardGame.addEventListener("click", function () {
   playerScoreHard = playerScore;
+  sound('song/singleNoteLaunchMode');
   gameDifficult(hardMode);
 })
 
@@ -196,6 +334,7 @@ function countdownTimer(mode) {
       };
     }
     addListener();
+    addListenerMobile()
     noteGenerating(mode);
   }, 10);
 }
@@ -238,7 +377,7 @@ function addNote(noteId, color) {
     if ((receptor.offsetTop + receptor.offsetHeight) < parseInt(newNoteDiv.style.top)) playerScore -= 10;
     newNoteDiv.remove(), 2000
   }); // Supprime les notes générées après 2 secondes*/
-    setTimeout(() => {
+  setTimeout(() => {
     newNoteDiv.remove()
-  }, 3000); // Supprime les notes générées après 2 secondes
+  }, 1000); // Supprime les notes générées après 2 secondes
 }
