@@ -48,7 +48,7 @@ function noteManagement(color) { // L'argument doit être un string
         colorNote.classList.add("grey");
         colorNote.classList.remove(color);
         colorNote.classList.add("miss");
-        colorNote.innerHTML = "MISS";
+        colorNote.innerHTML = "-20";
         if (playerScore !== 0) {
           playerScore -= 20;
           playerScoreDisplay.innerHTML = playerScore.toString();
