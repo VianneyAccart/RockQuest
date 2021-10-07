@@ -290,7 +290,7 @@ let progressBar = document.querySelector("#progressBar"); // Barre de progressio
 let countdownOnDesktop = document.querySelector("#countdownTextDesktop"); // Décompte affiché sur desktop
 let countdownOnMobile = document.querySelector("#countdownTextMobile"); // Décompte affiché sur mobile
 let endGamePopup = document.querySelector(".end-game-popup");
-let timeleft = 1000;
+let timeleft = 9000;
 let audio = new Audio('/song/game-song.mp3');
 
 // Lancement du décompte : 3, 2, 1...
@@ -310,6 +310,8 @@ function startCountdown(mode) {
 function countdownTimer(mode) {
   launchGameCountdown.style.display = "none";
   audio.play();
+  addListener();
+  addListenerMobile()
   let round = setInterval(function () {
     timeleft--;
     countdownOnDesktop.innerHTML = timeleft / 100;
@@ -333,8 +335,6 @@ function countdownTimer(mode) {
           localStorage.setItem("rockQuestHard",playerScore);
       };
     }
-    addListener();
-    addListenerMobile()
     noteGenerating(mode);
   }, 10);
 }
