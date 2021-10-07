@@ -312,6 +312,8 @@ function startCountdown(mode) {
 function countdownTimer(mode) {
   launchGameCountdown.style.display = "none";
   audio.play();
+  addListener();
+  addListenerMobile();
   let round = setInterval(function () {
     timeleft--;
     countdownOnDesktop.innerHTML = timeleft / 100;
@@ -333,8 +335,6 @@ function countdownTimer(mode) {
         localStorage.setItem("rockQuestHard", playerScoreHard);
       };
     }
-    addListener();
-    addListenerMobile()
     noteGenerating(mode);
   }, 10);
 }
