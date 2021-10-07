@@ -48,11 +48,11 @@ function noteManagement(color) { // L'argument doit être un string
         colorNote.classList.remove(color);
         colorNote.classList.add("miss");
         colorNote.innerHTML = "MISS";
-        playerScore -= 60;
+        playerScore -= 25;
         playerScoreDisplay.innerHTML = playerScore.toString();
       } else if (((receptor.offsetTop - receptor.offsetHeight ) < parseInt(colorNote.style.top) < (receptor.offsetTop + receptor.offsetHeight)) && colorNote.classList.contains(color)) {
         colorNote.remove();
-        playerScore += 50;
+        playerScore += 20;
         playerScoreDisplay.innerHTML = playerScore.toString();
       }
     }
