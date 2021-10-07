@@ -42,6 +42,7 @@ const hardMode = {
 
 // Scores du joueur 
 let playerScore = 0
+let playerMode = null;
 const playerScoreDisplay = document.querySelector(".player-score");
 playerScoreDisplay.innerHTML = playerScore.toString();
 
@@ -265,24 +266,21 @@ function gameDifficult(mode) {
   startCountdown(mode);
 }
 
-let playerScoreEasy;
-let playerScoreMedium;
-let playerScoreHard;
 
 easyGame.addEventListener("click", function () {
-  playerScoreEasy = playerScore;
+  playerMode = "easy";
   sound('song/singleNoteLaunchMode');
   gameDifficult(easyMode);
 })
 
 mediumGame.addEventListener("click", function () {
-  playerScoreMedium = playerScore;
+  playerMode = "medium";
   sound('song/singleNoteLaunchMode');
   gameDifficult(mediumMode);
 })
 
 hardGame.addEventListener("click", function () {
-  playerScoreHard = playerScore;
+  playerMode = "hard";
   sound('song/singleNoteLaunchMode');
   gameDifficult(hardMode);
 })
@@ -292,7 +290,7 @@ let progressBar = document.querySelector("#progressBar"); // Barre de progressio
 let countdownOnDesktop = document.querySelector("#countdownTextDesktop"); // Décompte affiché sur desktop
 let countdownOnMobile = document.querySelector("#countdownTextMobile"); // Décompte affiché sur mobile
 let endGamePopup = document.querySelector(".end-game-popup");
-let timeleft = 9000;
+let timeleft = 1000;
 let audio = new Audio('/song/game-song.mp3');
 
 // Lancement du décompte : 3, 2, 1...
@@ -321,16 +319,18 @@ function countdownTimer(mode) {
       endGamePopup.style.display = "flex";
       let finalScore = document.querySelector(".end-played-score");
       finalScore.innerHTML = playerScore;
-      if (easyMode) {
-        playerScore = playerScoreEasy;
-        localStorage.setItem("rockQuestEasy",playerScoreEasy);
-        console.log(localStorage);
-      } else if (mediumMode) {
-        playerScore = playerScoreMedium;
-        localStorage.setItem("rockQuestMedium",playerScoreMedium);
-      } else if (hardMode){
-        playerScore = playerScoreHard ;
-        localStorage.setItem("rockQuestHard", playerScoreHard);
+      if (playerMode === "easy") {
+        const easyCurrentScore = localStorage.getItem("rockQuestEasy");
+        if (easyCurrentScore == null || easyCurrentScore < playerScore)
+          localStorage.setItem("rockQuestEasy",playerScore);
+      } else if (playerMode === "medium") {
+        const mediumCurrentScore = localStorage.getItem("rockQuestMedium");
+        if (mediumCurrentScore == null || mediumCurrentScore < playerScore)
+          localStorage.setItem("rockQuestMedium",playerScore);
+      } else {
+        const hardCurrentScore = localStorage.getItem("rockQuestHard");
+        if (hardCurrentScore == null || hardCurrentScore < playerScore)
+          localStorage.setItem("rockQuestHard",playerScore);
       };
     }
     addListener();
