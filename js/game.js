@@ -1,8 +1,3 @@
-const trackS = document.querySelector("#noteS");
-const trackD = document.querySelector("#noteD");
-const trackK = document.querySelector("#noteK");
-const trackL = document.querySelector("#noteL");
-
 // Partitions
 const easyMode = {
   S: [88, 87.5, 87, 84, 59, 55, 51, 47, 43, 39, 35, 31, 27, 23, 19, 15, 11, 7, 3],
@@ -24,6 +19,11 @@ const hardMode = {
   K: [57, 56, 51, 47, 46, 41, 35, 32, 28, 22, 17, 14, 11, 8],
   L: [59, 55, 48, 44, 31, 28, 22, 5]
 };
+
+// Scores du joueur
+let playerScore = 0
+const playerScoreDisplay = document.querySelector(".player-score");
+playerScoreDisplay.innerHTML = playerScore.toString();
 
 // Au clic sur un bouton de difficulté, lance la partition associée
 let launchGamePopup = document.querySelector(".launch-game-popup");
@@ -47,11 +47,21 @@ function noteManagement(color) { // L'argument doit être un string
       colorNote.classList.remove(color);
       colorNote.classList.add("miss");
       colorNote.innerHTML = "MISS";
+      playerScore -= 20;
+      playerScoreDisplay.innerHTML = playerScore.toString();
+    } else if (((receptor.offsetTop - receptor.offsetHeight ) < parseInt(colorNote.style.top) < (receptor.offsetTop + receptor.offsetHeight)) && colorNote.classList.contains(color)) {
+      colorNote.remove();
+      playerScore += 10;
+      playerScoreDisplay.innerHTML = playerScore.toString();
     }
   }
 }
 
 function addListener() {
+  const trackS = document.querySelector("#noteS");
+  const trackD = document.querySelector("#noteD");
+  const trackK = document.querySelector("#noteK");
+  const trackL = document.querySelector("#noteL");
   document.addEventListener("keydown", function (buttonDown) { // Lorsqu'une touche est pressée
     if (buttonDown.defaultPrevented) {
       return; // Do nothing if event already handled
@@ -203,3 +213,7 @@ function addNote(noteId, color) {
   myMove();
   setTimeout(() => newNoteDiv.remove(), 2000); // Supprime les notes générées après 2 secondes
 }
+  /*if ((receptor.offsetTop + receptor.offsetHeight) < parseInt(newNoteDiv.style.top)) {
+    newNoteDiv.remove();
+    playerScore -= 10;
+  }*/
