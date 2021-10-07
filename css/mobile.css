@@ -322,6 +322,21 @@ html {
     border-radius: 5px;
 }
 
+.score {
+  text-align: center;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  color: rgb(64, 255, 47);
+  font-weight: 800;
+}
+
+.success {
+  box-shadow: inset 0px 0px 30px 5px rgb(64, 255, 47);
+  border: solid 5px rgb(64, 255, 47);
+  z-index: 5;
+}
+
 /*inside game-screen*/
 .buttons {
   width: 100%;
