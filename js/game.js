@@ -33,13 +33,13 @@ const mediumMode = {
 };
 
 const hardMode = {
-  S: [59, 58, 53, 52, 50, 46, 42, 37, 34, 30, 26, 22, 20, 16, 10, 1],
-  D: [58, 57, 54, 45, 43, 39, 34, 32, 29, 19, 9],
-  K: [57, 56, 51, 47, 46, 41, 35, 32, 28, 22, 17, 14, 11, 8],
-  L: [59, 55, 48, 44, 31, 28, 22, 5]
+  S: [89, 88, 86, 8, 59, 58, 53, 52, 50, 46, 42, 37, 34, 30, 26, 22, 20, 16, 10, 1],
+  D: [88.8, 88, 58, 57, 54, 45, 43, 39, 34, 32, 29, 19, 9],
+  K: [88.6, 87.7, 57, 56, 51, 47, 46, 41, 35, 32, 28, 22, 17, 14, 11, 8],
+  L: [88.3, 87.2, 59, 55, 48, 44, 31, 28, 22, 5]
 };
 
-// Scores du joueur
+// Scores du joueur 
 let playerScore = 0
 const playerScoreDisplay = document.querySelector(".player-score");
 playerScoreDisplay.innerHTML = playerScore.toString();
@@ -55,33 +55,117 @@ const receptor = document.querySelector(".receptor");
 function noteManagement(color) { // L'argument doit être un string
   let colorNotes = document.getElementsByClassName(color);
   let colorNote = null;
-  if (colorNotes.length > 0) {
-    if (colorNotes.length === 1) {
-      colorNote = colorNotes[0];
-    } else {
-      colorNote = colorNotes[colorNotes.length - 1];
-    }
-    if (((parseInt(colorNote.style.top) + colorNote.offsetHeight) < receptor.offsetTop) && colorNote.classList.contains(color)) {
-      colorNote.classList.add("grey");
-      colorNote.classList.remove(color);
-      colorNote.classList.add("miss");
-      colorNote.innerHTML = "MISS";
-      sound('song/missNote'); 
-      playerScore -= 20;
-      playerScoreDisplay.innerHTML = playerScore.toString();
-    } else if (((receptor.offsetTop - receptor.offsetHeight ) < parseInt(colorNote.style.top) < (receptor.offsetTop + receptor.offsetHeight)) && colorNote.classList.contains(color)) {
+  if (timeleft > 0) {
+    if (colorNotes.length > 0) {
+      if (colorNotes.length === 1) {
+        colorNote = colorNotes[0];
+      } else {
+        colorNote = colorNotes[colorNotes.length - 1];
+      }
+      if (((parseInt(colorNote.style.top) + colorNote.offsetHeight) < receptor.offsetTop) && colorNote.classList.contains(color)) {
+        colorNote.classList.add("grey");
+        colorNote.classList.remove(color);
+        colorNote.classList.add("miss");
+        colorNote.innerHTML = "MISS";
+        sound('song/missNote');
+        if (playerScore !== 0) {
+          playerScore -= 20;
+          playerScoreDisplay.innerHTML = playerScore.toString();
+      }
+    } else if (((receptor.offsetTop - receptor.offsetHeight) < parseInt(colorNote.style.top) < (receptor.offsetTop + receptor.offsetHeight)) && colorNote.classList.contains(color)) {
       colorNote.remove();
-      playerScore += 10;
+      playerScore += 20;
       playerScoreDisplay.innerHTML = playerScore.toString();
     }
   }
 }
+}
 
-function addListener() {
   const trackS = document.querySelector("#noteS");
   const trackD = document.querySelector("#noteD");
   const trackK = document.querySelector("#noteK");
   const trackL = document.querySelector("#noteL");
+
+function addListenerMobile() {
+  const buttonS = document.querySelector(".button-s");
+  const buttonD = document.querySelector(".button-d");
+  const buttonK = document.querySelector(".button-k");
+  const buttonL = document.querySelector(".button-l");
+  buttonS.addEventListener("touchstart", function (buttonDown) { // Lorsqu'une touche est pressée
+    if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }
+        trackS.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, green)";
+        noteManagement("green");
+    // Consume the event so it doesn't get handled twice
+    touchstart.preventDefault();
+  }, true);
+  buttonS.addEventListener("touchend", function () {
+    /*if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }*/
+        trackS.style.background = "none";
+        trackS.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+    // Consume the event so it doesn't get handled twice
+    touchend.preventDefault();
+  }, true);
+    buttonD.addEventListener("touchstart", function (buttonDown) { // Lorsqu'une touche est pressée
+    if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }
+        trackD.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, red)";
+        noteManagement("red");
+    // Consume the event so it doesn't get handled twice
+    touchstart.preventDefault();
+  }, true);
+  buttonD.addEventListener("touchend", function () {
+    /*if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }*/
+        trackD.style.background = "none";
+        trackD.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+    // Consume the event so it doesn't get handled twice
+    touchend.preventDefault();
+  }, true);
+    buttonK.addEventListener("touchstart", function (buttonDown) { // Lorsqu'une touche est pressée
+    if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }
+        trackK.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, yellow)";
+        noteManagement("yellow");
+    // Consume the event so it doesn't get handled twice
+    touchstart.preventDefault();
+  }, true);
+  buttonK.addEventListener("touchend", function () {
+    /*if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }*/
+        trackK.style.background = "none";
+        trackK.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+    // Consume the event so it doesn't get handled twice
+    touchend.preventDefault();
+  }, true);
+    buttonL.addEventListener("touchstart", function (buttonDown) { // Lorsqu'une touche est pressée
+    if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }
+        trackL.style.background = "linear-gradient(rgba(0, 0, 0, 0.54), 90%, blue)";
+        noteManagement("blue");
+    // Consume the event so it doesn't get handled twice
+    touchstart.preventDefault();
+  }, true);
+  buttonL.addEventListener("touchend", function () {
+    /*if (buttonDown.defaultPrevented) {
+      return; // Do nothing if event already handled
+    }*/
+        trackL.style.background = "none";
+        trackL.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+    // Consume the event so it doesn't get handled twice
+    touchend.preventDefault();
+  }, true);
+}
+
+function addListener() {
   document.addEventListener("keydown", function (buttonDown) { // Lorsqu'une touche est pressée
     if (buttonDown.defaultPrevented) {
       return; // Do nothing if event already handled
@@ -139,25 +223,30 @@ function addListener() {
   }, true);
 }
 
-// Penser à créer une variable qui stocke la difficulté en cours //
-
 function gameDifficult(mode) {
   launchGamePopup.style.display = "none";
   launchGameCountdown.style.display = "flex";
   startCountdown(mode);
 }
 
+let playerScoreEasy;
+let playerScoreMedium;
+let playerScoreHard;
+
 easyGame.addEventListener("click", function () {
+  playerScoreEasy = 0;
   sound('song/singleNoteLaunchMode');
   gameDifficult(easyMode);
 })
 
 mediumGame.addEventListener("click", function () {
+  playerScoreMedium = 0;
   sound('song/singleNoteLaunchMode');
   gameDifficult(mediumMode);
 })
 
 hardGame.addEventListener("click", function () {
+  playerScoreHard = 0;
   sound('song/singleNoteLaunchMode');
   gameDifficult(hardMode);
 })
@@ -167,7 +256,7 @@ let progressBar = document.querySelector("#progressBar"); // Barre de progressio
 let countdownOnDesktop = document.querySelector("#countdownTextDesktop"); // Décompte affiché sur desktop
 let countdownOnMobile = document.querySelector("#countdownTextMobile"); // Décompte affiché sur mobile
 let endGamePopup = document.querySelector(".end-game-popup");
-let timeleft = 9000; // Durée d'une partie en secondes
+let timeleft = 9000;
 let audio = new Audio('/song/game-song.mp3');
 
 // Lancement du décompte : 3, 2, 1...
@@ -186,16 +275,32 @@ function startCountdown(mode) {
 // Lancement du décompte de 90 à 0
 function countdownTimer(mode) {
   launchGameCountdown.style.display = "none";
+  audio.play();
   let round = setInterval(function () {
-    audio.play();
     timeleft--;
     countdownOnDesktop.innerHTML = timeleft / 100;
     countdownOnMobile.innerHTML = timeleft / 100;
     if (timeleft <= 0) {
       clearInterval(round);
       endGamePopup.style.display = "flex";
+      let finalScore = document.querySelector(".end-played-score");
+      finalScore.innerHTML = playerScore;
+      if (easyMode) {
+        playerScore = playerScoreEasy;
+        localStorage.setItem("rockQuestEasy", "playerScoreEasy");
+        console.log(localStorage);
+      } else if (mediumMode) {
+        playerScore = playerScoreMedium;
+        localStorage.setItem("rockQuestMedium", "playerScoreMedium");
+        console.log(localStorage);
+      } else if (hardMode) {
+        playerScore = playerScoreHard;
+        localStorage.setItem("rockQuestHard", "playerScoreHard");
+        console.log(localStorage);
+      };
     }
     addListener();
+    addListenerMobile()
     noteGenerating(mode);
   }, 10);
 }
@@ -226,17 +331,19 @@ function addNote(noteId, color) {
   function myMove() { // Permet le défilement des notes
     let pos = 0; // newNoteDiv commence en position 0
     let tracksHeight = document.querySelector(".track").offsetHeight;
-    let notePosIncrementer = tracksHeight / 250; // On peut ici modifier la vitesse de descente des notes
-    setInterval(frame, 1);
+    let notePosIncrementer = tracksHeight / 50; // On peut ici modifier la vitesse de descente des notes
+    setInterval(frame, 20); // Ne jamais modifier cette ligne
     function frame() {
       pos += notePosIncrementer;
       newNoteDiv.style.top = pos + 'px'; // La valeur du top de newNoteDiv augmente toutes les 1 frames = la note descend
     }
   }
   myMove();
-  setTimeout(() => newNoteDiv.remove(), 2000); // Supprime les notes générées après 2 secondes
+  /*setTimeout(() => {
+    if ((receptor.offsetTop + receptor.offsetHeight) < parseInt(newNoteDiv.style.top)) playerScore -= 10;
+    newNoteDiv.remove(), 2000
+  }); // Supprime les notes générées après 2 secondes*/
+  setTimeout(() => {
+    newNoteDiv.remove()
+  }, 1000); // Supprime les notes générées après 2 secondes
 }
-  /*if ((receptor.offsetTop + receptor.offsetHeight) < parseInt(newNoteDiv.style.top)) {
-    newNoteDiv.remove();
-    playerScore -= 10;
-  }*/
