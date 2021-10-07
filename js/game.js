@@ -14,10 +14,10 @@ const mediumMode = {
 };
 
 const hardMode = {
-  S: [59, 58, 53, 52, 50, 46, 42, 37, 34, 30, 26, 22, 20, 16, 10, 1],
-  D: [58, 57, 54, 45, 43, 39, 34, 32, 29, 19, 9],
-  K: [57, 56, 51, 47, 46, 41, 35, 32, 28, 22, 17, 14, 11, 8],
-  L: [59, 55, 48, 44, 31, 28, 22, 5]
+  S: [89, 88, 86,8, 59, 58, 53, 52, 50, 46, 42, 37, 34, 30, 26, 22, 20, 16, 10, 1],
+  D: [88.8, 88, 58, 57, 54, 45, 43, 39, 34, 32, 29, 19, 9],
+  K: [88.6, 87.7, 57, 56, 51, 47, 46, 41, 35, 32, 28, 22, 17, 14, 11, 8],
+  L: [88.3, 87.2, 59, 55, 48, 44, 31, 28, 22, 5]
 };
 
 // Scores du joueur 
@@ -225,8 +225,8 @@ function addNote(noteId, color) {
   function myMove() { // Permet le défilement des notes
     let pos = 0; // newNoteDiv commence en position 0
     let tracksHeight = document.querySelector(".track").offsetHeight;
-    let notePosIncrementer = tracksHeight / 80; // On peut ici modifier la vitesse de descente des notes
-    setInterval(frame, 20);
+    let notePosIncrementer = tracksHeight / 50; // On peut ici modifier la vitesse de descente des notes
+    setInterval(frame, 20); // Ne jamais modifier cette ligne
     function frame() {
       pos += notePosIncrementer;
       newNoteDiv.style.top = pos + 'px'; // La valeur du top de newNoteDiv augmente toutes les 1 frames = la note descend
