@@ -203,17 +203,19 @@ function addNote(noteId, color) {
   function myMove() { // Permet le défilement des notes
     let pos = 0; // newNoteDiv commence en position 0
     let tracksHeight = document.querySelector(".track").offsetHeight;
-    let notePosIncrementer = tracksHeight / 250; // On peut ici modifier la vitesse de descente des notes
-    setInterval(frame, 1);
+    let notePosIncrementer = tracksHeight / 80; // On peut ici modifier la vitesse de descente des notes
+    setInterval(frame, 20);
     function frame() {
       pos += notePosIncrementer;
       newNoteDiv.style.top = pos + 'px'; // La valeur du top de newNoteDiv augmente toutes les 1 frames = la note descend
     }
   }
   myMove();
-  setTimeout(() => newNoteDiv.remove(), 2000); // Supprime les notes générées après 2 secondes
+  /*setTimeout(() => {
+    if ((receptor.offsetTop + receptor.offsetHeight) < parseInt(newNoteDiv.style.top)) playerScore -= 10;
+    newNoteDiv.remove(), 2000
+  }); // Supprime les notes générées après 2 secondes*/
+    setTimeout(() => {
+    newNoteDiv.remove()
+  }, 3000); // Supprime les notes générées après 2 secondes
 }
-  /*if ((receptor.offsetTop + receptor.offsetHeight) < parseInt(newNoteDiv.style.top)) {
-    newNoteDiv.remove();
-    playerScore -= 10;
-  }*/
