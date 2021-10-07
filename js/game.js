@@ -1,3 +1,22 @@
+// Sound Function you can use her in HTML with onclick="" or in JS spell her sound(sound)
+function sound(sound)
+{
+        let audio = document.createElement('audio');
+        audio.preload = 'auto';
+
+        let wavSource = document.createElement('source');
+        wavSource.src = sound+'.wav';
+        wavSource.type = 'audio/wav';
+
+        let mp3Source = document.createElement('source');
+        mp3Source.src = sound+'.mp3';
+        mp3Source.type = 'audio/mpeg';
+
+        audio.appendChild(wavSource);
+        audio.appendChild(mp3Source);
+        audio.play();
+};
+
 // Partitions
 const easyMode = {
   S: [88, 87.5, 87, 84, 59, 55, 51, 47, 43, 39, 35, 31, 27, 23, 19, 15, 11, 7, 3],
@@ -47,6 +66,7 @@ function noteManagement(color) { // L'argument doit être un string
       colorNote.classList.remove(color);
       colorNote.classList.add("miss");
       colorNote.innerHTML = "MISS";
+      sound('song/missNote'); 
       playerScore -= 20;
       playerScoreDisplay.innerHTML = playerScore.toString();
     } else if (((receptor.offsetTop - receptor.offsetHeight ) < parseInt(colorNote.style.top) < (receptor.offsetTop + receptor.offsetHeight)) && colorNote.classList.contains(color)) {
@@ -128,14 +148,17 @@ function gameDifficult(mode) {
 }
 
 easyGame.addEventListener("click", function () {
+  sound('song/singleNoteLaunchMode');
   gameDifficult(easyMode);
 })
 
 mediumGame.addEventListener("click", function () {
+  sound('song/singleNoteLaunchMode');
   gameDifficult(mediumMode);
 })
 
 hardGame.addEventListener("click", function () {
+  sound('song/singleNoteLaunchMode');
   gameDifficult(hardMode);
 })
 
