@@ -14,7 +14,7 @@ const mediumMode = {
 };
 
 const hardMode = {
-  S: [89, 88, 86,8, 59, 58, 53, 52, 50, 46, 42, 37, 34, 30, 26, 22, 20, 16, 10, 1],
+  S: [89, 88, 86, 8, 59, 58, 53, 52, 50, 46, 42, 37, 34, 30, 26, 22, 20, 16, 10, 1],
   D: [88.8, 88, 58, 57, 54, 45, 43, 39, 34, 32, 29, 19, 9],
   K: [88.6, 87.7, 57, 56, 51, 47, 46, 41, 35, 32, 28, 22, 17, 14, 11, 8],
   L: [88.3, 87.2, 59, 55, 48, 44, 31, 28, 22, 5]
@@ -48,15 +48,17 @@ function noteManagement(color) { // L'argument doit être un string
         colorNote.classList.remove(color);
         colorNote.classList.add("miss");
         colorNote.innerHTML = "MISS";
-        playerScore -= 25;
-        playerScoreDisplay.innerHTML = playerScore.toString();
-      } else if (((receptor.offsetTop - receptor.offsetHeight ) < parseInt(colorNote.style.top) < (receptor.offsetTop + receptor.offsetHeight)) && colorNote.classList.contains(color)) {
-        colorNote.remove();
-        playerScore += 20;
-        playerScoreDisplay.innerHTML = playerScore.toString();
+        if (playerScore !== 0) {
+          playerScore -= 20;
+          playerScoreDisplay.innerHTML = playerScore.toString();
       }
+    } else if (((receptor.offsetTop - receptor.offsetHeight) < parseInt(colorNote.style.top) < (receptor.offsetTop + receptor.offsetHeight)) && colorNote.classList.contains(color)) {
+      colorNote.remove();
+      playerScore += 20;
+      playerScoreDisplay.innerHTML = playerScore.toString();
     }
   }
+}
 }
 
 function addListener() {
@@ -121,8 +123,6 @@ function addListener() {
   }, true);
 }
 
-// Penser à créer une variable qui stocke la difficulté en cours //
-
 function gameDifficult(mode) {
   launchGamePopup.style.display = "none";
   launchGameCountdown.style.display = "flex";
@@ -135,7 +135,7 @@ let playerScoreHard;
 
 easyGame.addEventListener("click", function () {
   playerScoreEasy = 0;
-  gameDifficult(easyMode); 
+  gameDifficult(easyMode);
 })
 
 mediumGame.addEventListener("click", function () {
@@ -153,7 +153,7 @@ let progressBar = document.querySelector("#progressBar"); // Barre de progressio
 let countdownOnDesktop = document.querySelector("#countdownTextDesktop"); // Décompte affiché sur desktop
 let countdownOnMobile = document.querySelector("#countdownTextMobile"); // Décompte affiché sur mobile
 let endGamePopup = document.querySelector(".end-game-popup");
-let timeleft = 9000;
+let timeleft = 2000;
 let audio = new Audio('/song/game-song.mp3');
 
 // Lancement du décompte : 3, 2, 1...
@@ -184,14 +184,16 @@ function countdownTimer(mode) {
       finalScore.innerHTML = playerScore;
       if (easyMode) {
         playerScore = playerScoreEasy;
-        localStorage.setItem("rockQuestEasy","playerScoreEasy");
+        localStorage.setItem("rockQuestEasy", "playerScoreEasy");
         console.log(localStorage);
       } else if (mediumMode) {
         playerScore = playerScoreMedium;
-        localStorage.setItem("rockQuestMedium","playerScoreMedium");
-      } else if (hardMode){
-        playerScore = playerScoreHard ;
+        localStorage.setItem("rockQuestMedium", "playerScoreMedium");
+        console.log(localStorage);
+      } else if (hardMode) {
+        playerScore = playerScoreHard;
         localStorage.setItem("rockQuestHard", "playerScoreHard");
+        console.log(localStorage);
       };
     }
     addListener();
@@ -237,7 +239,7 @@ function addNote(noteId, color) {
     if ((receptor.offsetTop + receptor.offsetHeight) < parseInt(newNoteDiv.style.top)) playerScore -= 10;
     newNoteDiv.remove(), 2000
   }); // Supprime les notes générées après 2 secondes*/
-    setTimeout(() => {
+  setTimeout(() => {
     newNoteDiv.remove()
-  }, 3000); // Supprime les notes générées après 2 secondes
+  }, 1000); // Supprime les notes générées après 2 secondes
 }
