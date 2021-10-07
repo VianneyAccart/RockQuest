@@ -1,3 +1,8 @@
+localStorage.getItem("rockQuestEasy");
+localStorage.getItem("rockQuestMedium");
+localStorage.getItem("rockQuestHard");
+
+
 const easyLeaderboard = [
   { name: "Ario", difficulty: "Easy", score: 879 },
   { name: "AdN", difficulty: "Easy", score: 865 },

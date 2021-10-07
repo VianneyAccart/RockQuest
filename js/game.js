@@ -20,7 +20,7 @@ const hardMode = {
   L: [59, 55, 48, 44, 31, 28, 22, 5]
 };
 
-// Scores du joueur
+// Scores du joueur 
 let playerScore = 0
 const playerScoreDisplay = document.querySelector(".player-score");
 playerScoreDisplay.innerHTML = playerScore.toString();
@@ -36,23 +36,25 @@ const receptor = document.querySelector(".receptor");
 function noteManagement(color) { // L'argument doit être un string
   let colorNotes = document.getElementsByClassName(color);
   let colorNote = null;
-  if (colorNotes.length > 0) {
-    if (colorNotes.length === 1) {
-      colorNote = colorNotes[0];
-    } else {
-      colorNote = colorNotes[colorNotes.length - 1];
-    }
-    if (((parseInt(colorNote.style.top) + colorNote.offsetHeight) < receptor.offsetTop) && colorNote.classList.contains(color)) {
-      colorNote.classList.add("grey");
-      colorNote.classList.remove(color);
-      colorNote.classList.add("miss");
-      colorNote.innerHTML = "MISS";
-      playerScore -= 20;
-      playerScoreDisplay.innerHTML = playerScore.toString();
-    } else if (((receptor.offsetTop - receptor.offsetHeight ) < parseInt(colorNote.style.top) < (receptor.offsetTop + receptor.offsetHeight)) && colorNote.classList.contains(color)) {
-      colorNote.remove();
-      playerScore += 10;
-      playerScoreDisplay.innerHTML = playerScore.toString();
+  if (timeleft > 0) {
+    if (colorNotes.length > 0) {
+      if (colorNotes.length === 1) {
+        colorNote = colorNotes[0];
+      } else {
+        colorNote = colorNotes[colorNotes.length - 1];
+      }
+      if (((parseInt(colorNote.style.top) + colorNote.offsetHeight) < receptor.offsetTop) && colorNote.classList.contains(color)) {
+        colorNote.classList.add("grey");
+        colorNote.classList.remove(color);
+        colorNote.classList.add("miss");
+        colorNote.innerHTML = "MISS";
+        playerScore -= 20;
+        playerScoreDisplay.innerHTML = playerScore.toString();
+      } else if (((receptor.offsetTop - receptor.offsetHeight ) < parseInt(colorNote.style.top) < (receptor.offsetTop + receptor.offsetHeight)) && colorNote.classList.contains(color)) {
+        colorNote.remove();
+        playerScore += 10;
+        playerScoreDisplay.innerHTML = playerScore.toString();
+      }
     }
   }
 }
@@ -127,15 +129,22 @@ function gameDifficult(mode) {
   startCountdown(mode);
 }
 
+let playerScoreEasy;
+let playerScoreMedium;
+let playerScoreHard;
+
 easyGame.addEventListener("click", function () {
-  gameDifficult(easyMode);
+  playerScoreEasy = 0;
+  gameDifficult(easyMode); 
 })
 
 mediumGame.addEventListener("click", function () {
+  playerScoreMedium = 0;
   gameDifficult(mediumMode);
 })
 
 hardGame.addEventListener("click", function () {
+  playerScoreHard = 0;
   gameDifficult(hardMode);
 })
 
@@ -144,7 +153,7 @@ let progressBar = document.querySelector("#progressBar"); // Barre de progressio
 let countdownOnDesktop = document.querySelector("#countdownTextDesktop"); // Décompte affiché sur desktop
 let countdownOnMobile = document.querySelector("#countdownTextMobile"); // Décompte affiché sur mobile
 let endGamePopup = document.querySelector(".end-game-popup");
-let timeleft = 9000; // Durée d'une partie en secondes
+let timeleft = 9000;
 let audio = new Audio('/song/game-song.mp3');
 
 // Lancement du décompte : 3, 2, 1...
@@ -163,14 +172,27 @@ function startCountdown(mode) {
 // Lancement du décompte de 90 à 0
 function countdownTimer(mode) {
   launchGameCountdown.style.display = "none";
+  audio.play();
   let round = setInterval(function () {
-    audio.play();
     timeleft--;
     countdownOnDesktop.innerHTML = timeleft / 100;
     countdownOnMobile.innerHTML = timeleft / 100;
     if (timeleft <= 0) {
       clearInterval(round);
       endGamePopup.style.display = "flex";
+      let finalScore = document.querySelector(".end-played-score");
+      finalScore.innerHTML = playerScore;
+      if (easyMode) {
+        playerScore = playerScoreEasy;
+        localStorage.setItem("rockQuestEasy","playerScoreEasy");
+        console.log(localStorage);
+      } else if (mediumMode) {
+        playerScore = playerScoreMedium;
+        localStorage.setItem("rockQuestMedium","playerScoreMedium");
+      } else if (hardMode){
+        playerScore = playerScoreHard ;
+        localStorage.setItem("rockQuestHard", "playerScoreHard");
+      };
     }
     addListener();
     noteGenerating(mode);
