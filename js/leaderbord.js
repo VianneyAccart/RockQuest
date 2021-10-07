@@ -28,11 +28,11 @@ else{ playerMedium = {name: " You", difficulty: "Medium", score:""}}
 
 mediumLeaderboard.push(playerMedium);
 
-const hardLeaderboard = [
-  { name: "Ario", difficulty: "Hard", score: 2879 },
-  { name: "AdN", difficulty: "Hard", score: 2865 },
-  { name: "Beerus", difficulty: "Hard", score: 2800 },
-  { name: "Vianney", difficulty: "Hard", score: 2785 }, 
+const hardLeaderboard = [ // 358 notes x 20 points = 7160 max
+  { name: "Ario", difficulty: "Hard", score: 6390 },
+  { name: "Vianney", difficulty: "Hard", score: 4580 },
+  { name: "Beerus", difficulty: "Hard", score: 2760 },
+  { name: "AdN", difficulty: "Hard", score: 1430 }, 
 ];
 let playerHard;
 if (scoreHard != null){
