@@ -1,9 +1,10 @@
 // Partitions
 const easyMode = {
-  S: [88, 87.5, 87, 84, 59, 55, 51, 47, 43, 39, 35, 31, 27, 23, 19, 15, 11, 7, 3],
-  D: [87, 86.8, 86.3, 86, 83, 58.50, 55, 52, 50, 47, 45, 42, 40, 37, 35, 32, 30, 27, 25, 22, 20, 17, 15, 12, 10, 7, 5, 2],
-  K: [86, 85.5, 85, 82, 58, 56, 54, 52, 50, 45, 40, 38, 36, 34, 30, 28, 26, 24, 22, 20, 18, 16, 14, 10, 8, 6, 5, 4, 3, 2, 1],
-  L: [85, 84.6, 84, 81, 57.50, 58, 53, 50, 49, 44, 41, 40, 39, 34, 31, 30, 25, 22, 21, 16, 13, 12, 9, 5, 4, 3, 2, 1]
+  S: [89.00,85.00,81.00,77.00,73.00,70.00,69.00,68.00,66.00,63.50,61.00,56.00,55.00,51.50,50.30,46.80,45.80,42.30,41.80,],
+  D: [88.00,84.00,80.00,76.00,73.00,69.50,68.50,67.50,65.50,61.50,59.00,51.50,50.30,46.30,45.30,42.80,41.30,],
+  K: [87.00,83.00,79.00,75.00,69.50,68.50,67.50,65.50,60.50,59.50,50.80,49.80,46.80,45.80,42.80,41.30,],
+  L: [86.00,82.00,78.00,74.00,69.00,68.00,66.00,64.00,60.00,55.50,54.50,50.80,49.80,46.30,45.30,42.30,41.80,]
+
 };
 
 const mediumMode = {
@@ -134,17 +135,17 @@ let playerScoreMedium;
 let playerScoreHard;
 
 easyGame.addEventListener("click", function () {
-  playerScoreEasy = 0;
+  playerScoreEasy = playerScore;
   gameDifficult(easyMode); 
 })
 
 mediumGame.addEventListener("click", function () {
-  playerScoreMedium = 0;
+  playerScoreMedium = playerScore;
   gameDifficult(mediumMode);
 })
 
 hardGame.addEventListener("click", function () {
-  playerScoreHard = 0;
+  playerScoreHard = playerScore;
   gameDifficult(hardMode);
 })
 
@@ -184,14 +185,14 @@ function countdownTimer(mode) {
       finalScore.innerHTML = playerScore;
       if (easyMode) {
         playerScore = playerScoreEasy;
-        localStorage.setItem("rockQuestEasy","playerScoreEasy");
+        localStorage.setItem("rockQuestEasy",playerScoreEasy);
         console.log(localStorage);
       } else if (mediumMode) {
         playerScore = playerScoreMedium;
-        localStorage.setItem("rockQuestMedium","playerScoreMedium");
+        localStorage.setItem("rockQuestMedium",playerScoreMedium);
       } else if (hardMode){
         playerScore = playerScoreHard ;
-        localStorage.setItem("rockQuestHard", "playerScoreHard");
+        localStorage.setItem("rockQuestHard", playerScoreHard);
       };
     }
     addListener();
