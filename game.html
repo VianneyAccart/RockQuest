@@ -47,21 +47,28 @@
             <h1>ROCK'<br />QUEST</h1>
             <div class="game-score">Your score :<span class="player-score">0</span></div>
             <div class="game-countdown">Time left :
-                <span class="player-score" id="countdownText">60</span>
-                <progress value="0" max="60" id="progressBar"></progress>
+                <span class="player-score" id="countdownTextDesktop">90</span>
             </div>
         </div>
         <div class="game-screen">
             <div class="launch-game-popup">
                 <h2>Choose your difficulty</h2>
                 <div class="launch-game-btn">
-                    <button class="launch-btn">Easy</button>
-                    <button class="launch-btn">Medium</button>
-                    <button class="launch-btn">Hard</button>
+                    <button id="launch-btn-easy" class="launch-btn">Easy</button>
+                    <button id="launch-btn-medium" class="launch-btn">Medium</button>
+                    <button id="launch-btn-hard" class="launch-btn">Hard</button>
                 </div>
             </div>
             <div class="launch-game-countdown">
                 <p class="countdown">3</p>
+            </div>
+            <div class="mobile-popup">
+                <div class="mobile-element">
+                    Your score : <span class="player-score">0</span>
+                </div>
+                <div class="mobile-element">
+                    Time left : <span class="player-score" id="countdownTextMobile">90</span>
+                </div>
             </div>
             <div class="end-game-popup">
                 <h2>Your score</h2>
@@ -72,18 +79,17 @@
                 </div>
             </div>
             <div class="tracks">
-                <div class="track-s">
-                    <div class="note-s">TEST</div>
-                    <div class="receptor-s"></div>
+                <div id="noteS" class="track">
+                    <div class="receptor"></div>
                 </div>
-                <div class="track-d">
-                    <div class="receptor-d"></div>
+                <div id="noteD" class="track">
+                    <div class="receptor"></div>
                 </div>
-                <div class="track-k">
-                    <div class="receptor-k"></div>
+                <div id="noteK" class="track">
+                    <div class="receptor"></div>
                 </div>
-                <div class="track-l">
-                    <div class="receptor-l"></div>
+                <div id="noteL" class="track">
+                    <div class="receptor"></div>
                 </div>
             </div>
             <div class="buttons">
@@ -98,7 +104,7 @@
     </div>
 
     <script src="js/script.js"></script>
-    <script src="js/input-detection.js"></script>
+    <script src="js/game.js"></script>
 </body>
 
 </html>
