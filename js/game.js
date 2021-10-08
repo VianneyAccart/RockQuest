@@ -169,9 +169,9 @@ function addListenerMobile() {
     }*/
       trackD.style.background = "none";
       trackD.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
-              allReceptors[0].classList.remove("success");
-        allReceptors[0].classList.remove("score");
-        allReceptors[0].innerHTML = "";
+              allReceptors[1].classList.remove("success");
+        allReceptors[1].classList.remove("score");
+        allReceptors[1].innerHTML = "";
       // Consume the event so it doesn't get handled twice
       touchend.preventDefault();
     },
@@ -200,9 +200,9 @@ function addListenerMobile() {
     }*/
       trackK.style.background = "none";
       trackK.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
-              allReceptors[0].classList.remove("success");
-        allReceptors[0].classList.remove("score");
-        allReceptors[0].innerHTML = "";
+              allReceptors[2].classList.remove("success");
+        allReceptors[2].classList.remove("score");
+        allReceptors[2].innerHTML = "";
       // Consume the event so it doesn't get handled twice
       touchend.preventDefault();
     },
@@ -231,6 +231,9 @@ function addListenerMobile() {
     }*/
       trackL.style.background = "none";
       trackL.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+                    allReceptors[3].classList.remove("success");
+        allReceptors[3].classList.remove("score");
+        allReceptors[3].innerHTML = "";
       // Consume the event so it doesn't get handled twice
       touchend.preventDefault();
     },
