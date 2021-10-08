@@ -3,10 +3,10 @@ let scoreMedium = localStorage.getItem('rockQuestMedium');
 let scoreHard= localStorage.getItem('rockQuestHard');
 
 const easyLeaderboard = [
-  { name: "Ario", difficulty: "Easy", score: 879 },
-  { name: "AdN", difficulty: "Easy", score: 865 },
-  { name: "Beerus", difficulty: "Easy", score: 800 },
-  { name: "Vianney", difficulty: "Easy", score: 785 }
+  { name: "Beerus", difficulty: "Easy", score: 879 },
+  { name: "Vianney", difficulty: "Easy", score: 865 },
+  { name: "AdN", difficulty: "Easy", score: 800 },
+  { name: "Ario", difficulty: "Easy", score: 785 }
 ];
 let playerEasy;
 if (scoreEasy != null){
@@ -15,11 +15,11 @@ else{ playerEasy = {name: " You", difficulty: "Easy", score:""}}
 
 easyLeaderboard.push(playerEasy);
 
-const mediumLeaderboard = [
-  { name: "Ario", difficulty: "Medium", score: 1879 },
-  { name: "AdN", difficulty: "Medium", score: 1865 },
-  { name: "Beerus", difficulty: "Medium", score: 1800 },
-  { name: "Vianney", difficulty: "Medium", score: 1785 },
+const mediumLeaderboard = [ // 253 notes x 20 points = 5060 max
+  { name: "Ario", difficulty: "Medium", score: 4020 },
+  { name: "AdN", difficulty: "Medium", score: 3120 },
+  { name: "Beerus", difficulty: "Medium", score: 2590 },
+  { name: "Vianney", difficulty: "Medium", score: 2020 },
 ];
 let playerMedium;
 if (scoreMedium != null){
