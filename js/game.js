@@ -70,7 +70,7 @@ function noteManagement(color) { // L'argument doit être un string
         colorNote.classList.remove(color);
         colorNote.classList.add("miss");
         colorNote.innerHTML = "-20";
-        sound('song/missNote');
+        miss.play();
         if (playerScore !== 0) {
           playerScore -= 20;
           playerScoreDisplay.innerHTML = playerScore.toString();
@@ -301,6 +301,7 @@ let countdownOnMobile = document.querySelector("#countdownTextMobile"); // Déco
 let endGamePopup = document.querySelector(".end-game-popup");
 let timeleft = 9000;
 let audio = new Audio('/song/game-song.mp3');
+let miss = new Audio('song/missNote.mp3');
 
 // Lancement du décompte : 3, 2, 1...
 function startCountdown(mode) {
