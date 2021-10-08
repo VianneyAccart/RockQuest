@@ -128,7 +128,7 @@ function addListenerMobile() {
         "linear-gradient(rgba(0, 0, 0, 0.54), 90%, green)";
       noteManagement("green");
       // Consume the event so it doesn't get handled twice
-      touchstart.preventDefault();
+      /* buttonDown.preventDefault(); */
     },
     true
   );
@@ -144,7 +144,7 @@ function addListenerMobile() {
         allReceptors[0].classList.remove("score");
         allReceptors[0].innerHTML = "";
       // Consume the event so it doesn't get handled twice
-      touchend.preventDefault();
+      /* buttonDown.preventDefault(); */
     },
     true
   );
@@ -152,14 +152,11 @@ function addListenerMobile() {
     "touchstart",
     function (buttonDown) {
       // Lorsqu'une touche est pressée
-      /*if (buttonDown.defaultPrevented) {
-      return; // Do nothing if event already handled
-    }*/
       trackD.style.background =
         "linear-gradient(rgba(0, 0, 0, 0.54), 90%, red)";
       noteManagement("red");
       // Consume the event so it doesn't get handled twice
-      touchstart.preventDefault();
+      /* buttonDown.preventDefault(); */
     },
     true
   );
@@ -175,7 +172,7 @@ function addListenerMobile() {
         allReceptors[1].classList.remove("score");
         allReceptors[1].innerHTML = "";
       // Consume the event so it doesn't get handled twice
-      touchend.preventDefault();
+      /* buttonDown.preventDefault(); */
     },
     true
   );
@@ -183,30 +180,24 @@ function addListenerMobile() {
     "touchstart",
     function (buttonDown) {
       // Lorsqu'une touche est pressée
-      /*if (buttonDown.defaultPrevented) {
-      return; // Do nothing if event already handled
-    }*/
       trackK.style.background =
         "linear-gradient(rgba(0, 0, 0, 0.54), 90%, yellow)";
       noteManagement("yellow");
       // Consume the event so it doesn't get handled twice
-      touchstart.preventDefault();
+      /* buttonDown.preventDefault(); */
     },
     true
   );
   buttonK.addEventListener(
     "touchend",
     function () {
-      /*if (buttonDown.defaultPrevented) {
-      return; // Do nothing if event already handled
-    }*/
       trackK.style.background = "none";
       trackK.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
               allReceptors[2].classList.remove("success");
         allReceptors[2].classList.remove("score");
         allReceptors[2].innerHTML = "";
       // Consume the event so it doesn't get handled twice
-      touchend.preventDefault();
+      /* buttonDown.preventDefault(); */
     },
     true
   );
@@ -214,30 +205,24 @@ function addListenerMobile() {
     "touchstart",
     function (buttonDown) {
       // Lorsqu'une touche est pressée
-      /*if (buttonDown.defaultPrevented) {
-      return; // Do nothing if event already handled
-    }*/
       trackL.style.background =
         "linear-gradient(rgba(0, 0, 0, 0.54), 90%, blue)";
       noteManagement("blue");
       // Consume the event so it doesn't get handled twice
-      touchstart.preventDefault();
+      /* buttonDown.preventDefault(); */
     },
     true
   );
   buttonL.addEventListener(
     "touchend",
     function () {
-      /*if (buttonDown.defaultPrevented) {
-      return; // Do nothing if event already handled
-    }*/
       trackL.style.background = "none";
       trackL.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
                     allReceptors[3].classList.remove("success");
         allReceptors[3].classList.remove("score");
         allReceptors[3].innerHTML = "";
       // Consume the event so it doesn't get handled twice
-      touchend.preventDefault();
+      /* buttonDown.preventDefault(); */
     },
     true
   );
