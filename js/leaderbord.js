@@ -2,11 +2,11 @@ let scoreEasy = localStorage.getItem('rockQuestEasy');
 let scoreMedium = localStorage.getItem('rockQuestMedium');
 let scoreHard= localStorage.getItem('rockQuestHard');
 
-const easyLeaderboard = [
-  { name: "Beerus", difficulty: "Easy", score: 879 },
-  { name: "Vianney", difficulty: "Easy", score: 865 },
-  { name: "AdN", difficulty: "Easy", score: 800 },
-  { name: "Ario", difficulty: "Easy", score: 785 }
+const easyLeaderboard = [ // 151 notes x 20 points = 3020 max
+  { name: "AdN", difficulty: "Easy", score: 2800 },
+  { name: "Vianney", difficulty: "Easy", score: 2360 },
+  { name: "Beerus", difficulty: "Easy", score: 1870 },
+  { name: "Ario", difficulty: "Easy", score: 1230 }
 ];
 let playerEasy;
 if (scoreEasy != null){
