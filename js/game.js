@@ -34,14 +34,15 @@ const mediumMode = {
 };
 
 const hardMode = {
-  S: [89, 88, 86, 8, 59, 58, 53, 52, 50, 46, 42, 37, 34, 30, 26, 22, 20, 16, 10, 1],
-  D: [88.8, 88, 58, 57, 54, 45, 43, 39, 34, 32, 29, 19, 9],
-  K: [88.6, 87.7, 57, 56, 51, 47, 46, 41, 35, 32, 28, 22, 17, 14, 11, 8],
-  L: [88.3, 87.2, 59, 55, 48, 44, 31, 28, 22, 5]
+  S: [89.99, 89, 88, 87.25, 87, 86.25, 85.25, 84.25, 83.5, 83.25, 82.25, 82, 81, 80, 79.25, 79, 78, 77.75, 76.75, 75.75, 74.75, 74, 73.75, 72.75, 72, 71.25, 70.25, 69.25, 68.25, 67.25, 66.25, 65.25, 64.25, 63.25, 62.25, 61, 60.5, 59, 57.5, 56, 54, 53, 52, 51, 50.5, 47.5, 45, 44.5, 43, 42, 41, 40, 39, 38, 37, 36, 34, 33, 32.75, 31.5, 31.25, 30, 29.75, 28.5, 27, 26.5, 26.25, 24.75, 24.25, 24, 22.5, 22, 21.75, 20.25, 19.75, 18.25, 17.75, 16, 15.5, 14.75, 13.9, 13.3, 12.7, 12.1, 11.5, 10.9, 10.3, 9.7, 8.5, 7.5, 6.5, 5.5, 4.5, 3, 2.8, 2.6, 2.4],
+  D: [89.75, 88.75, 87.75, 87, 86.5, 86, 85, 84, 83.25, 82.75, 81.75, 80.75, 79.75, 79, 78.5, 77.5, 76.5, 75.5, 74.5, 73.75, 73.25, 69, 68, 67, 66.5, 65.75, 63.75, 62.5, 61.25, 60, 58.5, 57, 55.5, 54.5, 53.75, 53.25, 52.5, 51.75, 51.25, 50, 48, 47.25, 45.25, 44.75, 43.75, 42.5, 41.5, 40.5, 39.5, 38.5, 37.5, 36.5, 35.5, 34.5, 33.5, 32.5, 31, 29.5, 28, 27.5, 26.75, 25.75, 25.25, 24.5, 23.5, 23, 22.25, 21.25, 20.75, 20, 18.5, 18, 17.5, 17, 15.75, 15.5, 15, 14.5, 13.8, 13.2, 12.6, 12, 11.4, 10.8, 10.2, 9.6, 7, 5, 4, 3.25, 2.9, 2.7, 2.5, 2.3],
+  K: [89.5, 88.5, 88, 87.5, 86.75, 85.75, 84.75, 84.25, 83.75, 83, 81.5, 80.5, 80, 79.5, 78.75, 77.25, 76.25, 75.25, 74.75, 74.25, 73.5, 68.5, 68, 67.5, 66.25, 64.25, 63.25, 62.75, 61.5, 60.5, 59, 57.5, 56, 54.5, 53, 52.5, 51, 49.5, 47.75, 46.75, 44.5, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 32.25, 30.75, 29.25, 28.25, 27.25, 26.5, 26, 25, 24.25, 23.75, 22.75, 22, 21.5, 20.5, 19.75, 19.25, 18.75, 17.25, 16.75, 16.25, 16.75, 15.25, 15, 14.25, 13.7, 13.1, 12.5, 11.9, 11.3, 10.7, 10.1, 9.5, 8, 6, 5, 3.75, 2.2],
+  L: [89.25, 88.25, 87.25, 86.75, 85.5, 84.5, 83.5, 83, 82.5, 81.25, 80.25, 79.25, 78.75, 78.25, 77, 76, 75, 74, 73.5, 73, 69, 67.5, 66.75, 64.75, 63, 61.75, 59.5, 58, 56.5, 55, 53.5, 51.5, 49, 46.5, 46, 44.25, 42.5, 41.5, 40.5, 39.5, 38.5, 37.5, 36.5, 35.5, 34.5, 33.5, 32, 31.75, 30.5, 30.2, 29, 28.75, 27.75, 26.5, 23.25, 22.25, 21, 20, 19.5, 16.5, 16, 15.25, 14, 13.6, 13, 12.4, 11.8, 11.2, 10.6, 10, 9.4, 9, 7.5, 7, 5.5, 4.5, 3.5, 2.1]
 };
 
 // Scores du joueur 
 let playerScore = 0
+let playerMode = null;
 const playerScoreDisplay = document.querySelector(".player-score");
 playerScoreDisplay.innerHTML = playerScore.toString();
 
@@ -314,24 +315,21 @@ function gameDifficult(mode) {
   startCountdown(mode);
 }
 
-let playerScoreEasy;
-let playerScoreMedium;
-let playerScoreHard;
 
 easyGame.addEventListener("click", function () {
-  playerScoreEasy = playerScore;
+  playerMode = "easy";
   sound('song/singleNoteLaunchMode');
   gameDifficult(easyMode);
 })
 
 mediumGame.addEventListener("click", function () {
-  playerScoreMedium = playerScore;
+  playerMode = "medium";
   sound('song/singleNoteLaunchMode');
   gameDifficult(mediumMode);
 })
 
 hardGame.addEventListener("click", function () {
-  playerScoreHard = playerScore;
+  playerMode = "hard";
   sound('song/singleNoteLaunchMode');
   gameDifficult(hardMode);
 })
@@ -362,7 +360,7 @@ function countdownTimer(mode) {
   launchGameCountdown.style.display = "none";
   audio.play();
   addListener();
-  addListenerMobile();
+  addListenerMobile()
   let round = setInterval(function () {
     timeleft--;
     countdownOnDesktop.innerHTML = timeleft / 100;
@@ -372,16 +370,18 @@ function countdownTimer(mode) {
       endGamePopup.style.display = "flex";
       let finalScore = document.querySelector(".end-played-score");
       finalScore.innerHTML = playerScore;
-      if (easyMode) {
-        playerScore = playerScoreEasy;
-        localStorage.setItem("rockQuestEasy",playerScoreEasy);
-        console.log(localStorage);
-      } else if (mediumMode) {
-        playerScore = playerScoreMedium;
-        localStorage.setItem("rockQuestMedium",playerScoreMedium);
-      } else if (hardMode){
-        playerScore = playerScoreHard ;
-        localStorage.setItem("rockQuestHard", playerScoreHard);
+      if (playerMode === "easy") {
+        const easyCurrentScore = localStorage.getItem("rockQuestEasy");
+        if (easyCurrentScore == null || easyCurrentScore < playerScore)
+          localStorage.setItem("rockQuestEasy",playerScore);
+      } else if (playerMode === "medium") {
+        const mediumCurrentScore = localStorage.getItem("rockQuestMedium");
+        if (mediumCurrentScore == null || mediumCurrentScore < playerScore)
+          localStorage.setItem("rockQuestMedium",playerScore);
+      } else {
+        const hardCurrentScore = localStorage.getItem("rockQuestHard");
+        if (hardCurrentScore == null || hardCurrentScore < playerScore)
+          localStorage.setItem("rockQuestHard",playerScore);
       };
     }
     noteGenerating(mode);

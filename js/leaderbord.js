@@ -1,31 +1,46 @@
-localStorage.getItem("rockQuestEasy");
-localStorage.getItem("rockQuestMedium");
-localStorage.getItem("rockQuestHard");
-
+let scoreEasy = localStorage.getItem('rockQuestEasy');
+let scoreMedium = localStorage.getItem('rockQuestMedium');
+let scoreHard= localStorage.getItem('rockQuestHard');
 
 const easyLeaderboard = [
   { name: "Ario", difficulty: "Easy", score: 879 },
   { name: "AdN", difficulty: "Easy", score: 865 },
   { name: "Beerus", difficulty: "Easy", score: 800 },
-  { name: "Vianney", difficulty: "Easy", score: 785 },
-  { name: "You", difficulty: "Easy", score: 609 },
+  { name: "Vianney", difficulty: "Easy", score: 785 }
 ];
+let playerEasy;
+if (scoreEasy != null){
+playerEasy = {name: " You", difficulty: "Easy", score: scoreEasy}}
+else{ playerEasy = {name: " You", difficulty: "Easy", score:""}}
+
+easyLeaderboard.push(playerEasy);
 
 const mediumLeaderboard = [
   { name: "Ario", difficulty: "Medium", score: 1879 },
   { name: "AdN", difficulty: "Medium", score: 1865 },
   { name: "Beerus", difficulty: "Medium", score: 1800 },
   { name: "Vianney", difficulty: "Medium", score: 1785 },
-  { name: "You", difficulty: "Medium", score: 1860 },
 ];
+let playerMedium;
+if (scoreMedium != null){
+playerMedium = {name: " You", difficulty: "Medium", score:scoreMedium}}
+else{ playerMedium = {name: " You", difficulty: "Medium", score:""}}
 
-const hardLeaderboard = [
-  { name: "Ario", difficulty: "Hard", score: 2879 },
-  { name: "AdN", difficulty: "Hard", score: 2865 },
-  { name: "Beerus", difficulty: "Hard", score: 2800 },
-  { name: "Vianney", difficulty: "Hard", score: 2785 },
-  { name: "You", difficulty: "Hard", score: 2880 },
+mediumLeaderboard.push(playerMedium);
+
+const hardLeaderboard = [ // 358 notes x 20 points = 7160 max
+  { name: "Ario", difficulty: "Hard", score: 6390 },
+  { name: "Vianney", difficulty: "Hard", score: 4580 },
+  { name: "Beerus", difficulty: "Hard", score: 2760 },
+  { name: "AdN", difficulty: "Hard", score: 1430 }, 
 ];
+let playerHard;
+if (scoreHard != null){
+playerHard = {name: " You", difficulty: "Hard", score:scoreHard}}
+else{ playerHard = {name: " You", difficulty: "Hard", score:""}}
+
+hardLeaderboard.push(playerHard);
+
 
 // Classe les leaderboard par ordre décroissant
 function ranking(leaderboard) {
