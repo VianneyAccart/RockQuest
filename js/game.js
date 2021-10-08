@@ -44,7 +44,9 @@ const hardMode = {
 let playerScore = 0
 let playerMode = null;
 const playerScoreDisplay = document.querySelector(".player-score");
+const playerScoreDisplayMobile = document.querySelector(".player-score-mobile");
 playerScoreDisplay.innerHTML = playerScore.toString();
+playerScoreDisplayMobile.innerHTML = playerScore.toString();
 
 // Au clic sur un bouton de difficulté, lance la partition associée
 let launchGamePopup = document.querySelector(".launch-game-popup");
