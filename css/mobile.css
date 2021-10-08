@@ -263,7 +263,7 @@ td {
   text-align: center;
 }
 
-.player-score {
+.player-score, .player-score-mobile, #countdownTextMobile {
   font-weight: 800;
   padding-left: 10px;
 }

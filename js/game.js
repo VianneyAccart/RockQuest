@@ -1,28 +1,27 @@
 // Sound Function you can use her in HTML with onclick="" or in JS spell her sound(sound)
-function sound(sound)
-{
-        let audio = document.createElement('audio');
-        audio.preload = 'auto';
+function sound(sound) {
+  let audio = document.createElement('audio');
+  audio.preload = 'auto';
 
-        let wavSource = document.createElement('source');
-        wavSource.src = sound+'.wav';
-        wavSource.type = 'audio/wav';
+  let wavSource = document.createElement('source');
+  wavSource.src = sound + '.wav';
+  wavSource.type = 'audio/wav';
 
-        let mp3Source = document.createElement('source');
-        mp3Source.src = sound+'.mp3';
-        mp3Source.type = 'audio/mpeg';
+  let mp3Source = document.createElement('source');
+  mp3Source.src = sound + '.mp3';
+  mp3Source.type = 'audio/mpeg';
 
-        audio.appendChild(wavSource);
-        audio.appendChild(mp3Source);
-        audio.play();
+  audio.appendChild(wavSource);
+  audio.appendChild(mp3Source);
+  audio.play();
 };
 
 // Partitions
 const easyMode = {
-  S: [89.00,85.00,81.00,77.00,73.00,70.00,69.00,68.00,66.00,63.50,61.00,56.00,55.00,51.50,50.30,46.80,45.80,42.30,41.80,38.30,35.80,35.40,33.00,31.40,30.00,25.00,24.00,22.50,20.00,19.00,17.50,16.00,12.50,11.50,09.00,08.00,6.50,4.00],
-  D: [88.00,84.00,80.00,76.00,73.00,69.50,68.50,67.50,65.50,61.50,59.00,57.50,51.50,50.30,46.30,45.30,42.80,41.30,38.80,35.20,35.00,32.60,31.00,29.50,29.00,25.50,24.00,21.50,20.00,18.00,17.00,15.50,13.00,11.00,09.50,08.50,6.00],
-  K: [87.00,83.00,79.00,75.00,69.50,68.50,67.50,65.50,60.50,59.50,50.80,49.80,46.80,45.80,42.80,41.30,37.80,34.60,34.20,32.20,31.00,29.00,28.50,27.50,26.00,24.50,23.00,22.50,20.50,18.00,17.50,15.00,13.50,11.50,10.00,7,30,5.50],
-  L: [86.00,82.00,78.00,74.00,69.00,68.00,66.00,64.00,60.00,55.50,54.50,50.80,49.80,46.30,45.30,42.30,41.80,37.30,33.80,33.40,31.80,30.60,28.50,27.00,26.50,24.50,24.00,21.50,21.00,19.00,17.50,14.50,14.00,10.50,10.00,7.00,5.00,4.00]
+  S: [89.00, 85.00, 81.00, 77.00, 73.00, 70.00, 69.00, 68.00, 66.00, 63.50, 61.00, 56.00, 55.00, 51.50, 50.30, 46.80, 45.80, 42.30, 41.80, 38.30, 35.80, 35.40, 33.00, 31.40, 30.00, 25.00, 24.00, 22.50, 20.00, 19.00, 17.50, 16.00, 12.50, 11.50, 09.00, 08.00, 6.50, 4.00],
+  D: [88.00, 84.00, 80.00, 76.00, 73.00, 69.50, 68.50, 67.50, 65.50, 61.50, 59.00, 57.50, 51.50, 50.30, 46.30, 45.30, 42.80, 41.30, 38.80, 35.20, 35.00, 32.60, 31.00, 29.50, 29.00, 25.50, 24.00, 21.50, 20.00, 18.00, 17.00, 15.50, 13.00, 11.00, 09.50, 08.50, 6.00],
+  K: [87.00, 83.00, 79.00, 75.00, 69.50, 68.50, 67.50, 65.50, 60.50, 59.50, 50.80, 49.80, 46.80, 45.80, 42.80, 41.30, 37.80, 34.60, 34.20, 32.20, 31.00, 29.00, 28.50, 27.50, 26.00, 24.50, 23.00, 22.50, 20.50, 18.00, 17.50, 15.00, 13.50, 11.50, 10.00, 7, 30, 5.50],
+  L: [86.00, 82.00, 78.00, 74.00, 69.00, 68.00, 66.00, 64.00, 60.00, 55.50, 54.50, 50.80, 49.80, 46.30, 45.30, 42.30, 41.80, 37.30, 33.80, 33.40, 31.80, 30.60, 28.50, 27.00, 26.50, 24.50, 24.00, 21.50, 21.00, 19.00, 17.50, 14.50, 14.00, 10.50, 10.00, 7.00, 5.00, 4.00]
 };
 
 const mediumMode = {
@@ -75,6 +74,7 @@ function noteManagement(color) { // L'argument doit être un string
         if (playerScore !== 0) {
           playerScore -= 20;
           playerScoreDisplay.innerHTML = playerScore.toString();
+          playerScoreDisplayMobile.innerHTML = playerScore.toString();
         }
       } else if (((receptor.offsetTop - receptor.offsetHeight) < parseInt(colorNote.style.top) < (receptor.offsetTop + receptor.offsetHeight)) && colorNote.classList.contains(color)) {
         colorNote.remove();
@@ -103,6 +103,7 @@ function noteManagement(color) { // L'argument doit être un string
         }
       }
       playerScoreDisplay.innerHTML = playerScore.toString();
+      playerScoreDisplayMobile.innerHTML = playerScore.toString();
     }
   }
 }
@@ -127,9 +128,9 @@ function addListenerMobile() {
       // Consume the event so it doesn't get handled twice
       trackS.style.background = "none";
       trackS.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
-              allReceptors[0].classList.remove("success");
-        allReceptors[0].classList.remove("score");
-        allReceptors[0].innerHTML = "";
+      allReceptors[0].classList.remove("success");
+      allReceptors[0].classList.remove("score");
+      allReceptors[0].innerHTML = "";
     },
     true
   );
@@ -148,9 +149,9 @@ function addListenerMobile() {
     function () {
       trackD.style.background = "none";
       trackD.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
-              allReceptors[1].classList.remove("success");
-        allReceptors[1].classList.remove("score");
-        allReceptors[1].innerHTML = "";
+      allReceptors[1].classList.remove("success");
+      allReceptors[1].classList.remove("score");
+      allReceptors[1].innerHTML = "";
     },
     true
   );
@@ -169,9 +170,9 @@ function addListenerMobile() {
     function () {
       trackK.style.background = "none";
       trackK.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
-              allReceptors[2].classList.remove("success");
-        allReceptors[2].classList.remove("score");
-        allReceptors[2].innerHTML = "";
+      allReceptors[2].classList.remove("success");
+      allReceptors[2].classList.remove("score");
+      allReceptors[2].innerHTML = "";
     },
     true
   );
@@ -190,9 +191,9 @@ function addListenerMobile() {
     function () {
       trackL.style.background = "none";
       trackL.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
-                    allReceptors[3].classList.remove("success");
-        allReceptors[3].classList.remove("score");
-        allReceptors[3].innerHTML = "";
+      allReceptors[3].classList.remove("success");
+      allReceptors[3].classList.remove("score");
+      allReceptors[3].innerHTML = "";
     },
     true
   );
@@ -332,15 +333,15 @@ function countdownTimer(mode) {
       if (playerMode === "easy") {
         const easyCurrentScore = localStorage.getItem("rockQuestEasy");
         if (easyCurrentScore == null || easyCurrentScore < playerScore)
-          localStorage.setItem("rockQuestEasy",playerScore);
+          localStorage.setItem("rockQuestEasy", playerScore);
       } else if (playerMode === "medium") {
         const mediumCurrentScore = localStorage.getItem("rockQuestMedium");
         if (mediumCurrentScore == null || mediumCurrentScore < playerScore)
-          localStorage.setItem("rockQuestMedium",playerScore);
+          localStorage.setItem("rockQuestMedium", playerScore);
       } else {
         const hardCurrentScore = localStorage.getItem("rockQuestHard");
         if (hardCurrentScore == null || hardCurrentScore < playerScore)
-          localStorage.setItem("rockQuestHard",playerScore);
+          localStorage.setItem("rockQuestHard", playerScore);
       };
     }
     noteGenerating(mode);
