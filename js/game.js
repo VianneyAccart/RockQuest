@@ -121,30 +121,15 @@ function addListenerMobile() {
     "touchstart",
     function (buttonDown) {
       // Lorsqu'une touche est pressée
-      /*if (buttonDown.defaultPrevented) {
-      return; // Do nothing if event already handled
-    }*/
       trackS.style.background =
         "linear-gradient(rgba(0, 0, 0, 0.54), 90%, green)";
       noteManagement("green");
       // Consume the event so it doesn't get handled twice
-      /* buttonDown.preventDefault(); */
-    },
-    true
-  );
-  buttonS.addEventListener(
-    "touchend",
-    function () {
-      /*if (buttonDown.defaultPrevented) {
-      return; // Do nothing if event already handled
-    }*/
       trackS.style.background = "none";
       trackS.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
               allReceptors[0].classList.remove("success");
         allReceptors[0].classList.remove("score");
         allReceptors[0].innerHTML = "";
-      // Consume the event so it doesn't get handled twice
-      /* buttonDown.preventDefault(); */
     },
     true
   );
@@ -155,24 +140,17 @@ function addListenerMobile() {
       trackD.style.background =
         "linear-gradient(rgba(0, 0, 0, 0.54), 90%, red)";
       noteManagement("red");
-      // Consume the event so it doesn't get handled twice
-      /* buttonDown.preventDefault(); */
     },
     true
   );
   buttonD.addEventListener(
     "touchend",
     function () {
-      /*if (buttonDown.defaultPrevented) {
-      return; // Do nothing if event already handled
-    }*/
       trackD.style.background = "none";
       trackD.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
               allReceptors[1].classList.remove("success");
         allReceptors[1].classList.remove("score");
         allReceptors[1].innerHTML = "";
-      // Consume the event so it doesn't get handled twice
-      /* buttonDown.preventDefault(); */
     },
     true
   );
@@ -183,8 +161,6 @@ function addListenerMobile() {
       trackK.style.background =
         "linear-gradient(rgba(0, 0, 0, 0.54), 90%, yellow)";
       noteManagement("yellow");
-      // Consume the event so it doesn't get handled twice
-      /* buttonDown.preventDefault(); */
     },
     true
   );
@@ -196,8 +172,6 @@ function addListenerMobile() {
               allReceptors[2].classList.remove("success");
         allReceptors[2].classList.remove("score");
         allReceptors[2].innerHTML = "";
-      // Consume the event so it doesn't get handled twice
-      /* buttonDown.preventDefault(); */
     },
     true
   );
@@ -208,8 +182,6 @@ function addListenerMobile() {
       trackL.style.background =
         "linear-gradient(rgba(0, 0, 0, 0.54), 90%, blue)";
       noteManagement("blue");
-      // Consume the event so it doesn't get handled twice
-      /* buttonDown.preventDefault(); */
     },
     true
   );
@@ -221,8 +193,6 @@ function addListenerMobile() {
                     allReceptors[3].classList.remove("success");
         allReceptors[3].classList.remove("score");
         allReceptors[3].innerHTML = "";
-      // Consume the event so it doesn't get handled twice
-      /* buttonDown.preventDefault(); */
     },
     true
   );
