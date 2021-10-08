@@ -11,7 +11,7 @@ const easyLeaderboard = [ // 151 notes x 20 points = 3020 max
 let playerEasy;
 if (scoreEasy != null){
 playerEasy = {name: " You", difficulty: "Easy", score: scoreEasy}}
-else{ playerEasy = {name: " You", difficulty: "Easy", score:""}}
+else{ playerEasy = {name: " You", difficulty: "Easy", score:"--"}}
 
 easyLeaderboard.push(playerEasy);
 
@@ -24,7 +24,7 @@ const mediumLeaderboard = [ // 253 notes x 20 points = 5060 max
 let playerMedium;
 if (scoreMedium != null){
 playerMedium = {name: " You", difficulty: "Medium", score:scoreMedium}}
-else{ playerMedium = {name: " You", difficulty: "Medium", score:""}}
+else{ playerMedium = {name: " You", difficulty: "Medium", score:"--"}}
 
 mediumLeaderboard.push(playerMedium);
 
@@ -37,7 +37,7 @@ const hardLeaderboard = [ // 358 notes x 20 points = 7160 max
 let playerHard;
 if (scoreHard != null){
 playerHard = {name: " You", difficulty: "Hard", score:scoreHard}}
-else{ playerHard = {name: " You", difficulty: "Hard", score:""}}
+else{ playerHard = {name: " You", difficulty: "Hard", score:"--"}}
 
 hardLeaderboard.push(playerHard);
 
