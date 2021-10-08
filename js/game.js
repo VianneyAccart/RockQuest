@@ -1,4 +1,5 @@
 // Sound Function you can use her in HTML with onclick="" or in JS spell her sound(sound)
+/*
 function sound(sound) {
   let audio = document.createElement('audio');
   audio.preload = 'auto';
@@ -15,6 +16,7 @@ function sound(sound) {
   audio.appendChild(mp3Source);
   audio.play();
 };
+*/
 
 // Partitions
 const easyMode = {
@@ -275,22 +277,24 @@ function gameDifficult(mode) {
   startCountdown(mode);
 }
 
-
 easyGame.addEventListener("click", function () {
   playerMode = "easy";
-  sound('song/singleNoteLaunchMode');
+  launchSong.play();
+  // sound('song/singleNoteLaunchMode');
   gameDifficult(easyMode);
 })
 
 mediumGame.addEventListener("click", function () {
   playerMode = "medium";
-  sound('song/singleNoteLaunchMode');
+  launchSong.play();
+  // sound('song/singleNoteLaunchMode');
   gameDifficult(mediumMode);
 })
 
 hardGame.addEventListener("click", function () {
   playerMode = "hard";
-  sound('song/singleNoteLaunchMode');
+  launchSong.play();
+  // sound('song/singleNoteLaunchMode');
   gameDifficult(hardMode);
 })
 
@@ -302,6 +306,7 @@ let endGamePopup = document.querySelector(".end-game-popup");
 let timeleft = 9000;
 let audio = new Audio('/song/game-song.mp3');
 let miss = new Audio('song/missNote.mp3');
+let launchSong = new Audio('song/singleNoteLaunchMode.mp3');
 
 // Lancement du décompte : 3, 2, 1...
 function startCountdown(mode) {
