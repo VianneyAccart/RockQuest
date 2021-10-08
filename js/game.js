@@ -138,6 +138,9 @@ function addListenerMobile() {
     }*/
       trackS.style.background = "none";
       trackS.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+              allReceptors[0].classList.remove("success");
+        allReceptors[0].classList.remove("score");
+        allReceptors[0].innerHTML = "";
       // Consume the event so it doesn't get handled twice
       touchend.preventDefault();
     },
@@ -166,6 +169,9 @@ function addListenerMobile() {
     }*/
       trackD.style.background = "none";
       trackD.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+              allReceptors[0].classList.remove("success");
+        allReceptors[0].classList.remove("score");
+        allReceptors[0].innerHTML = "";
       // Consume the event so it doesn't get handled twice
       touchend.preventDefault();
     },
@@ -194,6 +200,9 @@ function addListenerMobile() {
     }*/
       trackK.style.background = "none";
       trackK.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
+              allReceptors[0].classList.remove("success");
+        allReceptors[0].classList.remove("score");
+        allReceptors[0].innerHTML = "";
       // Consume the event so it doesn't get handled twice
       touchend.preventDefault();
     },
