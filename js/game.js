@@ -127,6 +127,12 @@ function addListenerMobile() {
       trackS.style.background =
         "linear-gradient(rgba(0, 0, 0, 0.54), 90%, green)";
       noteManagement("green");
+    },
+    true
+  );
+    buttonS.addEventListener(
+      "touchend",
+      function () {
       // Consume the event so it doesn't get handled twice
       trackS.style.background = "none";
       trackS.style.backgroundColor = "rgba(0, 0, 0, 0.54)";
