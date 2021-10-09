@@ -441,8 +441,6 @@ html {
   opacity: 75%;
 }
 
-/* Launch game popup */
-
 .mobile-popup {
   background-color: rgba(255, 255, 255, 0.8);
   width: 100%;
@@ -465,10 +463,10 @@ html {
 .launch-game-popup {
   width: 300px;
   height: 300px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.95);
   position: absolute;
   z-index: 1;
-  margin-top: 10rem;
+  margin-top: 25%;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -517,10 +515,10 @@ html {
 .launch-game-countdown {
   width: 300px;
   height: 300px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.95);
   position: absolute;
   z-index: 1;
-  margin-top: 10rem;
+  margin-top: 25%;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -541,10 +539,10 @@ html {
 .end-game-popup {
   width: 300px;
   height: 300px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.95);
   position: absolute;
   z-index: 1;
-  margin-top: 10rem;
+  margin-top: 25%;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
