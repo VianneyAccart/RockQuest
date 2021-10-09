@@ -371,11 +371,7 @@ function addNote(noteId, color) {
     }
   }
   myMove();
-  /*setTimeout(() => {
-    if ((receptor.offsetTop + receptor.offsetHeight) < parseInt(newNoteDiv.style.top)) playerScore -= 10;
-    newNoteDiv.remove(), 2000
-  }); // Supprime les notes générées après 2 secondes*/
   setTimeout(() => {
     newNoteDiv.remove()
-  }, 1000); // Supprime les notes générées après 2 secondes
+  }, 1000); // Supprime les notes générées après 1 seconde
 }
