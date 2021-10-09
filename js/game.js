@@ -1,23 +1,3 @@
-// Sound Function you can use her in HTML with onclick="" or in JS spell her sound(sound)
-/*
-function sound(sound) {
-  let audio = document.createElement('audio');
-  audio.preload = 'auto';
-
-  let wavSource = document.createElement('source');
-  wavSource.src = sound + '.wav';
-  wavSource.type = 'audio/wav';
-
-  let mp3Source = document.createElement('source');
-  mp3Source.src = sound + '.mp3';
-  mp3Source.type = 'audio/mpeg';
-
-  audio.appendChild(wavSource);
-  audio.appendChild(mp3Source);
-  audio.play();
-};
-*/
-
 // Partitions
 const easyMode = {
   S: [89.00, 85.00, 81.00, 77.00, 73.00, 70.00, 69.00, 68.00, 66.00, 63.50, 61.00, 56.00, 55.00, 51.50, 50.30, 46.80, 45.80, 42.30, 41.80, 38.30, 35.80, 35.40, 33.00, 31.40, 30.00, 25.00, 24.00, 22.50, 20.00, 19.00, 17.50, 16.00, 12.50, 11.50, 09.00, 08.00, 6.50, 4.00],
@@ -286,21 +266,18 @@ function gameDifficult(mode) {
 easyGame.addEventListener("click", function () {
   playerMode = "easy";
   launchSong.play();
-  // sound('song/singleNoteLaunchMode');
   gameDifficult(easyMode);
 })
 
 mediumGame.addEventListener("click", function () {
   playerMode = "medium";
   launchSong.play();
-  // sound('song/singleNoteLaunchMode');
   gameDifficult(mediumMode);
 })
 
 hardGame.addEventListener("click", function () {
   playerMode = "hard";
   launchSong.play();
-  // sound('song/singleNoteLaunchMode');
   gameDifficult(hardMode);
 })
 

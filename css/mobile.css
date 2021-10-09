@@ -54,7 +54,7 @@ a {
 
 body {
   font-family: "Montserrat", sans-serif;
-  background: url("https://wallpaperaccess.com/full/5420481.jpg");
+  background-image: url("/img/background.jpeg");
   background-size: 150vh;
   background-position-x: 100%;
   background-repeat: no-repeat;

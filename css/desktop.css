@@ -67,7 +67,7 @@ a {
 /* A améliorer car sur tout petit écran, problème de blanc */
 body {
     font-family: 'Montserrat', sans-serif;
-    background-image: url("https://wallpaperaccess.com/full/5420481.jpg");
+    background-image: url("/img/background.jpeg");
     background-size: 100%;
     background-position-x: 100%;
     background-repeat: no-repeat;
