@@ -265,19 +265,19 @@ function gameDifficult(mode) {
 
 easyGame.addEventListener("click", function () {
   playerMode = "easy";
-  launchSong.play();
+  audio.play();
   gameDifficult(easyMode);
 })
 
 mediumGame.addEventListener("click", function () {
   playerMode = "medium";
-  launchSong.play();
+  audio.play();
   gameDifficult(mediumMode);
 })
 
 hardGame.addEventListener("click", function () {
   playerMode = "hard";
-  launchSong.play();
+  audio.play();
   gameDifficult(hardMode);
 })
 
@@ -287,9 +287,9 @@ let countdownOnDesktop = document.querySelector("#countdownTextDesktop"); // Dé
 let countdownOnMobile = document.querySelector("#countdownTextMobile"); // Décompte affiché sur mobile
 let endGamePopup = document.querySelector(".end-game-popup");
 let timeleft = 9000;
-let audio = new Audio('/song/game-song.mp3');
+let audio = new Audio('/song/completeGameSong.mp3');
 let miss = new Audio('song/missNote.mp3');
-let launchSong = new Audio('song/singleNoteLaunchMode.mp3');
+// let launchSong = new Audio('song/singleNoteLaunchMode.mp3');
 
 // Lancement du décompte : 3, 2, 1...
 function startCountdown(mode) {
@@ -307,7 +307,7 @@ function startCountdown(mode) {
 // Lancement du décompte de 90 à 0
 function countdownTimer(mode) {
   launchGameCountdown.style.display = "none";
-  audio.play();
+  // audio.play();
   addListener();
   addListenerMobile()
   let round = setInterval(function () {
