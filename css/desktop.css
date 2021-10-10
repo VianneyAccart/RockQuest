@@ -65,7 +65,6 @@ a {
     color: white;
 }
 
-/* A améliorer car sur tout petit écran, problème de blanc */
 body {
     font-family: 'Montserrat', sans-serif;
     background-image: url("/img/background.jpeg");
@@ -294,8 +293,6 @@ img {
     height: auto;
 }
 
-/* Game page */ 
-
 .body-game {
     display: flex;
     flex-direction: column;
@@ -376,7 +373,6 @@ img {
     box-sizing : border-box;
     height: calc((30vw)*0.97/8);
     width: calc((30vw)*0.97/4);
-    background-color: green;
     border-radius: 5px;
     position: absolute;
     display: flex;
@@ -419,9 +415,8 @@ img {
     border: solid 2px white;
     border-radius: 5px;
     position: absolute;
-    bottom: 0;
     display: flex;
-    margin: auto;
+    bottom: 0;
 }
 
 .score {

@@ -147,8 +147,6 @@ body {
   width: 90%;
   margin: auto;
   padding: 2rem 1rem;
-  height: 100%;
-  box-sizing: border-box;
 }
 
 .heading-container {
@@ -285,8 +283,6 @@ td {
   display: none;
 }
 
-/* Game page */
-
 html {
   height: 100%;
 }
@@ -331,7 +327,6 @@ html {
 .track {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     width: calc(97vw/4);
     background-color: rgba(0, 0, 0, 0.54);
     overflow: hidden;
